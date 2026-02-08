@@ -18,8 +18,8 @@ const Partners = () => {
             color: 'navy',
         },
         {
-            name: 'MATRIX Machine Tool',
-            subtitle: '工作機械メーカー',
+            name: 'Matrix Precision CO.,LTD.',
+            subtitle: '邁萃斯精密股份有限公司',
             description: '台湾発、世界屈指の歯車研削盤メーカー。高精度・効率的な歯車加工機を製造し、欧州・アジアをはじめ世界中で採用されています。',
             features: [
                 '歯車研削盤専門メーカー',
@@ -75,7 +75,7 @@ const Partners = () => {
                                             <p className="text-white/70 text-sm">{partner.subtitle}</p>
                                         </div>
                                         <span className="hidden sm:inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">
-                                            強力なリレーション
+                                            test
                                         </span>
                                     </div>
                                 </div>
