@@ -16,6 +16,7 @@ const Partners = () => {
             url: 'https://www.sec-yokohama.com/',
             icon: Building,
             color: 'navy',
+            tag: '正規輸入元',
         },
         {
             name: 'MATRIX Machine Tool',
@@ -30,6 +31,7 @@ const Partners = () => {
             url: 'https://www.matrix-machine.tw/jp/pro-tool.html',
             icon: Cog,
             color: 'royal',
+            tag: 'メーカー',
         },
     ];
 
@@ -75,7 +77,7 @@ const Partners = () => {
                                             <p className="text-white/70 text-sm">{partner.subtitle}</p>
                                         </div>
                                         <span className="hidden sm:inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">
-                                            正規代理店
+                                            {partner.tag}
                                         </span>
                                     </div>
                                 </div>
