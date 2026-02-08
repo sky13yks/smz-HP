@@ -159,11 +159,11 @@ const BusinessPillars = () => {
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div className="bg-white rounded-xl p-4 shadow-sm">
                                 <h4 className="font-semibold text-navy-700 mb-2">ホブ各種</h4>
-                                <p className="text-sm text-gray-600">標準ホブ、ウォームホブ、荒切り用ホブ、ミクロンホブ</p>
+                                <p className="text-sm text-gray-600">荒切用(ドラゴン)ホブ、研磨下ホブ、仕上ホブ、ウォームホブ、ミクロンホブ</p>
                             </div>
                             <div className="bg-white rounded-xl p-4 shadow-sm">
                                 <h4 className="font-semibold text-navy-700 mb-2">ピニオンカッター</h4>
-                                <p className="text-sm text-gray-600">柄付ピニオンカッター等</p>
+                                <p className="text-sm text-gray-600">ディスク型、ベル型、シャンク型(柄付)</p>
                             </div>
                             <div className="bg-white rounded-xl p-4 shadow-sm">
                                 <h4 className="font-semibold text-navy-700 mb-2">ブローチ各種</h4>

@@ -106,7 +106,7 @@ const Company = () => {
                                     </p>
 
                                     <h4 className="font-bold text-navy-700 mb-2 pt-4 border-t border-gray-100">ツルミマシンセンター（中古機械展示場）</h4>
-                                    <p className="text-gray-600">〒230-0071 神奈川県横浜市鶴見区駒岡4-39-25 アイテクノス</p>
+                                    <p className="text-gray-600">〒230-0071 神奈川県横浜市鶴見区駒岡4-39-25 </p>
                                 </div>
                                 <div className="aspect-video w-full rounded-xl overflow-hidden shadow-md border border-gray-200 bg-gray-100 relative">
                                     <iframe
@@ -137,9 +137,9 @@ const Company = () => {
                             <div className="bg-gradient-to-r from-navy-800 to-navy-700 rounded-2xl p-8 text-white text-center">
                                 <h3 className="text-xl font-bold mb-4">採用情報</h3>
                                 <p className="text-white/80 mb-6 text-sm">
-                                    私たちと一緒に「モノづくりのハブ」として働きませんか？
+                                    「清水商會の100年目」私たちと一緒に働きませんか？
                                     <br />
-                                    経験不問。やる気のある方を募集しています。
+                                    経験不問。課題だらけの業界ではあります。やる気のある方を募集しています。一緒に成長しましょう！
                                 </p>
                                 <a
                                     href="mailto:info@shimizu-s.co.jp" // ダミー
