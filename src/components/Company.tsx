@@ -106,7 +106,7 @@ const Company = () => {
                                     </p>
 
                                     <h4 className="font-bold text-navy-700 mb-2 pt-4 border-t border-gray-100">ツルミマシンセンター（中古機械展示場）</h4>
-                                    <p className="text-gray-600">〒230-0071 神奈川県横浜市鶴見区駒岡4-39-25 アイテクノス</p>
+                                    <p className="text-gray-600">〒230-0071 神奈川県横浜市鶴見区駒岡4-39-25 </p>
                                 </div>
                                 <div className="aspect-video w-full rounded-xl overflow-hidden shadow-md border border-gray-200 bg-gray-100 relative">
                                     <iframe
