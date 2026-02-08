@@ -75,7 +75,7 @@ const Partners = () => {
                                             <p className="text-white/70 text-sm">{partner.subtitle}</p>
                                         </div>
                                         <span className="hidden sm:inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white">
-                                            正規代理店
+                                            工作機械メーカー
                                         </span>
                                     </div>
                                 </div>
