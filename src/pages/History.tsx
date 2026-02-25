@@ -9,55 +9,130 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: "1985",
-    month: "12月",
-    title: "会社設立",
-    description: "東京都港区にて、精密機械部品の輸入商社として創業。創業メンバー5名でスタート。"
+    year: "1950",
+    month: "4月",
+    title: "個人企業として創業",
+    description: "清水正治が東京都大田区入新井３丁目４５番地で切削工具の販売を開始。"
   },
   {
-    year: "1988",
-    title: "欧州メーカーとの取引開始",
-    description: "ドイツ・スイスの精密歯車メーカーとの直接取引を開始。技術理解の重要性を認識。"
+    year: "1953",
+    month: "4月",
+    title: "アヅミ㈱特約店に",
+    description: "アヅミ㈱の特約店の指定を受ける。"
+  },
+  {
+    year: "1954",
+    month: "10月",
+    title: "本社移転",
+    description: "東京都大田区入新井３丁目１４８番地に移転。"
+  },
+  {
+    year: "1959",
+    month: "1月",
+    title: "銀座へ移転",
+    description: "東京都中央区銀座七丁目３番地に移転。"
+  },
+  {
+    year: "1959",
+    month: "3月",
+    title: "園池製作所の特約店に",
+    description: "㈱園池製作所の特約店の指定を受ける。"
+  },
+  {
+    year: "1959",
+    month: "4月",
+    title: "株式会社として設立",
+    description: "組織を改め株式会社として設立。アヅミ㈱の代理店となる。"
+  },
+  {
+    year: "1961",
+    month: "1月",
+    title: "不二越歯切工具の特約販売店に",
+    description: "㈱不二越の歯切工具特約販売店の指定を受ける。"
+  },
+  {
+    year: "1967",
+    month: "1月",
+    title: "神戸製鋼所の特約販売店に",
+    description: "㈱神戸製鋼所の特約販売店の指定を受ける。"
+  },
+  {
+    year: "1968",
+    month: "10月",
+    title: "銀座八丁目へ本社移転",
+    description: "本社を東京都中央区銀座八丁目１７番地に移転。"
+  },
+  {
+    year: "1973",
+    month: "9月",
+    title: "日本歯車東京グループ取引業者に指定",
+    description: "日本歯車東京グループの取引業者の指定を受ける。"
+  },
+  {
+    year: "1974",
+    month: "12月",
+    title: "築地へ本社移転",
+    description: "本社を東京都中央区築地二丁目３番地に移転。"
+  },
+  {
+    year: "1984",
+    month: "10月",
+    title: "東京商工会議所会員に",
+    description: "東京商工会議所の会員となる。"
+  },
+  {
+    year: "1985",
+    month: "4月",
+    title: "代表取締役交代",
+    description: "清水正治が退任し、清水進が代表取締役に就任。"
+  },
+  {
+    year: "1989",
+    month: "4月",
+    title: "全日本機械業連合会会員に",
+    description: "全日本機械業連合会の会員となる。"
   },
   {
     year: "1992",
-    title: "技術部門を新設",
-    description: "営業だけでなく、技術者を採用し技術部門を設立。図面レビュー・仕様検討に対応。"
+    month: "6月",
+    title: "大田区西馬込へ本社移転",
+    description: "本社を東京都大田区西馬込一丁目２６番地に移転。"
   },
   {
-    year: "1998",
-    title: "ISO 9001 認証取得",
-    description: "品質管理体制を強化。顧客の要求品質に応える体制を構築。"
+    year: "1995",
+    month: "7月",
+    title: "資本金を増資",
+    description: "資本金を1,000万円に増資。"
   },
   {
-    year: "2003",
-    title: "アジア調達網の確立",
-    description: "中国・台湾の加工パートナーとの連携を開始。コストと品質のバランスを追求。"
+    year: "2007",
+    month: "4月",
+    title: "古物商許可証取得",
+    description: "東京都公安委員会より古物商許可証（NO.302220706952）を取得。"
   },
   {
-    year: "2010",
-    title: "新本社へ移転",
-    description: "六本木の現オフィスへ移転。技術資料室とサンプル展示スペースを拡充。"
+    year: "2008",
+    month: "1月",
+    title: "矢口へ本社移転",
+    description: "本社を東京都大田区矢口三丁目１番地に移転。"
   },
   {
-    year: "2015",
-    title: "創業30周年",
-    description: "累計取引社数1,200社を突破。長期取引先との信頼関係が事業基盤に。"
+    year: "2011",
+    month: "4月",
+    title: "代表取締役交代",
+    description: "清水進が退任し、平野芳章が代表取締役に就任。"
   },
   {
-    year: "2018",
-    title: "カスタム設計サービス開始",
-    description: "標準品だけでなく、特殊仕様の設計・製作対応を本格化。技術者を15名体制に。"
+    year: "2013",
+    month: "7月",
+    title: "中古機械展示場開設",
+    description: "中古機械展示場『ツルミマシンセンター』を開設。"
   },
   {
-    year: "2020",
-    title: "デジタル対応強化",
-    description: "3Dデータ対応、オンライン技術相談など、リモート環境でも技術支援を継続。"
-  },
-  {
-    year: "2023",
-    title: "新HQ拠点の計画",
-    description: "次世代に向けた体制強化。若手技術者の育成と、グローバル調達網の再構築を進行中。"
+    year: "2019",
+    month: "5月",
+    title: "代表取締役交代",
+    description: "平野芳章が退任し、清水正太が代表取締役に就任。"
   }
 ];
 
@@ -129,8 +204,9 @@ export function History() {
             会社沿革
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl">
-            1985年の創業から現在まで。<br />
-            技術理解と信頼関係を積み重ね、着実に歩んできた歴史です。
+            1950年の創業から現在まで。<br />
+            切削工具の販売から中古機械の展示場まで。<br />
+            70年以上にわたって歩んできた歩みです。
           </p>
         </div>
       </section>
@@ -140,9 +216,11 @@ export function History() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <p className="text-gray-700 leading-relaxed">
-              派手な成長ではなく、一つひとつの取引先との信頼関係を丁寧に築いてきました。
-              技術者が安心して相談できる商社であり続けるために、
-              技術理解の深化と品質管理体制の強化を継続してきた軌跡をご紹介します。
+              1950年、清水正治が個人企業として切削工具の販売をはじめました。
+              以来、様々なメーカーとの特約店・代理店指定を受け、
+              業界での地位を確立してきました。
+              組織の成長とともに代表交代を経て、
+              現在は中古機械展示場の運営など、事業を展開しています。
             </p>
           </div>
         </div>
@@ -167,21 +245,21 @@ export function History() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">40</div>
+                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">75</div>
                 <div className="text-sm text-gray-500 mb-1">YEARS</div>
                 <div className="text-gray-700">創業からの年数</div>
               </div>
 
               <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">1,200+</div>
-                <div className="text-sm text-gray-500 mb-1">CLIENTS</div>
-                <div className="text-gray-700">累計取引社数</div>
+                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">3</div>
+                <div className="text-sm text-gray-500 mb-1">GENERATIONS</div>
+                <div className="text-gray-700">代表取締役の世代交代</div>
               </div>
 
               <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">28</div>
-                <div className="text-sm text-gray-500 mb-1">ENGINEERS</div>
-                <div className="text-gray-700">在籍技術���数</div>
+                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">10+</div>
+                <div className="text-sm text-gray-500 mb-1">LOCATIONS</div>
+                <div className="text-gray-700">本社移転の回数</div>
               </div>
             </div>
           </div>
@@ -196,18 +274,19 @@ export function History() {
             
             <div className="bg-white p-8 rounded-lg border border-gray-200">
               <p className="text-gray-700 leading-relaxed mb-6">
-                創業から40年。これまで築いてきた信頼関係を基盤に、
-                次の世代に向けた準備を進めています。
+                1950年の創業から75年。
+                複数の代表取締役の世代交代を経て、現在に至ります。
               </p>
               
               <p className="text-gray-700 leading-relaxed mb-6">
-                技術の高度化、グローバル化、デジタル化。
-                環境は変わっても、「技術を理解し、誠実に対応する」という姿勢は変わりません。
+                切削工具の販売からはじまり、様々なメーカーの特約店・代理店を務め、
+                現在は中古機械の展示場も運営しています。
               </p>
 
               <p className="text-gray-700 leading-relaxed">
-                若手技術者の育成、サプライチェーンの再構築、デジタルツールの活用。
-                時代に合わせて手法は進化させながら、技術商社としての本質を守り続けます。
+                時代とともに事業の形態は変わっていきますが、
+                顧客との信頼関係を大切にし、
+                確実で誠実な対応を心がけ続けます。
               </p>
             </div>
           </div>

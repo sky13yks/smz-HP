@@ -1,4 +1,4 @@
-import { MapPin, Train, Car, Clock } from "lucide-react";
+import { MapPin, Train, Car, Clock, Phone } from "lucide-react";
 
 export function Access() {
   return (
@@ -28,17 +28,16 @@ export function Access() {
                 <div className="aspect-[4/3] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center mb-6">
                   <div className="text-center text-gray-400">
                     <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <p className="text-sm">Google Mapsで表示</p>
+                    <a href="https://maps.app.goo.gl/De8Qp5ebq1YKShN66?g_st=ic" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500 hover:underline">Google Mapsで表示</a>
                   </div>
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="mb-4 text-[#1a2e5a]">株式会社 清水商会</h3>
+                  <h3 className="mb-4 text-[#1a2e5a]">株式会社清水商會</h3>
                   <div className="space-y-2 text-gray-700">
-                    <p>〒106-0032</p>
-                    <p>東京都港区六本木2-14-1</p>
-                    <p className="pt-4">TEL: 03-5555-0199</p>
-                    <p>FAX: 03-5555-0200</p>
+                    <p>〒146-0093</p>
+                    <p>東京都大田区矢口3-1-20</p>
+                    <p className="pt-4">TEL: 03-5732-2800</p>
                     <p className="pt-4 text-sm text-gray-500">
                       営業時間：平日 9:00-18:00<br />
                       定休日：土日祝日・年末年始
@@ -65,23 +64,9 @@ export function Access() {
                     
                     <div className="space-y-4 ml-16">
                       <div>
-                        <h4 className="mb-2 text-[#1a2e5a]">東京メトロ 南北線</h4>
+                        <h4 className="mb-2 text-[#1a2e5a]">東急多摩川線</h4>
                         <p className="text-gray-600 text-sm">
-                          「六本木一丁目駅」3番出口より徒歩5分
-                        </p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="mb-2 text-[#1a2e5a]">東京メトロ 日比谷線</h4>
-                        <p className="text-gray-600 text-sm">
-                          「六本木駅」5番出口より徒歩8分
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="mb-2 text-[#1a2e5a]">都営大江戸線</h4>
-                        <p className="text-gray-600 text-sm">
-                          「六本木駅」5番出口より徒歩8分
+                          「矢口渡駅」より徒歩約10分
                         </p>
                       </div>
                     </div>
@@ -100,11 +85,10 @@ export function Access() {
                     
                     <div className="ml-16 space-y-3">
                       <p className="text-gray-600 text-sm">
-                        首都高速「飯倉」出口より約5分
+                        首都高速「羽田」出口より約15分
                       </p>
                       <p className="text-sm text-gray-500">
-                        ※ 専用駐車場はございません。<br />
-                        近隣のコインパーキングをご利用ください。
+                        ※ 駐車場のご利用は事前にお問い合わせください。
                       </p>
                     </div>
                   </div>
@@ -119,11 +103,50 @@ export function Access() {
                         <h3 className="mb-2 text-[#1a2e5a]">ご来社について</h3>
                         <p className="text-sm text-gray-600 leading-relaxed">
                           ご来社の際は、事前にお電話またはメールでご連絡ください。
-                          技術者との打ち合わせをご希望の場合は、日程調整をさせていただきます。
+                          打ち合わせをご希望の場合は、日程調整をさせていただきます。
                         </p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Machinery Display Center */}
+            <div className="mt-16 border-t pt-16">
+              <h2 className="text-2xl text-[#1a2e5a] mb-8">機械展示場</h2>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* map placeholder */}
+                <div>
+                  <div className="aspect-[4/3] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center mb-6">
+                    <div className="text-center text-gray-400">
+                      <MapPin className="w-12 h-12 mx-auto mb-2" />
+                      <a href="https://maps.app.goo.gl/W1pkgZqTnvLtqAC29?g_st=ic" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500 hover:underline">Google Mapsで表示</a>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Center Information */}
+                <div>
+                  <div className="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 className="mb-4 text-[#1a2e5a]">ツルミマシンセンター</h3>
+                    <div className="space-y-2 text-gray-700">
+                      <p>〒230-0071</p>
+                      <p>神奈川県横浜市鶴見区駒岡4-39-25</p>
+                      <p className="pt-4">TEL: 045-574-3019</p>
+                      <p>FAX: 045-633-4422</p>
+                      <p className="pt-4 text-sm text-gray-500">
+                        営業時間：平日 9:00-17:00<br />
+                        定休日：土日祝日・年末年始
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    中古機械の展示場として、多数の機械をご用意しております。
+                    実際にお目にかかりながら、ご希望の機械をお探しいただけます。
+                  </p>
                 </div>
               </div>
             </div>
@@ -133,7 +156,7 @@ export function Access() {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h3 className="mb-3 text-[#1a2e5a]">受付時間</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  平日 9:00-18:00<br />
+                  平日 9:00-17:00<br />
                   土日祝日・年末年始は<br />
                   休業とさせていただきます
                 </p>
@@ -167,11 +190,11 @@ export function Access() {
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <a
-                  href="tel:03-5555-0199"
+                  href="tel:03-5732-2800"
                   className="inline-flex items-center justify-center gap-2 bg-white text-[#1a2e5a] px-6 py-3 rounded hover:bg-gray-100 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  03-5555-0199
+                  03-5732-2800
                 </a>
                 <a
                   href="/contact"

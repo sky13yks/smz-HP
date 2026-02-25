@@ -115,56 +115,76 @@ export function Company() {
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">商号</div>
-                <div className="col-span-3">株式会社 清水商会 / Shimizu Shokai Co., Ltd.</div>
+                <div className="col-span-3">株式会社清水商會 / Shimizu Shokai Co., Ltd.</div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
+                <div className="text-gray-600 mb-2 md:mb-0">創業</div>
+                <div className="col-span-3">1950年4月1日（昭和25年）</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">設立</div>
-                <div className="col-span-3">1985年12月</div>
+                <div className="col-span-3">1959年4月25日（昭和34年）</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">資本金</div>
-                <div className="col-span-3">1億2000万円</div>
+                <div className="col-span-3">10,000,000円</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">代表者</div>
-                <div className="col-span-3">代表取締役社長 清水 建一</div>
+                <div className="col-span-3">代表取締役 清水 正太</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">従業員数</div>
-                <div className="col-span-3">52名（技術者 28名を含む）</div>
+                <div className="col-span-3">4名（会長: 清水 進、社長: 清水 正太、他社員2名在籍）</div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">事業内容</div>
                 <div className="col-span-3">
-                  歯車加工工具の受注生産<br />
-                  歯車加工機の販売・修理・整備<br />
-                  歯車加工の受託・ネットワーク活用<br />
-                  技術コンサルティング
+                  ホブカッター等の歯車加工工具の販売<br />
+                  新品・中古工作機械の販売<br />
+                  機械修理・オーバーホール・改造<br />
+                  工場一括整理対応
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
-                <div className="text-gray-600 mb-2 md:mb-0">主要取引先</div>
+                <div className="text-gray-600 mb-2 md:mb-0">主要取引銀行</div>
                 <div className="col-span-3">
-                  歯車製造メーカー<br />
-                  産業機械メーカー<br />
-                  工作機械ユーザー<br />
-                  自動車・建機関連企業
+                  三井住友銀行 蒲田支店<br />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
+                <div className="text-gray-600 mb-2 md:mb-0">加盟団体</div>
+                <div className="col-span-3">
+                  全日本機械業連合会<br />
+                  東京都機械業連合会・城南支部<br />
+                  城南機械商協同組合<br />
+                  公益社団法人蒲田法人会
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 border-b border-gray-200 pb-6">
+                <div className="text-gray-600 mb-2 md:mb-0">許認可</div>
+                <div className="col-span-3">
+                  東京都公安委員会許可<br />
+                  古物工具機械商 第302220706952号
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 pb-6">
                 <div className="text-gray-600 mb-2 md:mb-0">本社所在地</div>
                 <div className="col-span-3">
-                  〒106-0032<br />
-                  東京都港区六本木2-14-1<br />
-                  TEL: 03-5555-0199<br />
-                  FAX: 03-5555-0200
+                  〒146-0093<br />
+                  東京都大田区矢口3-1-20<br />
+                  TEL: 03-5732-2800<br />
+                  FAX: 03-5732-2891
                 </div>
               </div>
             </div>
@@ -176,55 +196,68 @@ export function Company() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl text-[#1a2e5a] mb-8">取扱分野</h2>
+            <h2 className="text-3xl text-[#1a2e5a] mb-8">営業品目 ■工作機械関係■</h2>
             
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl mb-6 text-[#1a2e5a]">歯車加工関連の主要取扱品</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="mb-3 text-[#1a2e5a]">歯車加工工具</h4>
-                  <ul className="text-gray-600 space-y-2 text-sm">
-                    <li>• ホブカッター</li>
-                    <li>• ピニオンカッター</li>
-                    <li>• ブローチ</li>
-                    <li>• シングルカッター</li>
-                    <li>• キー溝加工用カッター</li>
-                  </ul>
-                </div>
+              <div className="mb-8">
+                <h3 className="text-xl mb-4 text-[#1a2e5a]">新品・中古工作機械の販売</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  新品工作機械から中古工作機械まで、1台から工場一括整理まで、幅広く対応させていただいております。
+                </p>
+              </div>
 
-                <div>
-                  <h4 className="mb-3 text-[#1a2e5a]">歯車加工機</h4>
-                  <ul className="text-gray-600 space-y-2 text-sm">
-                    <li>• ホブ盤（立形・横形）</li>
-                    <li>• シェービング盤</li>
-                    <li>• 歯車研削盤</li>
-                    <li>• ギヤシェーパー</li>
-                    <li>• ブローチ盤</li>
-                  </ul>
-                </div>
+              <div className="mb-8 pb-8 border-b border-gray-200">
+                <h3 className="text-xl mb-4 text-[#1a2e5a]">機械修理・オーバーホール・改造</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  機械修理、オーバーホール（部分含む）、改造等に対応いたします。
+                </p>
+              </div>
 
-                <div>
-                  <h4 className="mb-3 text-[#1a2e5a]">歯車製品</h4>
-                  <ul className="text-gray-600 space-y-2 text-sm">
-                    <li>• 平歯車・はすば歯車</li>
-                    <li>• かさ歯車・ウォームギア</li>
-                    <li>• ラック＆ピニオン</li>
-                    <li>• 内歯車・スプライン</li>
-                    <li>• 特殊歯車（カスタム品）</li>
-                  </ul>
-                </div>
+              <div className="mb-8">
+                <h3 className="text-lg mb-6 text-[#1a2e5a] font-semibold">☆取扱い品目☆</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="mb-3 text-[#1a2e5a] font-semibold">ホブ各種</h4>
+                    <p className="text-gray-600 text-sm">
+                      標準ホブ、ウォームホブ、荒切り用ホブ、ミクロンホブ
+                    </p>
+                  </div>
 
-                <div>
-                  <h4 className="mb-3 text-[#1a2e5a]">関連部品</h4>
-                  <ul className="text-gray-600 space-y-2 text-sm">
-                    <li>• 減速機各種</li>
-                    <li>• カップリング</li>
-                    <li>• ベアリング類</li>
-                    <li>• シャフト・軸加工品</li>
-                    <li>• 表面処理（熱処理含む）</li>
-                  </ul>
+                  <div>
+                    <h4 className="mb-3 text-[#1a2e5a] font-semibold">ピニオンカッター各種</h4>
+                    <p className="text-gray-600 text-sm">
+                      柄付ピニオンカッター等
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="mb-3 text-[#1a2e5a] font-semibold">ブローチ各種</h4>
+                    <p className="text-gray-600 text-sm">
+                      キーブローチ、サーフェスブローチ等
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="mb-3 text-[#1a2e5a] font-semibold">カッター各種</h4>
+                    <p className="text-gray-600 text-sm">
+                      ラックカッター、キーシータカッター、ウォームカッター、マスターギヤ等
+                    </p>
+                  </div>
+
+                  <div className="col-span-full">
+                    <h4 className="mb-3 text-[#1a2e5a] font-semibold">その他</h4>
+                    <p className="text-gray-600 text-sm">
+                      特殊工具製作
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              <div className="pt-8 border-t border-gray-200">
+                <h3 className="text-lg mb-4 text-[#1a2e5a] font-semibold">☆取扱いメーカー☆（順不同）</h3>
+                <p className="text-gray-600">
+                  アヅミ、伊澤技術研究所、小笠原プレシジョンラボラトリー、不二越、大和精密工具、ＤＴＲ（韓国）
+                </p>
               </div>
             </div>
           </div>

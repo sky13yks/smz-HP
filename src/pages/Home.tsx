@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { GearAnimation } from "../components/GearAnimation";
+import {GearAnimation} from "../components/GearAnimation";
 import { ArrowRight, Settings, Cog, Network } from "lucide-react";
 
 export function Home() {

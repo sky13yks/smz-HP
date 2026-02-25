@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import logoImg from "figma:asset/6dde8142b65b0777b3c4f6e4a35b3a7580661ee6.png";
+import logoImg from "../assets/smz-logo_200_200_Gemini_Generated_Image_rvns2brvns2brvns.png";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1">
-            <img src={logoImg} alt="SHIMIZU SHOKAI" className="h-10 mb-4 brightness-0 invert" />
+            <img src={logoImg} alt="SHIMIZU SHOKAI" className="h-16 w-auto mb-4" />
             <p className="text-gray-300 text-sm leading-relaxed">
               精密機械・歯車分野における<br />
               技術商社として、最適解を提供します。
@@ -35,9 +35,9 @@ export function Footer() {
           <div>
             <h3 className="mb-4">企業情報</h3>
             <div className="text-sm text-gray-300 space-y-2">
-              <p>株式会社 清水商会</p>
-              <p>〒106-0032<br />東京都港区六本木2-14-1</p>
-              <p>TEL: 03-5555-0199</p>
+              <p>株式会社 清水商會</p>
+              <p>〒145-0093<br />東京都大田区矢口3-1-20</p>
+              <p>TEL: 03-5732-2800</p>
             </div>
           </div>
         </div>

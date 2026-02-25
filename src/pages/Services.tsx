@@ -1,9 +1,93 @@
-import { Settings, Cog, Network, ArrowRight, CheckCircle } from "lucide-react";
+import { Settings, Cog, Network, ArrowRight, CheckCircle, ChevronDown } from "lucide-react";
 import { Link } from "react-router";
+import { useState } from "react";
 
 export function Services() {
+  const [expandedStep, setExpandedStep] = useState<number | null>(null);
+
+  const steps = [
+    {
+      id: 1,
+      title: "材料調達",
+      highlighted: false,
+      description: "歯車製作の第一段階。設計仕様に応じた適切な材料の調達・選定を行います。",
+      details: [
+        "顧客の要求仕様に応じた材質の選定",
+        "鋼材のグレード・組成の最適化",
+        "納期・コストの兼ね合いを考慮した調達",
+        "材料の品質検査・成績書の確認"
+      ]
+    },
+    {
+      id: 2,
+      title: "荒加工",
+      highlighted: true,
+      relation: "当社が工作機械販売・修理に対応",
+      description: "材料から歯形以外を削り取り、歯車の基本形状を作成します。ホブ盤やシェーバーなど高精度機械が必須です。",
+      details: [
+        "工作機械による段階的な削り取り",
+        "外径・内径・厚さの粗加工",
+        "歯車基準面の設定と加工",
+        "当社では新品・中古工作機械の販売、修理・オーバーホールにより、最適な機械環境を実現"
+      ]
+    },
+    {
+      id: 3,
+      title: "歯切り加工",
+      highlighted: true,
+      relation: "当社が歯車加工工具の受注生産に対応",
+      description: "ホブカッターを用いて歯形を切削します。工具の精度が直結して製品精度に影響するため、工具選定が最も重要な工程です。",
+      details: [
+        "ホブカッターの仕様決定（モジュール・圧力角・ねじれ角）",
+        "被削材に応じた最適な材質・コーティング選定",
+        "切削条件（送り・切込み・回転数）の最適化",
+        "工具寿命と加工精度のバランス検討",
+        "当社では、加工条件を理解した上での工具受注生産で、高精度な歯形加工を実現"
+      ]
+    },
+    {
+      id: 4,
+      title: "熱処理",
+      highlighted: false,
+      description: "歯車の硬度・耐久性を確保するため、焼入れ・焼戻しなどの熱処理を実施します。",
+      details: [
+        "焼入れによる硬度向上（HRC 50～65程度）",
+        "焼戻しによる内部応力の緩和",
+        "浸炭焼入れ・窒化処理など特殊処理の選定",
+        "熱処理による寸法変化の予測と管理"
+      ]
+    },
+    {
+      id: 5,
+      title: "歯車研削",
+      highlighted: true,
+      relation: "当社が加工受託・ネットワークで対応",
+      description: "熱処理後の歯面を研削し、精度を向上させます。高精度が要求される場合の重要な工程で、全国の信頼できる加工パートナーと連携します。",
+      details: [
+        "熱処理後の歪み・寸法変化を補正",
+        "歯面粗さの改善（Ra 0.4～0.8μm程度に研削可能）",
+        "歯形精度の向上（JIS 5級～6級程度へ改善）",
+        "当社では全国の信頼できる歯車加工メーカーとのネットワークを活用し、最適な研削加工を実現"
+      ]
+    },
+    {
+      id: 6,
+      title: "検査・納入",
+      highlighted: true,
+      relation: "当社が試験・検査機械の販売に対応",
+      description: "完成した歯車の寸法・精度を検査し、顧客要求を満たす品質で納入します。",
+      details: [
+        "歯形精度の計測（スパン測定・ピッチ誤差）",
+        "表面粗さ・硬度の確認",
+        "試験機による動作・耐久性検証",
+        "成績書・検査報告書の作成・納品",
+        "当社では検査・試験機械の販売により、顧客の品質管理体制の構築をサポート"
+      ]
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Page Header */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white border-b">
         <div className="container mx-auto px-6">
@@ -11,50 +95,77 @@ export function Services() {
             事業内容
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl">
-            歯車加工の全工程を理解する技術商社として。<br />
-            工具・機械・加工の3つの柱で、歯車製造の現場を支えます。
+            歯車製作の全工程を理解する技術商社として。<br />
+            材料調達から納入まで、各段階でお客様をサポートします。
           </p>
         </div>
       </section>
 
-      {/* Business Flow Concept */}
-      <section className="py-20 bg-white">
+      {/* Three Key Areas */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto text-center mb-16">
-            <h2 className="text-3xl text-[#1a2e5a] mb-8">歯車加工の流れを、すべて理解する</h2>
-            <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">
-              歯車加工は、工具・機械・加工技術の三位一体。<br />
-              私たちは、その全てのプロセスに対応することで、<br />
-              技術的な相談から実際の製造まで、一貫した支援を提供します。
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl text-[#1a2e5a] mb-4 text-center">当社が深く関与する3つの領域</h2>
+            <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              歯車製作の全工程を理解しながら、特に以下の3つの領域で<br />
+              技術的な価値を提供しています。
             </p>
 
-            {/* Flow Diagram */}
-            <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
-              <div className="flex-1 min-w-[200px] max-w-[240px]">
-                <div className="bg-blue-50 p-6 rounded-lg border-2 border-[#2563eb]">
-                  <div className="text-4xl text-[#2563eb] mb-2">1</div>
-                  <h3 className="text-lg text-[#1a2e5a]">工具</h3>
-                  <p className="text-sm text-gray-600 mt-2">歯車加工用カッター</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Area 1 */}
+              <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg shadow-sm">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                  <Settings className="w-8 h-8 text-[#2563eb]" />
+                </div>
+                <h3 className="text-2xl mb-4 text-[#1a2e5a]">
+                  歯切り加工工具<br />の受注生産
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  ホブカッター、ピニオンカッター等、歯車加工用工具を受注生産。加工条件に応じた仕様検討も行います。
+                </p>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p>✓ モジュール・圧力角の最適化</p>
+                  <p>✓ 被削材に応じた材質選定</p>
+                  <p>✓ 加工条件の提案</p>
+                  <p>✓ 工具寿命と精度のバランス検討</p>
                 </div>
               </div>
 
-              <ArrowRight className="w-8 h-8 text-[#2563eb] hidden md:block" />
-
-              <div className="flex-1 min-w-[200px] max-w-[240px]">
-                <div className="bg-blue-50 p-6 rounded-lg border-2 border-[#2563eb]">
-                  <div className="text-4xl text-[#2563eb] mb-2">2</div>
-                  <h3 className="text-lg text-[#1a2e5a]">機械</h3>
-                  <p className="text-sm text-gray-600 mt-2">歯車加工機</p>
+              {/* Area 2 */}
+              <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg shadow-sm">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                  <Cog className="w-8 h-8 text-[#2563eb]" />
+                </div>
+                <h3 className="text-2xl mb-4 text-[#1a2e5a]">
+                  工作機械の<br />販売・技術対応
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  新品・中古を問わず歯車加工機を販売。機械の稼働を長期的に支援します。
+                </p>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p>✓ 精度測定・整備</p>
+                  <p>✓ 修理・オーバーホール</p>
+                  <p>✓ 精度調整・改造対応</p>
+                  <p>✓ 納入後のサポート</p>
                 </div>
               </div>
 
-              <ArrowRight className="w-8 h-8 text-[#2563eb] hidden md:block" />
-
-              <div className="flex-1 min-w-[200px] max-w-[240px]">
-                <div className="bg-blue-50 p-6 rounded-lg border-2 border-[#2563eb]">
-                  <div className="text-4xl text-[#2563eb] mb-2">3</div>
-                  <h3 className="text-lg text-[#1a2e5a]">加工</h3>
-                  <p className="text-sm text-gray-600 mt-2">製造ネットワーク</p>
+              {/* Area 3 */}
+              <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg shadow-sm">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                  <Network className="w-6 h-6 text-[#2563eb]" />
+                </div>
+                <h3 className="text-2xl mb-4 text-[#1a2e5a]">
+                  歯車加工の受託<br />ネットワーク活用
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  全国の歯車メーカーとのネットワークで、最適な加工先を選定します。
+                </p>
+                <div className="space-y-2 text-sm text-gray-600">
+                  <p>✓ 高精度加工対応</p>
+                  <p>✓ 大物～小物対応</p>
+                  <p>✓ 特殊材対応</p>
+                  <p>✓ 納期・コスト最適化</p>
                 </div>
               </div>
             </div>
@@ -62,416 +173,85 @@ export function Services() {
         </div>
       </section>
 
-      {/* Three Pillars Overview */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Pillar 1 */}
-            <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Settings className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h2 className="text-2xl mb-4 text-[#1a2e5a]">
-                歯車加工工具の<br />受注生産
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                ホブカッター、ピニオンカッター等、<br />
-                歯車加工用工具を受注生産。<br />
-                加工条件に応じた仕様検討も対応。
-              </p>
-              <div className="text-sm text-gray-500">CUTTING TOOLS</div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Cog className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h2 className="text-2xl mb-4 text-[#1a2e5a]">
-                工作機械の<br />販売・技術対応
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                新品・中古を問わず歯車加工機を販売。<br />
-                修理・整備対応も行い、<br />
-                機械の稼働を長期的に支援。
-              </p>
-              <div className="text-sm text-gray-500">MACHINE TOOLS</div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="border-t-4 border-[#2563eb] bg-white p-8 rounded-lg">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Network className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h2 className="text-2xl mb-4 text-[#1a2e5a]">
-                加工の受託・<br />ネットワーク活用
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                全国の歯車メーカーとのネットワークで、<br />
-                最適な加工先を選定し、<br />
-                製造依頼に対応。
-              </p>
-              <div className="text-sm text-gray-500">MANUFACTURING NETWORK</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillar 1 Detail */}
+      {/* Gear Manufacturing Flow */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Settings className="w-6 h-6 text-[#2563eb]" />
-              </div>
-              <div>
-                <h2 className="text-3xl text-[#1a2e5a] mb-4">歯車加工工具の受注生産</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  単なる工具手配ではなく、加工条件・材質・精度要求を理解した上で、<br />
-                  最適な工具仕様を提案し、受注生産で対応します。
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">対応工具カテゴリー</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">ホブカッター</span>
-                      <p className="text-sm text-gray-500">平歯車・はすば歯車加工用</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">ピニオンカッター</span>
-                      <p className="text-sm text-gray-500">内歯車加工用</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">ブローチ</span>
-                      <p className="text-sm text-gray-500">内歯車・スプライン加工用</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">シングルカッター</span>
-                      <p className="text-sm text-gray-500">単品加工・修正加工用</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">キー溝加工用カッター</span>
-                      <p className="text-sm text-gray-500">キーウェイ・スロット加工用</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">仕様検討への対応</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>モジュール・圧力角・ねじれ角の最適化</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>被削材に応じた材質・コーティング選定</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>加工条件（送り・切込み・回転数）の提案</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>工具寿命・加工精度のバランス検討</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>再研削対応可否の判断</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border-l-4 border-[#2563eb]">
-              <h3 className="text-xl mb-4 text-[#1a2e5a]">受注生産の流れ</h3>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-[#2563eb]">1</span>
-                  </div>
-                  <p className="text-sm text-gray-600">仕様ヒアリング<br />図面確認</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-[#2563eb]">2</span>
-                  </div>
-                  <p className="text-sm text-gray-600">工具仕様の<br />提案・見積</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-[#2563eb]">3</span>
-                  </div>
-                  <p className="text-sm text-gray-600">メーカーへ<br />製作依頼</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-[#2563eb]">4</span>
-                  </div>
-                  <p className="text-sm text-gray-600">検査・<br />精度確認</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <span className="text-[#2563eb]">5</span>
-                  </div>
-                  <p className="text-sm text-gray-600">納品・<br />使用結果確認</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillar 2 Detail */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Cog className="w-6 h-6 text-[#2563eb]" />
-              </div>
-              <div>
-                <h2 className="text-3xl text-[#1a2e5a] mb-4">工作機械の販売・技術対応</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  新品・中古を問わず歯車加工機を販売。<br />
-                  機械の内部構造と加工メカニズムを理解した上で、修理・整備対応も行います。
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-6 mb-12">
-              <div className="bg-white p-6 rounded-lg border-l-4 border-[#2563eb]">
-                <h3 className="text-xl mb-3 text-[#1a2e5a]">取扱機械カテゴリー</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
-                  <ul className="space-y-2">
-                    <li>• ホブ盤（立形・横形）</li>
-                    <li>• シェービング盤</li>
-                    <li>• 歯車研削盤</li>
-                    <li>• ギヤシェーパー</li>
-                  </ul>
-                  <ul className="space-y-2">
-                    <li>• ブローチ盤</li>
-                    <li>• ラック加工機</li>
-                    <li>• ベベルギヤ加工機</li>
-                    <li>• CNC歯切り盤</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border-l-4 border-[#2563eb]">
-                <h3 className="text-xl mb-3 text-[#1a2e5a]">技術対応の範囲</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  販売して終わりではなく、機械の稼働を長期的に支援します。
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-gray-50 p-4 rounded">
-                    <h4 className="mb-2 text-[#1a2e5a]">修理・整備</h4>
-                    <p className="text-sm text-gray-600">機械構造を理解した上での部品交換・調整対応</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded">
-                    <h4 className="mb-2 text-[#1a2e5a]">精度調整</h4>
-                    <p className="text-sm text-gray-600">バックラッシュ・インデックス精度の再調整</p>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded">
-                    <h4 className="mb-2 text-[#1a2e5a]">改造対応</h4>
-                    <p className="text-sm text-gray-600">制御装置の更新・機能追加の検討</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border-l-4 border-[#2563eb]">
-                <h3 className="text-xl mb-3 text-[#1a2e5a]">中古機械の取り扱い</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  精度確認・整備を行った上で販売。機械の状態を正確に評価できることが強みです。
-                </p>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>動作確認・精度測定を実施</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>必要に応じてオーバーホール対応</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>納入後の調整・サポート</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillar 3 Detail */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Network className="w-6 h-6 text-[#2563eb]" />
-              </div>
-              <div>
-                <h2 className="text-3xl text-[#1a2e5a] mb-4">加工の受託・ネットワーク活用</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  全国の歯車メーカーとのネットワークを活かし��<br />
-                  保有設備・技術力を把握した上で、最適な加工先を選定します。
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">ネットワークの強み</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>全国の歯車メーカーとの長期的な関係</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>各社の保有工具・設備を把握</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>加工精度・得意分野を理解した振り分け</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <span>複数社の連携による複合対応</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">対応範囲</h3>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">大物歯車加工</span>
-                      <p className="text-sm text-gray-500">φ2000mm超の大型歯車対応可能先を選定</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">小物・量産対応</span>
-                      <p className="text-sm text-gray-500">小モジュール・多数個取り対応</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">高精度加工</span>
-                      <p className="text-sm text-gray-500">JIS 0級相当の精密加工対応</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-[#1a2e5a]">特殊材対応</span>
-                      <p className="text-sm text-gray-500">ステンレス・難削材の加工実績あり</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border-l-4 border-[#2563eb]">
-              <h3 className="text-xl mb-4 text-[#1a2e5a]">加工受託の流れ</h3>
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-[#2563eb]">1</div>
-                  <div>
-                    <h4 className="text-[#1a2e5a] mb-1">仕様・図面の確認</h4>
-                    <p className="text-sm text-gray-600">モジュール・精度・数量・納期を把握</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-[#2563eb]">2</div>
-                  <div>
-                    <h4 className="text-[#1a2e5a] mb-1">最適な加工先の選定</h4>
-                    <p className="text-sm text-gray-600">保有設備・工具・稼働状況を考慮して振り分け</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-[#2563eb]">3</div>
-                  <div>
-                    <h4 className="text-[#1a2e5a] mb-1">加工依頼・進捗管理</h4>
-                    <p className="text-sm text-gray-600">技術的な調整も含めて対応</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-[#2563eb]">4</div>
-                  <div>
-                    <h4 className="text-[#1a2e5a] mb-1">検査・品質確認</h4>
-                    <p className="text-sm text-gray-600">精度測定結果の確認</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 text-[#2563eb]">5</div>
-                  <div>
-                    <h4 className="text-[#1a2e5a] mb-1">納品・フィードバック</h4>
-                    <p className="text-sm text-gray-600">使用結果を次回の選定に活用</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integrated Approach */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl text-[#1a2e5a] mb-8">
-              3つの事業で、歯車加工の全体を支える
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-12">
-              工具の選定から、機械の整備、実際の加工まで。<br />
-              全てのプロセスを理解しているからこそ、<br />
-              技術的な相談に対して的確な回答ができます。
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl text-[#1a2e5a] mb-4 text-center">歯車製作フロー</h2>
+            <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              当社が関与する各領域の作成フローについて、詳しくはこちらをご確認ください。<br />
+              各工程をクリックして詳細をご覧いただけます。
             </p>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl mb-6 text-[#1a2e5a]">こんな相談にも対応できます</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left text-sm text-gray-600">
-                <div className="bg-gray-50 p-4 rounded">
-                  「この図面を加工するには、どの工具が最適か？」
+            {/* Flow Steps */}
+            <div className="space-y-4">
+              {steps.map((step) => (
+                <div
+                  key={step.id}
+                  className={`rounded-lg border transition-all ${
+                    step.highlighted
+                      ? "border-[#2563eb] bg-blue-50"
+                      : "border-gray-200 bg-white"
+                  }`}
+                >
+                  <button
+                    onClick={() =>
+                      setExpandedStep(
+                        expandedStep === step.id ? null : step.id
+                      )
+                    }
+                    className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
+                  >
+                    <div className="flex items-center gap-4 text-left flex-1">
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg font-semibold ${
+                        step.highlighted
+                          ? "bg-[#2563eb] text-white"
+                          : "bg-gray-200 text-[#1a2e5a]"
+                      }`}>
+                        {step.id}
+                      </div>
+                      <div>
+                        <h3 className="text-xl text-[#1a2e5a] font-semibold">
+                          {step.title}
+                        </h3>
+                        {step.highlighted && step.relation && (
+                          <p className="text-sm text-[#2563eb] mt-1">
+                            ★ {step.relation}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <ChevronDown
+                      className={`w-6 h-6 text-[#1a2e5a] transition-transform ${
+                        expandedStep === step.id ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Expanded Details */}
+                  {expandedStep === step.id && (
+                    <div className="px-6 pb-6 border-t border-opacity-20 border-gray-300">
+                      <p className="text-gray-700 mb-6 leading-relaxed">
+                        {step.description}
+                      </p>
+                      
+                      <div>
+                        <h4 className="text-sm font-semibold text-[#1a2e5a] mb-4">
+                          重要なポイント:
+                        </h4>
+                        <ul className="space-y-3">
+                          {step.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  「中古のホブ盤を探しているが、精度は大丈夫か？」
-                </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  「自社で加工したいが、工具の手配も相談できるか？」
-                </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  「数量が少ないが、加工してくれる先はあるか？」
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

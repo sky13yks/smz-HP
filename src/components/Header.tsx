@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router";
-import logoImg from "figma:asset/6dde8142b65b0777b3c4f6e4a35b3a7580661ee6.png";
+import { useState } from "react";
+import logoImg from "../assets/smz-logo_200_200_Gemini_Generated_Image_rvns2brvns2brvns.png";
+import { Menu, X } from "lucide-react";
 
 export function Header() {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const navItems = [
     { path: "/", label: "ホーム" },
@@ -15,11 +18,12 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src={logoImg} alt="SHIMIZU SHOKAI" className="h-10" />
+          <img src={logoImg} alt="SHIMIZU SHOKAI" className="h-20" />
         </Link>
         
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
@@ -37,12 +41,35 @@ export function Header() {
         </nav>
 
         {/* Mobile menu button */}
-        <button className="md:hidden p-2">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button 
+          className="md:hidden p-2 text-gray-600"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg animate-in fade-in slide-in-from-top-4 duration-200">
+          <nav className="flex flex-col p-6 space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-lg py-2 transition-colors ${
+                  location.pathname === item.path
+                    ? "text-[#1a2e5a] font-medium"
+                    : "text-gray-600"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

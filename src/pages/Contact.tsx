@@ -39,7 +39,7 @@ export function Contact() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl">
             技術的なご相談、製品のお問合せなど、お気軽にご連絡ください。<br />
-            担当技術者が24時間以内にご回答いたします。
+            担当者が24時間以内にご回答いたします。
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="mb-1 text-[#1a2e5a]">電話</h3>
-                    <p className="text-gray-600">03-5555-0199</p>
+                    <p className="text-gray-600">03-5732-2800</p>
                     <p className="text-sm text-gray-500 mt-1">平日 9:00-18:00</p>
                   </div>
                 </div>
@@ -70,7 +70,7 @@ export function Contact() {
                   <div>
                     <h3 className="mb-1 text-[#1a2e5a]">メール</h3>
                     <p className="text-gray-600 text-sm break-all">
-                      info@shimizu-shokai.co.jp
+                      team@smz-shokai.com
                     </p>
                     <p className="text-sm text-gray-500 mt-1">24時間受付</p>
                   </div>
@@ -96,8 +96,8 @@ export function Contact() {
                   <div>
                     <h3 className="mb-1 text-[#1a2e5a]">所在地</h3>
                     <p className="text-gray-600 text-sm">
-                      〒106-0032<br />
-                      東京都港区六本木2-14-1
+                      〒145-0093<br />
+                      東京都大田区矢口3-1-20
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export function Contact() {
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="mb-3 text-[#1a2e5a]">図面・資料の送付について</h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                    図面や技術資料がある場合は、メール（info@shimizu-shokai.co.jp）に添付してお送りください。
+                    図面や技術資料がある場合は、メール（team@smz-shokai.com）に添付してお送りください。
                     対応可能なファイル形式：PDF, DXF, DWG, STEP, IGES（30MBまで）
                   </p>
                   <p className="text-sm text-gray-500">
