@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logoImg from "../assets/smz-logo_200_200_Gemini_Generated_Image_rvns2brvns2brvns.png";
 import { Menu, X } from "lucide-react";
@@ -6,62 +6,72 @@ import { Menu, X } from "lucide-react";
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const navItems = [
     { path: "/", label: "ホーム" },
     { path: "/services", label: "事業内容" },
     { path: "/company", label: "会社情報" },
+    { path: "/matrix", label: "Matrix" },
+    { path: "/tech?tab=docs", label: "技術資料" },
     { path: "/history", label: "沿革" },
-    { path: "/contact", label: "お問合せ" },
-    { path: "/access", label: "アクセス" },
+    { path: "/contact", label: "お問い合わせ" },
   ];
 
+  const isMatrix = location.pathname === "/matrix";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="container mx-auto px-6 py-2 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
-          <img src={logoImg} alt="SHIMIZU SHOKAI" className="h-20" />
-        </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`transition-colors hover:text-[#2563eb] ${
-                location.pathname === item.path
-                  ? "text-[#1a2e5a]"
-                  : "text-gray-600"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
+      <div className="container mx-auto">
+        <div className="glass-panel pointer-events-auto rounded-2xl px-6 py-2 flex items-center justify-between transition-all duration-500">
+          <Link to="/" className="flex items-center group">
+            <img
+              src={logoImg}
+              alt="SHIMIZU SHOKAI"
+              className="h-12 md:h-14 transition-all duration-500 brightness-0 invert"
+            />
+          </Link>
 
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden p-2 text-gray-600"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Overlay */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg animate-in fade-in slide-in-from-top-4 duration-200">
-          <nav className="flex flex-col p-6 space-y-4">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-lg py-2 transition-colors ${
-                  location.pathname === item.path
-                    ? "text-[#1a2e5a] font-medium"
-                    : "text-gray-600"
-                }`}
+                className={`relative py-2 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group ${location.pathname === item.path
+                  ? "text-white"
+                  : "text-white/50 hover:text-white"
+                  }`}
+              >
+                {item.label}
+                {/* Precise Indicator */}
+                <span
+                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 rounded-full transition-all duration-500 bg-gradient-to-r ${item.path === "/matrix" ? "from-green-400 to-green-600" : "from-blue-400 to-blue-600"
+                    } ${location.pathname === item.path ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'}`}
+                />
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-24 left-4 right-4 glass-panel rounded-2xl p-6 animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-auto">
+          <nav className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm tracking-widest font-bold py-3 border-b border-white/5 transition-colors ${location.pathname === item.path ? "text-white" : "text-white/50"
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -73,3 +83,4 @@ export function Header() {
     </header>
   );
 }
+

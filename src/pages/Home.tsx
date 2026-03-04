@@ -1,226 +1,144 @@
-import { Link } from "react-router";
-import {GearAnimation} from "../components/GearAnimation";
-import { ArrowRight, Settings, Cog, Network } from "lucide-react";
+import { Link } from "react-router-dom";
+import { GearAnimation } from "../components/GearAnimation";
+import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe } from "lucide-react";
 
 export function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background scanline overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-        {/* Background Gear Animations */}
-        <div className="absolute top-20 right-[10%] opacity-40">
-          <GearAnimation size={300} speed={30} />
-        </div>
-        <div className="absolute bottom-20 left-[8%] opacity-30">
-          <GearAnimation size={250} speed={25} reverse />
-        </div>
-        <div className="absolute top-[50%] right-[25%] opacity-20">
-          <GearAnimation size={180} speed={35} />
+      <section className="relative min-h-screen flex items-center pt-20">
+        {/* Animated Background Layers */}
+        <div className="absolute inset-0 bg-grid-white pointer-events-none opacity-20" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
+
+        {/* Massive Background Gears */}
+        <div className="absolute -right-48 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none hidden lg:block select-none scale-150">
+          <GearAnimation size={1200} speed={0.4} theme="sketch" reverse />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl mb-8 text-[#1a2e5a] leading-tight">
-              Gear Manufacturing,<br />
-              Fully Understood.
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-ping" />
+              <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/50">Precision Engineering Since 1947</span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] mb-10">
+              MASTERING <br />
+              <span className="text-gradient-blue">THE MICRON.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed">
-              工具・機械・加工。<br />
-              歯車製造の全工程を理解する技術商社として、<br />
-              現場の課題に、的確な解を提示します。
+
+            <p className="text-xl md:text-2xl font-light text-white/70 max-w-2xl leading-relaxed mb-12">
+              東京都大田区から世界へ。清水商會は、工作機械・切削工具・加工代行を融合させた
+              次世代の「技術商社」として、ものづくりの未来を削り出します。
             </p>
-            <div className="flex flex-wrap gap-4">
+
+            <div className="flex flex-wrap gap-6">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 bg-[#2563eb] text-white px-8 py-4 rounded hover:bg-[#1d4ed8] transition-colors"
+                className="group px-10 py-5 bg-blue-600 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-500 hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:bg-blue-500 flex items-center gap-3"
               >
-                事業内容を見る
-                <ArrowRight className="w-5 h-5" />
+                Our Services <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
               </Link>
               <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 border-2 border-[#1a2e5a] text-[#1a2e5a] px-8 py-4 rounded hover:bg-[#1a2e5a] hover:text-white transition-colors"
+                to="/matrix"
+                className="glass-panel px-10 py-5 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
               >
-                お問合せ
+                The Matrix Brand
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Floating Stats */}
+        <div className="absolute bottom-12 right-12 hidden xl:flex gap-12">
+          {[
+            { label: "Precision", value: "Sub-micron" },
+            { label: "Experience", value: "75+ Years" },
+            { label: "Location", value: "Ota, Tokyo" },
+          ].map((stat, i) => (
+            <div key={i} className="text-right border-r border-white/10 pr-6 last:border-0 last:pr-0">
+              <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">{stat.label}</p>
+              <p className="text-xl font-bold font-mono">{stat.value}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Core Values Section */}
-      <section className="py-24 bg-white">
+      {/* Core Solutions Grid */}
+      <section className="py-32 relative">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl text-[#1a2e5a] mb-4">
-              歯車加工を、構造から理解する
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              商社に求められるのは、単なる手配業務ではなく、<br />
-              技術的な理解に基づいた提案力です。
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="p-8 border border-gray-200 rounded-lg hover:border-[#2563eb] transition-colors">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                <Settings className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h3 className="text-xl mb-4 text-[#1a2e5a]">工具を理解する</h3>
-              <p className="text-gray-600 leading-relaxed">
-                ホブカッター、ピニオンカッター、ブローチ。
-                それぞれの工具が持つ特性と、加工条件への影響を理解し、
-                最適な仕様を提案します。
-              </p>
-            </div>
-
-            <div className="p-8 border border-gray-200 rounded-lg hover:border-[#2563eb] transition-colors">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                <Cog className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h3 className="text-xl mb-4 text-[#1a2e5a]">機械を支える</h3>
-              <p className="text-gray-600 leading-relaxed">
-                歯車加工機の内部構造とメカニズムを把握。
-                新品・中古の販売だけでなく、修理・整備対応を通じて、
-                機械の長期稼働を支援します。
-              </p>
-            </div>
-
-            <div className="p-8 border border-gray-200 rounded-lg hover:border-[#2563eb] transition-colors">
-              <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                <Network className="w-8 h-8 text-[#2563eb]" />
-              </div>
-              <h3 className="text-xl mb-4 text-[#1a2e5a]">加工を繋ぐ</h3>
-              <p className="text-gray-600 leading-relaxed">
-                全国の歯車メーカーとのネットワークを活用し、
-                各社の設備・技術力を把握した上で、
-                最適な加工先を選定します。
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Cpu,
+                title: "工作機械・周辺機器",
+                desc: "国内外の最先端機から、生産性を最大化する周辺機器までをご提案。",
+                link: "/services"
+              },
+              {
+                icon: Wrench,
+                title: "修理・メンテナンス",
+                desc: "数十年愛用された機械も、最先端の精度で蘇らせる職人技と知識。",
+                link: "/services"
+              },
+              {
+                icon: Package,
+                title: "加工代行・受託",
+                desc: "商社の枠を超え、自社ネットワークを駆使した高精度加工の代行。",
+                link: "/services"
+              }
+            ].map((feature, i) => (
+              <Link
+                key={i}
+                to={feature.link}
+                className="glass-panel p-10 rounded-3xl group transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-blue-600/10 flex items-center justify-center mb-8 group-hover:bg-blue-600/20 transition-colors">
+                  <feature.icon className="w-8 h-8 text-blue-400" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-white/50 leading-relaxed mb-6">{feature.desc}</p>
+                <div className="flex items-center gap-2 text-blue-400 font-bold text-xs tracking-widest uppercase">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Business Overview */}
-      <section className="py-24 bg-gray-50">
+      {/* Trust & Heritage Section */}
+      <section className="py-32 bg-white/5">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-[#1a2e5a] mb-12 text-center">
-              工具 → 機械 → 加工、すべてに対応
-            </h2>
-
-            <div className="space-y-6">
-              <Link
-                to="/services"
-                className="block p-8 bg-white border-l-4 border-[#2563eb] hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl mb-2 text-[#1a2e5a]">歯車加工工具の受注生産</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      ホブカッター、ピニオンカッター、ブローチ等を受注生産。
-                      加工条件・材質・精度要求を理解した上で、工具仕様を提案します。
-                    </p>
-                  </div>
-                  <ArrowRight className="w-6 h-6 text-[#2563eb] flex-shrink-0 ml-4" />
-                </div>
-              </Link>
-
-              <Link
-                to="/services"
-                className="block p-8 bg-white border-l-4 border-[#2563eb] hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl mb-2 text-[#1a2e5a]">工作機械の販売・技術対応</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      新品・中古を問わず歯車加工機を販売。
-                      機械の内部構造を理解し、修理・整備・精度調整まで対応します。
-                    </p>
-                  </div>
-                  <ArrowRight className="w-6 h-6 text-[#2563eb] flex-shrink-0 ml-4" />
-                </div>
-              </Link>
-
-              <Link
-                to="/services"
-                className="block p-8 bg-white border-l-4 border-[#2563eb] hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-xl mb-2 text-[#1a2e5a]">加工の受託・ネットワーク活用</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      全国の歯車メーカーとのネットワークで、
-                      保有設備・技術力を把握した上で最適な加工先を選定し、製造依頼に対応します。
-                    </p>
-                  </div>
-                  <ArrowRight className="w-6 h-6 text-[#2563eb] flex-shrink-0 ml-4" />
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technical Understanding */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl text-[#1a2e5a] mb-6">
-                技術者と、同じ言葉で会話する
+          <div className="flex flex-col md:flex-row items-center gap-20">
+            <div className="flex-1">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                世界に誇る「大田区」の<br />
+                <span className="text-gradient-blue font-black">技術と感性を、次世代へ。</span>
               </h2>
-              <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                モジュール、圧力角、バックラッシュ、インボリュート曲線。<br />
-                技術的な用語を正確に理解し、現場の課題に応えられる体制を整えています。
+              <p className="text-lg text-white/60 leading-relaxed mb-10">
+                私たちは、ただの商社ではありません。現場の職人と共に歩み、
+                機械の「深奥」を知るからこそできる提案があります。
+                その誇りと責任を胸に、日本のものづくりを支え続けます。
               </p>
+              <Link to="/company" className="inline-flex items-center gap-4 text-blue-400 font-bold tracking-widest text-sm hover:gap-6 transition-all">
+                VIEW OUR HERITAGE <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">こんな相談に対応します</h3>
-                <ul className="space-y-3 text-gray-600 text-sm">
-                  <li>• この図面を加工するには、どの工具が最適か？</li>
-                  <li>• ホブ盤の精度が出ない。調整できるか？</li>
-                  <li>• 小ロットだが、加工してくれる先はあるか？</li>
-                  <li>• 特殊なモジュールのカッターは製作可能か？</li>
-                  <li>• 中古機械の精度はどの程度か？</li>
-                </ul>
+            <div className="flex-1 grid grid-cols-2 gap-6 w-full">
+              <div className="glass-panel p-8 rounded-2xl">
+                <ShieldCheck className="w-10 h-10 text-blue-400 mb-6" />
+                <div className="text-4xl font-black mb-2">75+</div>
+                <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Years of Trust</div>
               </div>
-
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl mb-4 text-[#1a2e5a]">技術的対話を重視</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  カタログを渡すだけの対応はしません。
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  図面を読み、加工条件を理解し、
-                  精度要求と納期のバランスを考慮した提案を行います。
-                  技術者が安心して相談できる存在であることを、何より大切にしています。
-                </p>
+              <div className="glass-panel p-8 rounded-2xl">
+                <Globe className="w-10 h-10 text-blue-400 mb-6" />
+                <div className="text-4xl font-black mb-2">GLOBAL</div>
+                <div className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Supplier Network</div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-[#1a2e5a] text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl mb-6">
-            歯車加工のご相談、お気軽にどうぞ
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            工具・機械・加工、どの段階からでも対応します。<br />
-            仕様が固まっていない段階からの相談も歓迎です。
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#1a2e5a] px-8 py-4 rounded hover:bg-gray-100 transition-colors"
-          >
-            お問合せフォームへ
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </section>
     </div>

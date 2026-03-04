@@ -5,6 +5,9 @@ import { History } from "./pages/History";
 import { Services } from "./pages/Services";
 import { Contact } from "./pages/Contact";
 import { Access } from "./pages/Access";
+import { FAQ } from "./pages/FAQ";
+import { TechSolutions } from "./pages/TechSolutions";
+import { MatrixBrand } from "./pages/MatrixBrand";
 import { RootLayout } from "./components/RootLayout";
 
 export const router = createBrowserRouter([
@@ -18,6 +21,9 @@ export const router = createBrowserRouter([
       { path: "services", Component: Services },
       { path: "contact", Component: Contact },
       { path: "access", Component: Access },
+      { path: "faq", Component: FAQ },
+      { path: "tech", Component: TechSolutions },
+      { path: "matrix", Component: MatrixBrand },
     ],
   },
 ]);

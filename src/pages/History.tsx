@@ -10,129 +10,51 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     year: "1950",
-    month: "4月",
+    month: "APR",
     title: "個人企業として創業",
-    description: "清水正治が東京都大田区入新井３丁目４５番地で切削工具の販売を開始。"
+    description: "清水正治が東京都大田区入新井3丁目にて切削工具の販売を開始。ここから清水商會の歴史が始まりました。"
   },
   {
     year: "1953",
-    month: "4月",
-    title: "アヅミ㈱特約店に",
-    description: "アヅミ㈱の特約店の指定を受ける。"
-  },
-  {
-    year: "1954",
-    month: "10月",
-    title: "本社移転",
-    description: "東京都大田区入新井３丁目１４８番地に移転。"
+    month: "APR",
+    title: "アヅミ㈱特約店に指定",
+    description: "アヅミ株式会社の特約店指定を受け、専門商社としての基盤を確立。"
   },
   {
     year: "1959",
-    month: "1月",
-    title: "銀座へ移転",
-    description: "東京都中央区銀座七丁目３番地に移転。"
-  },
-  {
-    year: "1959",
-    month: "3月",
-    title: "園池製作所の特約店に",
-    description: "㈱園池製作所の特約店の指定を受ける。"
-  },
-  {
-    year: "1959",
-    month: "4月",
+    month: "APR",
     title: "株式会社として設立",
-    description: "組織を改め株式会社として設立。アヅミ㈱の代理店となる。"
+    description: "組織を改め株式会社として設立。高度経済成長期とともに、歯切工具の専門性を深めていきました。"
   },
   {
     year: "1961",
-    month: "1月",
-    title: "不二越歯切工具の特約販売店に",
-    description: "㈱不二越の歯切工具特約販売店の指定を受ける。"
-  },
-  {
-    year: "1967",
-    month: "1月",
-    title: "神戸製鋼所の特約販売店に",
-    description: "㈱神戸製鋼所の特約販売店の指定を受ける。"
-  },
-  {
-    year: "1968",
-    month: "10月",
-    title: "銀座八丁目へ本社移転",
-    description: "本社を東京都中央区銀座八丁目１７番地に移転。"
-  },
-  {
-    year: "1973",
-    month: "9月",
-    title: "日本歯車東京グループ取引業者に指定",
-    description: "日本歯車東京グループの取引業者の指定を受ける。"
-  },
-  {
-    year: "1974",
-    month: "12月",
-    title: "築地へ本社移転",
-    description: "本社を東京都中央区築地二丁目３番地に移転。"
-  },
-  {
-    year: "1984",
-    month: "10月",
-    title: "東京商工会議所会員に",
-    description: "東京商工会議所の会員となる。"
+    month: "JAN",
+    title: "不二越歯切工具 特約販売店",
+    description: "株式会社不二越の歯切工具特約販売店に指定。国内屈指の技術力を持つメーカーとの連携を強化。"
   },
   {
     year: "1985",
-    month: "4月",
-    title: "代表取締役交代",
-    description: "清水正治が退任し、清水進が代表取締役に就任。"
-  },
-  {
-    year: "1989",
-    month: "4月",
-    title: "全日本機械業連合会会員に",
-    description: "全日本機械業連合会の会員となる。"
-  },
-  {
-    year: "1992",
-    month: "6月",
-    title: "大田区西馬込へ本社移転",
-    description: "本社を東京都大田区西馬込一丁目２６番地に移転。"
-  },
-  {
-    year: "1995",
-    month: "7月",
-    title: "資本金を増資",
-    description: "資本金を1,000万円に増資。"
+    month: "APR",
+    title: "第二世代への継承",
+    description: "清水進が代表取締役に就任。バブル経済後の産業構造の変化を見据えた経営を開始。"
   },
   {
     year: "2007",
-    month: "4月",
-    title: "古物商許可証取得",
-    description: "東京都公安委員会より古物商許可証（NO.302220706952）を取得。"
-  },
-  {
-    year: "2008",
-    month: "1月",
-    title: "矢口へ本社移転",
-    description: "本社を東京都大田区矢口三丁目１番地に移転。"
-  },
-  {
-    year: "2011",
-    month: "4月",
-    title: "代表取締役交代",
-    description: "清水進が退任し、平野芳章が代表取締役に就任。"
+    month: "APR",
+    title: "古物商許可取得・リセール事業",
+    description: "東京都公安委員会より古物商許可を取得。中古機械の有効活用という新たな価値提案をスタート。"
   },
   {
     year: "2013",
-    month: "7月",
-    title: "中古機械展示場開設",
-    description: "中古機械展示場『ツルミマシンセンター』を開設。"
+    month: "JUL",
+    title: "ツルミマシンセンター 開設",
+    description: "中古機械展示場を開設。実際の機械を見て触れられる環境を整備。"
   },
   {
     year: "2019",
-    month: "5月",
-    title: "代表取締役交代",
-    description: "平野芳章が退任し、清水正太が代表取締役に就任。"
+    month: "MAY",
+    title: "第三世代への継承・現在",
+    description: "清水正太が代表取締役に就任。伝統的な商社機能にデジタルとグローバルな視点を融合させ、現代の製造業に最適化されたソリューションを展開。"
   }
 ];
 
@@ -164,30 +86,31 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
   return (
     <div
       ref={itemRef}
-      className={`relative transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`relative transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+        }`}
+      style={{ transitionDelay: `${index * 50}ms` }}
     >
-      <div className="flex gap-8 md:gap-12">
+      <div className="flex gap-8 md:gap-16">
         {/* Year marker */}
-        <div className="flex-shrink-0 w-24 md:w-32 text-right">
-          <div className="text-2xl md:text-3xl text-[#2563eb]">{item.year}</div>
-          {item.month && <div className="text-sm text-gray-500">{item.month}</div>}
+        <div className="flex-shrink-0 w-24 md:w-40 text-right pt-2">
+          <div className="text-3xl md:text-5xl font-black text-white leading-none italic">{item.year}</div>
+          {item.month && <div className="text-[10px] font-black tracking-widest text-blue-400 mt-2 uppercase">{item.month}</div>}
         </div>
 
         {/* Timeline line */}
         <div className="relative flex-shrink-0">
-          <div className="w-4 h-4 rounded-full bg-[#2563eb] border-4 border-white shadow-md relative z-10" />
+          <div className={`w-3 h-3 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] relative z-10 transition-colors duration-500 ${isVisible ? "bg-blue-500" : "bg-white/10"}`} />
           {index < timelineData.length - 1 && (
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gray-200" />
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-blue-500/50 to-transparent" />
           )}
         </div>
 
         {/* Content */}
-        <div className="flex-1 pb-12">
-          <h3 className="text-xl mb-2 text-[#1a2e5a]">{item.title}</h3>
-          <p className="text-gray-600 leading-relaxed">{item.description}</p>
+        <div className="flex-1 pb-20">
+          <div className="glass-panel p-8 rounded-3xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.07]">
+            <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+            <p className="text-white/50 leading-relaxed text-sm">{item.description}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -196,40 +119,28 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
 
 export function History() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background bg-grid-white">
       {/* Page Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white border-b">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-[#1a2e5a] mb-6">
-            会社沿革
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
-            1950年の創業から現在まで。<br />
-            切削工具の販売から中古機械の展示場まで。<br />
-            70年以上にわたって歩んできた歩みです。
-          </p>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-gray-700 leading-relaxed">
-              1950年、清水正治が個人企業として切削工具の販売をはじめました。
-              以来、様々なメーカーとの特約店・代理店指定を受け、
-              業界での地位を確立してきました。
-              組織の成長とともに代表交代を経て、
-              現在は中古機械展示場の運営など、事業を展開しています。
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px] rounded-full" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-none">
+              OUR <br />
+              <span className="text-gradient-blue uppercase">History</span>
+            </h1>
+            <p className="text-xl text-white/70 leading-relaxed">
+              1950年の創業から現在まで。<br />
+              切削工具の専門商社として歩んできた、75年の研鑽の軌跡。
             </p>
           </div>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="pb-32">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {timelineData.map((item, index) => (
               <TimelineItemComponent key={index} item={item} index={index} />
             ))}
@@ -238,28 +149,28 @@ export function History() {
       </section>
 
       {/* Milestones */}
-      <section className="py-20 bg-white">
+      <section className="py-32 relative bg-white/5">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl text-[#1a2e5a] mb-12 text-center">主要な数字</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">75</div>
-                <div className="text-sm text-gray-500 mb-1">YEARS</div>
-                <div className="text-gray-700">創業からの年数</div>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-black mb-20 text-center italic opacity-20 uppercase tracking-[0.5em]">Milestones</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="text-center group">
+                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">75</div>
+                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Years of Expertise</div>
+                <div className="text-white/50 text-sm font-bold">創業からの不変の信頼</div>
               </div>
 
-              <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">3</div>
-                <div className="text-sm text-gray-500 mb-1">GENERATIONS</div>
-                <div className="text-gray-700">代表取締役の世代交代</div>
+              <div className="text-center group">
+                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">03</div>
+                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Generations</div>
+                <div className="text-white/50 text-sm font-bold">受け継がれる技術と想い</div>
               </div>
 
-              <div className="text-center p-8 bg-gray-50 rounded-lg">
-                <div className="text-4xl md:text-5xl text-[#2563eb] mb-2">10+</div>
-                <div className="text-sm text-gray-500 mb-1">LOCATIONS</div>
-                <div className="text-gray-700">本社移転の回数</div>
+              <div className="text-center group">
+                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">10+</div>
+                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Global Partners</div>
+                <div className="text-white/50 text-sm font-bold">世界へ広がるネットワーク</div>
               </div>
             </div>
           </div>
@@ -267,27 +178,23 @@ export function History() {
       </section>
 
       {/* Future Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-32 relative">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl text-[#1a2e5a] mb-8 text-center">これからの展望</h2>
-            
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                1950年の創業から75年。
-                複数の代表取締役の世代交代を経て、現在に至ります。
-              </p>
-              
-              <p className="text-gray-700 leading-relaxed mb-6">
-                切削工具の販売からはじまり、様々なメーカーの特約店・代理店を務め、
-                現在は中古機械の展示場も運営しています。
-              </p>
-
-              <p className="text-gray-700 leading-relaxed">
-                時代とともに事業の形態は変わっていきますが、
-                顧客との信頼関係を大切にし、
-                確実で誠実な対応を心がけ続けます。
-              </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="glass-panel p-16 md:p-24 rounded-[4rem] relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+              <h2 className="text-3xl md:text-4xl font-black mb-12">これからの展望</h2>
+              <div className="space-y-8 text-white/50 text-lg leading-relaxed">
+                <p>
+                  時代とともに、製造現場のニーズは常に変化し続けています。
+                </p>
+                <p>
+                  私たちは、75年で培った「目利き」の力を基盤に、最新のデジタル技術やグローバルなネットワークを融合させ、次世代の「つくる」を支えるソリューションを提供し続けます。
+                </p>
+                <p className="text-white font-bold italic">
+                  「歴史を重んじ、未来を創る。温故知新の精神で、次の100年へ。」
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,212 +1,185 @@
-import { MapPin, Train, Car, Clock, Phone } from "lucide-react";
+import { MapPin, Train, Car, Clock, Phone, Building2, Users } from "lucide-react";
 
 export function Access() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background bg-grid-white">
       {/* Page Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white border-b">
-        <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-[#1a2e5a] mb-6">
-            アクセス
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
-            本社所在地とアクセス方法のご案内です。<br />
-            ご来社の際は、事前にご連絡いただけますようお願いいたします。
-          </p>
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px] rounded-full" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-none">
+              LOCATIONS <br />
+              <span className="text-gradient-blue uppercase">Access</span>
+            </h1>
+            <p className="text-xl text-white/70 leading-relaxed">
+              本社および各拠点へのアクセス。
+              国内製造業の集積地、大田区と横浜をベースに、迅速なサポートを展開しています。
+            </p>
+          </div>
         </div>
       </section>
 
-      <div className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Map */}
-              <div>
-                <h2 className="text-2xl text-[#1a2e5a] mb-6">所在地</h2>
-                
-                {/* Map placeholder - In a real application, you would use Google Maps API or similar */}
-                <div className="aspect-[4/3] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center mb-6">
-                  <div className="text-center text-gray-400">
-                    <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <a href="https://maps.app.goo.gl/De8Qp5ebq1YKShN66?g_st=ic" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500 hover:underline">Google Mapsで表示</a>
+      <section className="pb-32">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 animate-fade-in">
+            {/* Headquarters */}
+            <div className="glass-panel p-10 md:p-12 rounded-[3rem] relative overflow-hidden group">
+              <div className="mb-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center text-blue-400">
+                    <Building2 size={24} />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-black italic">HEADQUARTERS</h2>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/30 truncate">Main Office & Administration</p>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="mb-4 text-[#1a2e5a]">株式会社清水商會</h3>
-                  <div className="space-y-2 text-gray-700">
-                    <p>〒146-0093</p>
-                    <p>東京都大田区矢口3-1-20</p>
-                    <p className="pt-4">TEL: 03-5732-2800</p>
-                    <p className="pt-4 text-sm text-gray-500">
-                      営業時間：平日 9:00-18:00<br />
-                      定休日：土日祝日・年末年始
+                <div className="space-y-6 text-white/80">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-2">Location</p>
+                    <p className="text-lg leading-relaxed">
+                      〒146-0093<br />
+                      東京都大田区矢口3-1-20
                     </p>
                   </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-2">Direct Line</p>
+                    <p className="text-xl font-mono font-bold tracking-tight">03.5732.2800</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Access Information */}
-              <div>
-                <h2 className="text-2xl text-[#1a2e5a] mb-6">交通アクセス</h2>
-                
-                <div className="space-y-6">
-                  {/* Train Access */}
-                  <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Train className="w-6 h-6 text-[#2563eb]" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl mb-2 text-[#1a2e5a]">電車でお越しの方</h3>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4 ml-16">
-                      <div>
-                        <h4 className="mb-2 text-[#1a2e5a]">東急多摩川線</h4>
-                        <p className="text-gray-600 text-sm">
-                          「矢口渡駅」より徒歩約10分
-                        </p>
-                      </div>
-                    </div>
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="w-10 h-10 glass-panel rounded-xl flex items-center justify-center text-white/50">
+                    <Train size={20} />
                   </div>
-
-                  {/* Car Access */}
-                  <div className="bg-white p-6 rounded-lg border border-gray-200">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Car className="w-6 h-6 text-[#2563eb]" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl mb-2 text-[#1a2e5a]">お車でお越しの方</h3>
-                      </div>
-                    </div>
-                    
-                    <div className="ml-16 space-y-3">
-                      <p className="text-gray-600 text-sm">
-                        首都高速「羽田」出口より約15分
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        ※ 駐車場のご利用は事前にお問い合わせください。
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Visit Notice */}
-                  <div className="bg-blue-50 p-6 rounded-lg">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-6 h-6 text-[#2563eb]" />
-                      </div>
-                      <div>
-                        <h3 className="mb-2 text-[#1a2e5a]">ご来社について</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                          ご来社の際は、事前にお電話またはメールでご連絡ください。
-                          打ち合わせをご希望の場合は、日程調整をさせていただきます。
-                        </p>
-                      </div>
-                    </div>
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-white/30 mb-2">Public Transport</h3>
+                    <p className="text-sm">東急多摩川線「矢口渡駅」より徒歩約10分</p>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-6">
+                  <div className="w-10 h-10 glass-panel rounded-xl flex items-center justify-center text-white/50">
+                    <Car size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-white/30 mb-2">By Vehicle</h3>
+                    <p className="text-sm">首都高速「羽田」出口より約15分</p>
+                    <p className="text-[10px] text-white/30 mt-1">※駐車場あり（事前予約推奨）</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12">
+                <a
+                  href="https://maps.app.goo.gl/De8Qp5ebq1YKShN66?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-5 bg-white/5 border border-white/10 rounded-2xl text-center font-black tracking-[0.2em] text-[10px] uppercase hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.2)]"
+                >
+                  Open Coordinates in Maps
+                </a>
               </div>
             </div>
 
-            {/* Machinery Display Center */}
-            <div className="mt-16 border-t pt-16">
-              <h2 className="text-2xl text-[#1a2e5a] mb-8">機械展示場</h2>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* map placeholder */}
-                <div>
-                  <div className="aspect-[4/3] bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center mb-6">
-                    <div className="text-center text-gray-400">
-                      <MapPin className="w-12 h-12 mx-auto mb-2" />
-                      <a href="https://maps.app.goo.gl/W1pkgZqTnvLtqAC29?g_st=ic" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500 hover:underline">Google Mapsで表示</a>
-                    </div>
+            {/* Tsurumi Machine Center */}
+            <div className="glass-panel p-10 md:p-12 rounded-[3rem] relative overflow-hidden group bg-white/5">
+              <div className="mb-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center text-blue-400">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-black italic">TECH CENTER</h2>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/30 truncate">Tsurumi Machinery Showroom</p>
                   </div>
                 </div>
-                
-                {/* Center Information */}
-                <div>
-                  <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                    <h3 className="mb-4 text-[#1a2e5a]">ツルミマシンセンター</h3>
-                    <div className="space-y-2 text-gray-700">
-                      <p>〒230-0071</p>
-                      <p>神奈川県横浜市鶴見区駒岡4-39-25</p>
-                      <p className="pt-4">TEL: 045-574-3019</p>
-                      <p>FAX: 045-633-4422</p>
-                      <p className="pt-4 text-sm text-gray-500">
-                        営業時間：平日 9:00-17:00<br />
-                        定休日：土日祝日・年末年始
-                      </p>
-                    </div>
+
+                <div className="space-y-6 text-white/80">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-2">Location</p>
+                    <p className="text-lg leading-relaxed">
+                      〒230-0071<br />
+                      神奈川県横浜市鶴見区駒岡4-39-25
+                    </p>
                   </div>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    中古機械の展示場として、多数の機械をご用意しております。
-                    実際にお目にかかりながら、ご希望の機械をお探しいただけます。
-                  </p>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-widest text-blue-400 mb-2">Direct Line</p>
+                    <p className="text-xl font-mono font-bold tracking-tight">045.574.3019</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Additional Information */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="mb-3 text-[#1a2e5a]">受付時間</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  平日 9:00-17:00<br />
-                  土日祝日・年末年始は<br />
-                  休業とさせていただきます
+              <div className="glass-panel p-6 rounded-2xl bg-white/5 border-white/5 mb-10">
+                <p className="text-sm text-white/50 leading-relaxed font-bold">
+                  中古歯車機械・研削盤を常時多数展示しております。
+                  実物をご覧いただきながら、加工プランのシミュレーションが可能です。
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="mb-3 text-[#1a2e5a]">技術相談</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  サンプル展示室にて、<br />
-                  実物をご覧いただきながらの<br />
-                  技術相談も可能です
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h3 className="mb-3 text-[#1a2e5a]">オンライン相談</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Web会議システムを使用した<br />
-                  オンライン技術相談にも<br />
-                  対応しております
-                </p>
+              <div className="mt-auto">
+                <a
+                  href="https://maps.app.goo.gl/W1pkgZqTnvLtqAC29?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full py-5 bg-white/5 border border-white/10 rounded-2xl text-center font-black tracking-[0.2em] text-[10px] uppercase hover:bg-white hover:text-black transition-all duration-500"
+                >
+                  Open Coordinates in Maps
+                </a>
               </div>
             </div>
+          </div>
 
-            {/* Contact CTA */}
-            <div className="mt-16 bg-[#1a2e5a] text-white p-8 rounded-lg text-center">
-              <h2 className="text-2xl mb-4">お問合せ・ご予約</h2>
-              <p className="text-gray-300 mb-6">
-                ご来社のご予約、技術相談のお申し込みは、<br />
-                お電話またはメールにてお気軽にご連絡ください。
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div className="glass-panel p-8 rounded-3xl border-white/5">
+              <div className="text-blue-400 mb-4"><Clock size={24} /></div>
+              <h3 className="text-sm font-black uppercase tracking-widest mb-3">Service Hours</h3>
+              <p className="text-xs text-white/50 leading-relaxed">平日 9:00 - 18:00<br />(土日祝は事前にご相談ください)</p>
+            </div>
+            <div className="glass-panel p-8 rounded-3xl border-white/5">
+              <div className="text-blue-400 mb-4"><Users size={24} /></div>
+              <h3 className="text-sm font-black uppercase tracking-widest mb-3">Consultation</h3>
+              <p className="text-xs text-white/50 leading-relaxed">展示場にて、経験豊富な技術者による実機を用いたご相談を承ります。</p>
+            </div>
+            <div className="glass-panel p-8 rounded-3xl border-white/5">
+              <div className="text-blue-400 mb-4"><MapPin size={24} /></div>
+              <h3 className="text-sm font-black uppercase tracking-widest mb-3">Online Session</h3>
+              <p className="text-xs text-white/50 leading-relaxed">Web会議を通じた遠隔での製品説明・状態確認も可能です。</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="glass-panel p-16 md:p-24 rounded-[4rem] text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-blue-600/[0.03] animate-pulse" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black mb-8 italic">READY TO <span className="text-gradient-blue uppercase">Connect?</span></h2>
+              <p className="text-white/50 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                ご来社のご予約、技術相談のお申し込みは、<br className="hidden md:block" />
+                以下よりお気軽にお問い合わせください。
               </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
                 <a
                   href="tel:03-5732-2800"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#1a2e5a] px-6 py-3 rounded hover:bg-gray-100 transition-colors"
+                  className="px-12 py-5 glass-panel rounded-full font-black tracking-widest text-lg transition-all hover:bg-white/10 flex items-center gap-4"
                 >
-                  <Phone className="w-5 h-5" />
-                  03-5732-2800
+                  <Phone size={24} /> 03.5732.2800
                 </a>
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded hover:bg-white/10 transition-colors"
+                  className="px-12 py-5 bg-blue-600 rounded-full font-black tracking-widest text-lg transition-all hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:scale-105"
                 >
-                  お問合せフォーム
+                  SEND MESSAGE
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
+
