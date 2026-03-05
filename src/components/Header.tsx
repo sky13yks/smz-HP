@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logoImg from "../assets/smz-logo_200_200_Gemini_Generated_Image_rvns2brvns2brvns.png";
+import logoImg from "../assets/logo_transparent.png";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
@@ -27,7 +27,7 @@ export function Header() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="h-12 md:h-14 transition-all duration-500 brightness-0 invert"
+              className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
             />
           </Link>
 

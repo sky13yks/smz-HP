@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logoImg from "../assets/smz-logo_200_200_Gemini_Generated_Image_rvns2brvns2brvns.png";
+import logoImg from "../assets/logo_transparent.png";
 
 export function Footer() {
   const location = useLocation();
@@ -28,7 +28,7 @@ export function Footer() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className={`h-16 w-auto mb-4 transition-all duration-500 ${isMatrix ? "brightness-0 invert" : ""}`}
+              className="h-16 md:h-20 w-auto object-contain mb-4 transition-all duration-500"
             />
             <p className="text-sm leading-relaxed" style={{ color: isMatrix ? '#6a6a8a' : '#d1d5db' }}>
               精密機械・歯車分野における<br />
@@ -51,6 +51,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/contact" className={`transition-colors ${linkHoverClass}`} style={linkStyle(isMatrix)}>お問合せフォーム</Link></li>
               <li><Link to="/access" className={`transition-colors ${linkHoverClass}`} style={linkStyle(isMatrix)}>アクセス</Link></li>
+              <li><Link to="/faq" className={`transition-colors ${linkHoverClass}`} style={linkStyle(isMatrix)}>よくあるご質問(FAQ)</Link></li>
             </ul>
           </div>
 
