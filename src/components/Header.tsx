@@ -19,20 +19,28 @@ export function Header() {
     { path: "/contact", label: "お問い合わせ" },
   ];
 
-  const isMatrix = location.pathname === "/matrix";
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
       <div className="container mx-auto">
         <div className="glass-panel pointer-events-auto rounded-2xl px-6 py-2 flex items-center justify-between transition-all duration-500">
           <Link to="/" className="flex items-center group">
-            <div className="bg-white/95 rounded-xl px-3 py-1 shadow-sm">
-              <img
-                src={logoImg}
-                alt="SHIMIZU SHOKAI"
-                className="h-10 md:h-12 w-auto object-contain transition-all duration-500"
-              />
-            </div>
+            <img
+              src={logoImg}
+              alt="SHIMIZU SHOKAI"
+              className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
+              style={{
+                filter: [
+                  'drop-shadow(1px 0px 0px rgba(255,255,255,0.85))',
+                  'drop-shadow(-1px 0px 0px rgba(255,255,255,0.85))',
+                  'drop-shadow(0px 1px 0px rgba(255,255,255,0.85))',
+                  'drop-shadow(0px -1px 0px rgba(255,255,255,0.85))',
+                  'drop-shadow(1px 1px 0px rgba(255,255,255,0.6))',
+                  'drop-shadow(-1px -1px 0px rgba(255,255,255,0.6))',
+                  'drop-shadow(1px -1px 0px rgba(255,255,255,0.6))',
+                  'drop-shadow(-1px 1px 0px rgba(255,255,255,0.6))',
+                ].join(' ')
+              }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
