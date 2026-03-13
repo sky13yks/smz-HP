@@ -1,1 +1,26 @@
-node_modules
+# 依存パッケージ
+node_modules/
+
+# ビルド成果物（Vercelが自動ビルドするため不要）
+dist/
+build/
+
+# 環境変数
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ログ
+*.log
+dev_server.log
+
+# エディタ
+.vscode/
+.idea/
+
+# Vite
+*.local
