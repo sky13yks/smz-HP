@@ -26,11 +26,13 @@ export function Header() {
       <div className="container mx-auto">
         <div className="glass-panel pointer-events-auto rounded-2xl px-6 py-2 flex items-center justify-between transition-all duration-500">
           <Link to="/" className="flex items-center group">
-            <img
-              src={logoImg}
-              alt="SHIMIZU SHOKAI"
-              className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
-            />
+            <div className="bg-white/95 rounded-xl px-3 py-1 shadow-sm">
+              <img
+                src={logoImg}
+                alt="SHIMIZU SHOKAI"
+                className="h-10 md:h-12 w-auto object-contain transition-all duration-500"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
