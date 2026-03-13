@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink, ArrowRight, Shield, Cpu, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -12,6 +12,7 @@ interface Machine {
 }
 
 interface Category {
+    id: string;
     title: string;
     titleEn: string;
     description: string;
@@ -20,6 +21,7 @@ interface Category {
 
 const categories: Category[] = [
     {
+        id: "profile-h",
         title: "成形研削盤（横型）",
         titleEn: "Profile Grinding Machine (Horizontal)",
         description: "砥石を歯車の歯形に合わせた形状に成形（ドレッシング）し、歯面を1枚ずつ研削する方式。高精度な歯形修整が可能で、大モジュールの歯車に適しています。",
@@ -35,6 +37,7 @@ const categories: Category[] = [
         ],
     },
     {
+        id: "profile-v",
         title: "成形研削盤（立型）",
         titleEn: "Profile Grinding Machine (Vertical)",
         description: "ワークを垂直に保持する立型構造。重量の大きなワークや長尺シャフトギアの研削に適し、自重によるたわみの影響を受けにくい設計です。",
@@ -50,6 +53,7 @@ const categories: Category[] = [
         ],
     },
     {
+        id: "generating",
         title: "創成研削盤",
         titleEn: "Generating Grinding Machine",
         description: "ねじ状砥石を用いて歯車と噛み合わせながら連続的に研削する方式。量産性に優れ、小〜中モジュールの歯車を効率的かつ高精度に加工できます。",
@@ -65,6 +69,7 @@ const categories: Category[] = [
         ],
     },
     {
+        id: "worm",
         title: "ウォーム研削盤",
         titleEn: "Worm Grinding Machine",
         description: "ウォームギアの歯面を専用砥石で研削する機械。自動車のステアリングやエレベーター駆動系など、静粛性が求められる駆動系部品に不可欠な加工です。",
@@ -88,6 +93,7 @@ const categories: Category[] = [
         ],
     },
     {
+        id: "hob",
         title: "ホブ刃溝研削盤",
         titleEn: "Hob Flute Grinding Machine",
         description: "ホブカッターの刃溝（フルート）を再研削するための専用機。ホブの精度を維持し、寿命を延ばすために欠かせない工具再研削の中核設備です。",
@@ -103,13 +109,14 @@ const categories: Category[] = [
         ],
     },
     {
-        title: "ベベルギアー歯切盤・研削盤",
+        id: "bevel",
+        title: "ベベルギア歯切盤・研削盤",
         titleEn: "Bevel Gear Cutting & Grinding Machine",
         description: "かさ歯車（ベベルギア）の歯切り・研削を行う機械。自動車のディファレンシャルギアや航空機部品など、複雑な曲線歯面の加工が可能です。",
         machines: [
             {
                 model: "GBG-3210",
-                name: "CNCベベルギアー研削盤",
+                name: "CNCベベルギア研削盤",
                 nameEn: "CNC Bevel Gear Grinding Machine",
                 description: "かさ歯車の高精度曲面研削に対応。静粛性の高い歯面仕上げを実現。",
                 image: "",
@@ -117,7 +124,7 @@ const categories: Category[] = [
             },
             {
                 model: "GBC-3210",
-                name: "CNCベベルギアー歯切盤",
+                name: "CNCベベルギア歯切盤",
                 nameEn: "CNC Bevel Gear Cutting Machine",
                 description: "かさ歯車の歯切加工に対応。研削前の荒加工から高精度仕上げまで。",
                 image: "",
@@ -125,6 +132,16 @@ const categories: Category[] = [
             },
         ],
     },
+];
+
+const tabs = [
+    { id: "all",       label: "すべて" },
+    { id: "profile-h", label: "成形（横型）" },
+    { id: "profile-v", label: "成形（立型）" },
+    { id: "generating",label: "創成" },
+    { id: "worm",      label: "ウォーム" },
+    { id: "hob",       label: "ホブ工具" },
+    { id: "bevel",     label: "ベベルギア" },
 ];
 
 const specs = [
@@ -139,12 +156,17 @@ const specs = [
 import machineImg from "../assets/matrix_grinder.png";
 
 export const MatrixBrand: React.FC = () => {
+    const [activeTab, setActiveTab] = useState("all");
+
+    const visibleCategories = activeTab === "all"
+        ? categories
+        : categories.filter(c => c.id === activeTab);
+
     return (
         <div className="min-h-screen bg-background text-foreground bg-grid-white">
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
-                {/* Background Glows */}
                 <div className="absolute top-1/4 -left-20 w-96 h-96 bg-matrix-green/10 blur-[120px] rounded-full" />
                 <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full" />
 
@@ -184,7 +206,6 @@ export const MatrixBrand: React.FC = () => {
                                 alt="MATRIX CNC Gear Grinder"
                                 className="relative z-10 w-full h-auto rounded-3xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
                             />
-                            {/* Technical Overlay */}
                             <div className="absolute -bottom-6 -left-6 glass-panel p-6 rounded-2xl animate-pulse">
                                 <p className="text-[10px] font-mono tracking-widest text-matrix-green uppercase">Scanning Axis Accuracy</p>
                                 <p className="text-2xl font-mono text-white">±0.0001 mm</p>
@@ -193,7 +214,6 @@ export const MatrixBrand: React.FC = () => {
                     </div>
                 </div>
             </section>
-
 
             {/* Company Specs */}
             <section className="py-16" style={{ borderTop: '1px solid rgba(73, 169, 66, 0.15)' }}>
@@ -216,7 +236,7 @@ export const MatrixBrand: React.FC = () => {
             {/* Product Lineup by Category */}
             <section className="py-20">
                 <div className="container mx-auto px-6">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#fff' }}>
                             製品ラインナップ
                         </h2>
@@ -226,10 +246,40 @@ export const MatrixBrand: React.FC = () => {
                         </p>
                     </div>
 
+                    {/* Category Tabs */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
+                        {tabs.map(tab => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className="px-5 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-300"
+                                style={activeTab === tab.id ? {
+                                    backgroundColor: '#49a942',
+                                    color: '#fff',
+                                    boxShadow: '0 0 16px rgba(73,169,66,0.4)',
+                                } : {
+                                    backgroundColor: 'transparent',
+                                    color: '#8a8aad',
+                                    border: '1px solid rgba(73,169,66,0.25)',
+                                }}
+                                onMouseEnter={e => {
+                                    if (activeTab !== tab.id)
+                                        (e.currentTarget as HTMLButtonElement).style.color = '#fff';
+                                }}
+                                onMouseLeave={e => {
+                                    if (activeTab !== tab.id)
+                                        (e.currentTarget as HTMLButtonElement).style.color = '#8a8aad';
+                                }}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Products */}
                     <div className="space-y-16 max-w-6xl mx-auto">
-                        {categories.map((category, ci) => (
+                        {visibleCategories.map((category, ci) => (
                             <div key={ci}>
-                                {/* Category Header */}
                                 <div className="mb-6 pl-4" style={{ borderLeft: '3px solid #49a942' }}>
                                     <h3 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#fff' }}>
                                         {category.title}
@@ -242,7 +292,6 @@ export const MatrixBrand: React.FC = () => {
                                     </p>
                                 </div>
 
-                                {/* Machine Cards */}
                                 <div className={`grid gap-6 ${category.machines.length === 1 ? 'grid-cols-1 max-w-lg' : 'grid-cols-1 sm:grid-cols-2'}`}>
                                     {category.machines.map((machine, mi) => (
                                         <a
@@ -255,20 +304,15 @@ export const MatrixBrand: React.FC = () => {
                                                 backgroundColor: '#1a1a2e',
                                                 border: '1px solid rgba(73, 169, 66, 0.1)',
                                             }}
-                                            onMouseEnter={(e) => {
-                                                e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.5)';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.1)';
-                                            }}
+                                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.5)'; }}
+                                            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.1)'; }}
                                         >
-                                            {/* Image */}
                                             <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: '#f5f5f5' }}>
                                                 <img
                                                     src={machine.image}
                                                     alt={machine.name}
                                                     className="w-full h-full object-contain p-4 transition-all duration-500 group-hover:scale-105"
-                                                    onError={(e) => {
+                                                    onError={e => {
                                                         const target = e.target as HTMLImageElement;
                                                         target.style.display = 'none';
                                                         const parent = target.parentElement;
@@ -286,7 +330,6 @@ export const MatrixBrand: React.FC = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Info */}
                                             <div className="p-5" style={{ borderTop: '1px solid rgba(73, 169, 66, 0.1)' }}>
                                                 <h4 className="text-lg font-bold mb-1 transition-colors duration-300 group-hover:text-white" style={{ color: '#c0c0c8' }}>
                                                     {machine.model}
