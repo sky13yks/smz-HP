@@ -9,6 +9,16 @@ import { GearTransition } from "./GearTransition";
 export function RootLayout() {
   return (
     <div className="min-h-screen flex flex-col">
+      {/* ロゴ用SVGフィルター定義：アルファチャンネルを二値化して輪郭をシャープにする */}
+      <svg style={{ display: 'none' }} aria-hidden="true">
+        <defs>
+          <filter id="logo-sharp-alpha">
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="12" intercept="-5" />
+            </feComponentTransfer>
+          </filter>
+        </defs>
+      </svg>
       {/* ↓↓↓ ここに追加します（画面には何も表示されませんが機能します） ↓↓↓ */}
       <ScrollToTop />
       {/* 

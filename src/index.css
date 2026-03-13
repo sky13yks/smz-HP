@@ -137,11 +137,12 @@
     background-size: 40px 40px;
   }
 
-  /* ロゴ：ハード縁取りではなくソフトグローでエッジの粗さを目立たせない */
+  /* ロゴ：SVGフィルターでアルファを二値化→シャープな輪郭 + 淡いグロー */
   .logo-outlined {
     filter:
-      drop-shadow(0 0 6px rgba(255,255,255,0.35))
-      drop-shadow(0 0 2px rgba(255,255,255,0.25));
+      url(#logo-sharp-alpha)
+      drop-shadow(0 0 5px rgba(255,255,255,0.3))
+      drop-shadow(0 0 2px rgba(255,255,255,0.2));
   }
 
   .scanline {
