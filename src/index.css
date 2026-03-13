@@ -137,6 +137,19 @@
     background-size: 40px 40px;
   }
 
+  /* ロゴ白縁取り：透過PNGの輪郭（内側の穴含む）に白いアウトラインを付与 */
+  .logo-outlined {
+    filter:
+      drop-shadow(1px 0px 0px rgba(255,255,255,0.85))
+      drop-shadow(-1px 0px 0px rgba(255,255,255,0.85))
+      drop-shadow(0px 1px 0px rgba(255,255,255,0.85))
+      drop-shadow(0px -1px 0px rgba(255,255,255,0.85))
+      drop-shadow(1px 1px 0px rgba(255,255,255,0.6))
+      drop-shadow(-1px -1px 0px rgba(255,255,255,0.6))
+      drop-shadow(1px -1px 0px rgba(255,255,255,0.6))
+      drop-shadow(-1px 1px 0px rgba(255,255,255,0.6));
+  }
+
   .scanline {
     position: relative;
     overflow: hidden;

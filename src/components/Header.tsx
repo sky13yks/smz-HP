@@ -27,19 +27,7 @@ export function Header() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="h-14 md:h-16 w-auto object-contain transition-all duration-500"
-              style={{
-                filter: [
-                  'drop-shadow(1px 0px 0px rgba(255,255,255,0.85))',
-                  'drop-shadow(-1px 0px 0px rgba(255,255,255,0.85))',
-                  'drop-shadow(0px 1px 0px rgba(255,255,255,0.85))',
-                  'drop-shadow(0px -1px 0px rgba(255,255,255,0.85))',
-                  'drop-shadow(1px 1px 0px rgba(255,255,255,0.6))',
-                  'drop-shadow(-1px -1px 0px rgba(255,255,255,0.6))',
-                  'drop-shadow(1px -1px 0px rgba(255,255,255,0.6))',
-                  'drop-shadow(-1px 1px 0px rgba(255,255,255,0.6))',
-                ].join(' ')
-              }}
+              className="logo-outlined h-14 md:h-16 w-auto object-contain transition-all duration-500"
             />
           </Link>
 

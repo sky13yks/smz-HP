@@ -28,7 +28,7 @@ export function Footer() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="h-16 md:h-20 w-auto object-contain mb-4 transition-all duration-500"
+              className="logo-outlined h-16 md:h-20 w-auto object-contain mb-4 transition-all duration-500"
             />
             <p className="text-sm leading-relaxed" style={{ color: isMatrix ? '#6a6a8a' : '#d1d5db' }}>
               精密機械・歯車分野における<br />
