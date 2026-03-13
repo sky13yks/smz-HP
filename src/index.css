@@ -137,12 +137,17 @@
     background-size: 40px 40px;
   }
 
-  /* ロゴ：SVGフィルターでアルファを二値化→シャープな輪郭 + 淡いグロー */
+  /* ロゴ白縁取り */
   .logo-outlined {
     filter:
-      url(#logo-sharp-alpha)
-      drop-shadow(0 0 5px rgba(255,255,255,0.3))
-      drop-shadow(0 0 2px rgba(255,255,255,0.2));
+      drop-shadow(1px 0px 0px rgba(255,255,255,0.85))
+      drop-shadow(-1px 0px 0px rgba(255,255,255,0.85))
+      drop-shadow(0px 1px 0px rgba(255,255,255,0.85))
+      drop-shadow(0px -1px 0px rgba(255,255,255,0.85))
+      drop-shadow(1px 1px 0px rgba(255,255,255,0.6))
+      drop-shadow(-1px -1px 0px rgba(255,255,255,0.6))
+      drop-shadow(1px -1px 0px rgba(255,255,255,0.6))
+      drop-shadow(-1px 1px 0px rgba(255,255,255,0.6));
   }
 
   .scanline {
