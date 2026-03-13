@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logoImg from "../assets/logo_transparent.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
+
+const INVENTORY_URL = "https://www.jp.usedmachinery.bz/members/general_list_id/356";
 
 export function Header() {
   const location = useLocation();
@@ -50,6 +52,15 @@ export function Header() {
                 />
               </Link>
             ))}
+            <a
+              href={INVENTORY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold tracking-[0.15em] uppercase border border-white/30 rounded-lg text-white/70 hover:text-white hover:border-white/60 transition-all duration-300"
+            >
+              在庫一覧
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -77,6 +88,15 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={INVENTORY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm tracking-widest font-bold py-3 text-white/50 hover:text-white transition-colors"
+            >
+              在庫一覧
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </nav>
         </div>
       )}
