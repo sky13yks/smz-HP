@@ -118,3 +118,27 @@ Test Files  15 passed (15)
   Duration  1.51s
 Build: ✓ 700ms
 ```
+
+---
+
+## Phase 3: feat/seo-meta — SEO & ページタイトル
+
+### 完了タスク
+- `useDocumentTitle` フック新規作成 + テスト3件
+- 全10ページに動的ページタイトル設定
+- index.html: OGP (og:title/description/type/url) + Twitter Card メタタグ追加
+
+### テスト結果
+```
+Test Files  16 passed (16)
+     Tests  65 passed (65)
+Build: ✓ 746ms
+```
+
+---
+
+## Phase 4: chore/cleanup — クリーンアップ
+
+### 完了タスク
+- `main.tsx`: React.StrictMode でアプリ全体をラップ
+- REVIEW.md: 全Phase変更サマリー完成
