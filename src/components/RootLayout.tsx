@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { Toaster } from "sonner";
 
 export function RootLayout() {
   return (
@@ -24,6 +25,7 @@ export function RootLayout() {
         </ErrorBoundary>
       </main>
       <Footer />
+      <Toaster position="top-center" richColors />
     </div>
   );
 }
