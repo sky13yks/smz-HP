@@ -48,3 +48,45 @@ Test Files  5 passed (5)
 - react-router v7 は ESM/CJS デュアルパッケージ問題あり。`resolve.conditions: ['import', 'module', 'browser', 'default']` と `deps.optimizer.web.include` で解決
 - `ScrollToTop` コンポーネントが `window.scrollTo` を呼ぶため、テストでは `vi.stubGlobal` でモック必須
 - Figma 生成の shadcn/ui コンポーネントがバージョン付きインポート (`@radix-ui/react-accordion@1.2.3`) を使用しているため、vitest.config.ts にもエイリアス設定が必要
+
+---
+
+## Phase 1: fix/critical-stability — 安定性の基盤
+
+### 完了タスク
+
+#### 1. ErrorBoundary コンポーネント（TDD: RED→GREEN→REFACTOR）
+- `src/components/ErrorBoundary.tsx`: クラスコンポーネントによるエラーキャッチ
+- フォールバックUI: エラーメッセージ + 再読み込み + ホームへ戻るリンク
+- RootLayout の `<Outlet />` をラップ
+
+#### 2. NotFound (404) ページ
+- `src/pages/NotFound.tsx`: 404表示 + ホームリンク
+- `src/routes.ts`: ワイルドカードルート `{ path: "*", Component: NotFound }` 追加
+
+#### 3. テストカバレッジ拡充（26 → 60テスト）
+| 新規テストファイル | テスト数 | 内容 |
+|---------|---------|------|
+| `ErrorBoundary.test.tsx` | 4 | エラーキャッチ・フォールバック表示 |
+| `ScrollToTop.test.tsx` | 2 | scrollTo呼出・null返却 |
+| `Home.test.tsx` | 3 | ヒーロー・サービスセクション |
+| `History.test.tsx` | 3 | タイムライン・創業年 |
+| `Access.test.tsx` | 3 | 住所・電話番号 |
+| `TechSolutions.test.tsx` | 2 | タブ表示 |
+| `MatrixBrand.test.tsx` | 2 | カテゴリ表示 |
+| `Services.test.tsx` | 2 | 3サービスカード |
+| `Contact.test.tsx` | 5 | フォーム項目・送信ボタン |
+| `NotFound.test.tsx` | 3 | 404・ホームリンク・ルーティング統合 |
+| `routes.test.tsx` 拡充 | +5 | 全ルート+404テスト |
+
+#### 4. テスト環境改善
+- `setup.ts`: IntersectionObserver / ResizeObserver のモック追加
+- RootLayout: 無効トランジション(MatrixTransition/GearTransition)のインポート削除
+
+### テスト結果
+```
+Test Files  15 passed (15)
+     Tests  60 passed (60)
+  Duration  1.48s
+Build: ✓ 732ms
+```
