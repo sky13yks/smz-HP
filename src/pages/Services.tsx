@@ -1,5 +1,6 @@
 import { ArrowRight, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const services = [
   {
@@ -56,6 +57,7 @@ const services = [
 ];
 
 export function Services() {
+  useDocumentTitle('事業内容');
   return (
     <div className="min-h-screen bg-background bg-grid-white">
       {/* Hero */}

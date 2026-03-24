@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 const initialFormData = {
   category: "",
@@ -11,6 +12,7 @@ const initialFormData = {
 };
 
 export function Contact() {
+  useDocumentTitle('お問い合わせ');
   const [formData, setFormData] = useState(initialFormData);
 
   const handleSubmit = (e: React.FormEvent) => {

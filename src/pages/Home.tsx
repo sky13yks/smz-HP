@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { GearAnimation } from "../components/GearAnimation";
 import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe } from "lucide-react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function Home() {
+  useDocumentTitle('');
   return (
     <div className="min-h-screen bg-background scanline overflow-hidden">
       {/* Hero Section */}

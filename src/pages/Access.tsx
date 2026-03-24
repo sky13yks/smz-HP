@@ -1,6 +1,8 @@
 import { MapPin, Train, Car, Clock, Phone, Building2, Users } from "lucide-react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function Access() {
+  useDocumentTitle('アクセス');
   return (
     <div className="min-h-screen bg-background bg-grid-white">
       {/* Page Header */}

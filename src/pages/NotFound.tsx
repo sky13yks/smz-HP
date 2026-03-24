@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function NotFound() {
+  useDocumentTitle('ページが見つかりません');
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6">
       <div className="text-center max-w-lg">

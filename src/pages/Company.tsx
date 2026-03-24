@@ -1,6 +1,8 @@
 import { Target, Users, Building2, Heart } from "lucide-react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function Company() {
+  useDocumentTitle('会社情報');
   return (
     <div className="min-h-screen bg-background bg-grid-white">
       {/* Page Header */}

@@ -6,8 +6,10 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export const FAQ: React.FC = () => {
+    useDocumentTitle('よくあるご質問');
     return (
         <div className="min-h-screen bg-background bg-grid-white">
             {/* Page Header */}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 interface TimelineItem {
   year: string;
@@ -118,6 +119,7 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
 }
 
 export function History() {
+  useDocumentTitle('沿革');
   return (
     <div className="min-h-screen bg-background bg-grid-white">
       {/* Page Header */}
