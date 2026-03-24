@@ -1,5 +1,5 @@
 import { ArrowRight, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const services = [
   {

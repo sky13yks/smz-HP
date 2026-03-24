@@ -48,14 +48,22 @@ describe('Header コンポーネント', () => {
     expect(desktopLink.closest('a')).toHaveAttribute('rel', 'noopener noreferrer')
   })
 
-  it('モバイルメニューボタンをクリックでメニューが開く', async () => {
+  it('モバイルメニューボタンにaria-labelがある', () => {
+    renderHeader()
+    const menuButton = screen.getByRole('button', { name: /メニューを開く/ })
+    expect(menuButton).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('モバイルメニューボタンをクリックでメニューが開きaria-expandedが変わる', async () => {
     renderHeader()
     const user = userEvent.setup()
 
-    const menuButton = screen.getByRole('button')
+    const menuButton = screen.getByRole('button', { name: /メニューを開く/ })
     await user.click(menuButton)
 
-    // モバイルメニューが開いたので、ナビリンクが2セット表示される
+    // aria-expanded が true に
+    expect(menuButton).toHaveAttribute('aria-expanded', 'true')
+    // メニューが開いてナビリンクが2セット表示
     const homeLinks = screen.getAllByText('ホーム')
     expect(homeLinks.length).toBeGreaterThanOrEqual(2)
   })

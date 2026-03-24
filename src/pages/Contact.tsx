@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
+
+const initialFormData = {
+  category: "",
+  company: "",
+  name: "",
+  email: "",
+  message: "",
+};
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    category: "",
-    company: "",
-    department: "",
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("お問合せを受け付けました。24時間以内に担当者よりご連絡いたします。");
-    console.log("Form submitted:", formData);
+    toast.success("お問合せを受け付けました。24時間以内に担当者よりご連絡いたします。");
+    setFormData(initialFormData);
   };
 
   const handleChange = (
@@ -27,6 +27,8 @@ export function Contact() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const inputClass = "w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all";
 
   return (
     <div className="min-h-screen bg-background bg-grid-white">
@@ -107,13 +109,14 @@ export function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Category <span className="text-blue-500">*</span></label>
+                      <label htmlFor="category" className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Category <span className="text-blue-500">*</span></label>
                       <select
+                        id="category"
                         name="category"
                         required
                         value={formData.category}
                         onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all appearance-none"
+                        className={`${inputClass} appearance-none`}
                       >
                         <option value="" className="bg-background">選択してください</option>
                         <option value="quotation" className="bg-background">製品のお見積り</option>
@@ -123,53 +126,57 @@ export function Contact() {
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Company Name <span className="text-blue-500">*</span></label>
+                      <label htmlFor="company" className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Company Name <span className="text-blue-500">*</span></label>
                       <input
+                        id="company"
                         type="text"
                         name="company"
                         required
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                        className={inputClass}
                       />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Full Name <span className="text-blue-500">*</span></label>
+                      <label htmlFor="name" className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Full Name <span className="text-blue-500">*</span></label>
                       <input
+                        id="name"
                         type="text"
                         name="name"
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                        className={inputClass}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Email <span className="text-blue-500">*</span></label>
+                      <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Email <span className="text-blue-500">*</span></label>
                       <input
+                        id="email"
                         type="email"
                         name="email"
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                        className={inputClass}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Message Content <span className="text-blue-500">*</span></label>
+                    <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-white/40 ml-1">Message Content <span className="text-blue-500">*</span></label>
                     <textarea
+                      id="message"
                       name="message"
                       required
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="要求精度、予算感、納期など詳細にご記入ください。"
-                      className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none"
+                      className={`${inputClass} rounded-3xl resize-none`}
                     />
                   </div>
 
@@ -194,4 +201,3 @@ export function Contact() {
     </div>
   );
 }
-

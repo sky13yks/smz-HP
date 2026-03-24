@@ -90,3 +90,31 @@ Test Files  15 passed (15)
   Duration  1.48s
 Build: ✓ 732ms
 ```
+
+---
+
+## Phase 2: fix/accessibility-form — アクセシビリティ & フォーム改善
+
+### 完了タスク
+
+#### 1. アクセシビリティ修正
+- Header.tsx: モバイルメニューボタンに `aria-label` / `aria-expanded` 追加
+- Contact.tsx: 全フォーム要素に `htmlFor` / `id` 関連付け
+
+#### 2. Contact フォーム品質向上
+- `console.log` 削除（本番コード汚染除去）
+- `alert()` → `sonner` の `toast.success()` に置換
+- `<Toaster />` を RootLayout に追加
+- フォーム送信後のデータリセット処理
+- 未使用フィールド（department, phone, subject）を削除
+
+#### 3. インポート不整合修正
+- Services.tsx: `"react-router"` → `"react-router-dom"` に統一
+
+### テスト結果
+```
+Test Files  15 passed (15)
+     Tests  62 passed (62)
+  Duration  1.51s
+Build: ✓ 700ms
+```
