@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink, ArrowRight, Shield, Cpu, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 interface Machine {
     model: string;
@@ -156,6 +157,7 @@ const specs = [
 import machineImg from "../assets/matrix_grinder.png";
 
 export const MatrixBrand: React.FC = () => {
+    useDocumentTitle('Matrix Precision');
     const [activeTab, setActiveTab] = useState("all");
 
     const visibleCategories = activeTab === "all"

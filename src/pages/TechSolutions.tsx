@@ -4,8 +4,10 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight } from "lucide-react";
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export const TechSolutions: React.FC = () => {
+    useDocumentTitle('技術資料');
     const [searchParams, setSearchParams] = useSearchParams();
     const currentTab = searchParams.get('tab') || 'calculators';
 
