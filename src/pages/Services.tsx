@@ -59,16 +59,15 @@ const services = [
 export function Services() {
   useDocumentTitle('事業内容');
   return (
-    <div className="min-h-screen bg-background bg-grid-white">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/5 blur-[120px] rounded-full" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-black mb-8">
-              OUR <span className="text-gradient-blue uppercase">Services</span>
+            <h1 className="text-5xl md:text-7xl font-serif font-light mb-8">
+              OUR <span className="text-primary uppercase">Services</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed">
+            <p className="text-xl text-foreground/70 leading-relaxed">
               清水商會が、現場の「困った」を解決する5つのカタチ。
               75年の知見を次世代のソリューションへと昇華させました。
             </p>
@@ -85,11 +84,11 @@ export function Services() {
               return (
                 <div
                   key={i}
-                  className="group relative glass-panel rounded-3xl p-8 md:p-12 transition-all duration-500 hover:-translate-y-2 hover:border-white/20"
+                  className="group relative bg-card border border-border rounded-lg p-8 md:p-12 transition-all duration-500 hover:border-foreground/20"
                 >
                   {/* Number badge */}
                   <div
-                    className={`absolute -top-5 left-10 px-6 py-2 rounded-full text-[10px] font-black tracking-[0.3em] text-white shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-blue-600"
+                    className={`absolute -top-5 left-10 px-6 py-2 rounded-lg font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
                       }`}
                   >
                     SERVICE {service.number}
@@ -99,7 +98,7 @@ export function Services() {
                     {/* Icon Container */}
                     <div className="flex-shrink-0">
                       <div
-                        className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-blue-600/10 text-blue-400"
+                        className={`w-20 h-20 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"
                           }`}
                       >
                         <Icon size={32} />
@@ -108,14 +107,14 @@ export function Services() {
 
                     {/* Content */}
                     <div className="flex-1">
-                      <h2 className="text-2xl md:text-3xl font-black mb-3">
+                      <h2 className="text-2xl md:text-3xl font-medium mb-3">
                         {service.title}
                       </h2>
-                      <p className={`text-sm font-bold tracking-widest mb-6 uppercase ${service.isMatrix ? "text-matrix-green" : "text-blue-400"
+                      <p className={`text-sm font-medium tracking-wider mb-6 ${service.isMatrix ? "text-matrix-green" : "text-primary"
                         }`}>
                         {service.subtitle}
                       </p>
-                      <p className="text-white/60 leading-relaxed mb-8 text-lg">
+                      <p className="text-foreground/60 leading-relaxed mb-8 text-lg">
                         {service.description}
                       </p>
 
@@ -124,7 +123,7 @@ export function Services() {
                         {service.items.map((item, j) => (
                           <span
                             key={j}
-                            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold border border-white/5 bg-white/5 text-white/70 transition-colors group-hover:border-white/10 group-hover:text-white"
+                            className="inline-block px-4 py-1.5 rounded-lg text-xs font-medium border border-border bg-secondary text-foreground/70 transition-colors group-hover:border-foreground/10 group-hover:text-foreground"
                           >
                             {item}
                           </span>
@@ -135,7 +134,7 @@ export function Services() {
                       {service.isMatrix && (
                         <Link
                           to="/matrix"
-                          className="inline-flex items-center gap-3 mt-10 text-sm font-black tracking-widest text-matrix-green uppercase border-b-2 border-matrix-green/20 pb-1 hover:border-matrix-green transition-all"
+                          className="inline-flex items-center gap-3 mt-10 text-sm font-medium tracking-wider text-matrix-green uppercase border-b border-matrix-green/20 pb-1 hover:border-matrix-green transition-all"
                         >
                           Technology Details <ArrowRight size={16} />
                         </Link>
@@ -152,17 +151,16 @@ export function Services() {
       {/* CTA */}
       <section className="py-32 relative">
         <div className="container mx-auto px-6 text-center">
-          <div className="glass-panel max-w-4xl mx-auto p-16 rounded-[3rem] relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-matrix-green to-blue-600 opacity-50" />
-            <h2 className="text-4xl font-black mb-8">お気軽にご相談ください</h2>
-            <p className="text-white/60 mb-12 text-lg leading-relaxed max-w-2xl mx-auto">
+          <div className="bg-card border border-border max-w-4xl mx-auto p-16 rounded-lg relative overflow-hidden">
+            <h2 className="text-4xl font-medium mb-8">お気軽にご相談ください</h2>
+            <p className="text-foreground/60 mb-12 text-lg leading-relaxed max-w-2xl mx-auto">
               「ちょっと清水さんに聞いてみよう」<br />
               気兼ねなく声をかけていただける、製造現場の親身なパートナーでありたい。<br />
               道具一つ、部品一つのご相談から承ります。
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 bg-white text-background px-12 py-5 rounded-full font-black tracking-widest text-sm uppercase transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] hover:scale-105"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-12 py-5 font-medium tracking-wider text-sm uppercase transition-all duration-500"
             >
               Start Conversation <ArrowRight size={18} />
             </Link>
@@ -172,4 +170,3 @@ export function Services() {
     </div>
   );
 }
-

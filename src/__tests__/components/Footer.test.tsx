@@ -42,15 +42,14 @@ describe('Footer コンポーネント', () => {
     expect(screen.getByText('沿革')).toBeInTheDocument()
   })
 
-  it('Matrixページではスタイルが変わる', () => {
-    const { container } = renderFooter('/matrix')
-    const footer = container.querySelector('footer')
-    expect(footer).toHaveStyle({ backgroundColor: '#0f0f1e' })
+  it('Matrixページでもフッターが表示される', () => {
+    renderFooter('/matrix')
+    expect(screen.getByText('株式会社 清水商會')).toBeInTheDocument()
   })
 
-  it('通常ページでは通常カラーが適用される', () => {
+  it('通常ページでフッターが表示される', () => {
     const { container } = renderFooter('/')
     const footer = container.querySelector('footer')
-    expect(footer).toHaveStyle({ backgroundColor: '#1a2e5a' })
+    expect(footer).toBeInTheDocument()
   })
 })

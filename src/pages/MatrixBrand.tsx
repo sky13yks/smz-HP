@@ -165,28 +165,25 @@ export const MatrixBrand: React.FC = () => {
         : categories.filter(c => c.id === activeTab);
 
     return (
-        <div className="min-h-screen bg-background text-foreground bg-grid-white">
+        <div className="min-h-screen bg-background text-foreground">
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
-                <div className="absolute top-1/4 -left-20 w-96 h-96 bg-matrix-green/10 blur-[120px] rounded-full" />
-                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full" />
-
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="animate-fade-in-up">
-                            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-                                <span className="flex h-2 w-2 rounded-full bg-matrix-green animate-pulse" />
-                                <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/50">Coventry - Since 1913</span>
+                            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-md border border-border bg-secondary mb-8">
+                                <span className="flex h-2 w-2 rounded-full bg-matrix-green" />
+                                <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Coventry - Since 1913</span>
                             </div>
 
-                            <h1 className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-8 opacity-90">
+                            <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter leading-none mb-8 opacity-90">
                                 MATR<span className="text-matrix-green">I</span>X
                             </h1>
 
-                            <p className="text-2xl md:text-3xl font-light mb-8 max-w-xl leading-relaxed text-white/80">
+                            <p className="text-2xl md:text-3xl font-light mb-8 max-w-xl leading-relaxed text-foreground/80">
                                 歯車研削の極致へ。<br />
-                                <span className="text-gradient-green font-bold">サブミクロン精度の再定義。</span>
+                                <span className="text-gradient-green font-medium">サブミクロン精度の再定義。</span>
                             </p>
 
                             <div className="flex flex-wrap gap-6 pt-4">
@@ -194,23 +191,22 @@ export const MatrixBrand: React.FC = () => {
                                     href="https://www.matrix-machine.tw/jp/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="glass-panel group px-10 py-5 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-500 hover:shadow-[0_0_40px_rgba(58,181,74,0.3)] hover:border-matrix-green/50"
+                                    className="surface px-10 py-5 rounded-md font-medium text-sm tracking-wider uppercase transition-all duration-500 hover:border-matrix-green/50"
                                 >
                                     Explore Technology
                                 </a>
                             </div>
                         </div>
 
-                        <div className="relative animate-fade-in group pointer-events-none">
-                            <div className="absolute inset-0 bg-matrix-green/20 blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity duration-1000" />
+                        <div className="relative animate-fade-in pointer-events-none">
                             <img
                                 src={machineImg}
                                 alt="MATRIX CNC Gear Grinder"
-                                className="relative z-10 w-full h-auto rounded-3xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                                className="relative z-10 w-full h-auto rounded-lg shadow-2xl"
                             />
-                            <div className="absolute -bottom-6 -left-6 glass-panel p-6 rounded-2xl animate-pulse">
-                                <p className="text-[10px] font-mono tracking-widest text-matrix-green uppercase">Scanning Axis Accuracy</p>
-                                <p className="text-2xl font-mono text-white">±0.0001 mm</p>
+                            <div className="absolute -bottom-6 -left-6 surface p-6 rounded-lg">
+                                <p className="font-mono text-xs tracking-[0.15em] text-matrix-green uppercase">Scanning Axis Accuracy</p>
+                                <p className="text-2xl font-mono text-foreground">±0.0001 mm</p>
                             </div>
                         </div>
                     </div>
@@ -218,15 +214,15 @@ export const MatrixBrand: React.FC = () => {
             </section>
 
             {/* Company Specs */}
-            <section className="py-16" style={{ borderTop: '1px solid rgba(73, 169, 66, 0.15)' }}>
+            <section className="py-16 border-t border-matrix-green/15">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                         {specs.map((spec, i) => (
                             <div key={i} className="text-center p-4">
-                                <div className="text-xs tracking-widest mb-2 font-semibold" style={{ color: '#49a942' }}>
+                                <div className="font-mono text-xs tracking-[0.15em] mb-2 font-medium text-matrix-green">
                                     {spec.label}
                                 </div>
-                                <div className="text-sm" style={{ color: '#c0c0c8' }}>
+                                <div className="text-sm text-foreground/80">
                                     {spec.value}
                                 </div>
                             </div>
@@ -239,11 +235,11 @@ export const MatrixBrand: React.FC = () => {
             <section className="py-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#fff' }}>
+                        <h2 className="text-3xl md:text-4xl font-medium mb-4 text-foreground">
                             製品ラインナップ
                         </h2>
-                        <div className="w-16 h-0.5 mx-auto mb-4" style={{ backgroundColor: '#49a942' }} />
-                        <p className="text-sm max-w-2xl mx-auto" style={{ color: '#8a8aad' }}>
+                        <div className="w-16 h-0.5 mx-auto mb-4 bg-matrix-green" />
+                        <p className="text-sm max-w-2xl mx-auto text-muted-foreground">
                             研削方式・加工対象ごとに分類しています。各製品カードをクリックするとメーカー公式の製品ページが開きます。
                         </p>
                     </div>
@@ -254,24 +250,11 @@ export const MatrixBrand: React.FC = () => {
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className="px-5 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-300"
-                                style={activeTab === tab.id ? {
-                                    backgroundColor: '#49a942',
-                                    color: '#fff',
-                                    boxShadow: '0 0 16px rgba(73,169,66,0.4)',
-                                } : {
-                                    backgroundColor: 'transparent',
-                                    color: '#8a8aad',
-                                    border: '1px solid rgba(73,169,66,0.25)',
-                                }}
-                                onMouseEnter={e => {
-                                    if (activeTab !== tab.id)
-                                        (e.currentTarget as HTMLButtonElement).style.color = '#fff';
-                                }}
-                                onMouseLeave={e => {
-                                    if (activeTab !== tab.id)
-                                        (e.currentTarget as HTMLButtonElement).style.color = '#8a8aad';
-                                }}
+                                className={`px-5 py-2 rounded-md text-sm font-medium tracking-wider transition-all duration-300 ${
+                                    activeTab === tab.id
+                                        ? 'bg-matrix-green text-foreground'
+                                        : 'border border-matrix-green/20 text-muted-foreground hover:text-foreground'
+                                }`}
                             >
                                 {tab.label}
                             </button>
@@ -282,14 +265,14 @@ export const MatrixBrand: React.FC = () => {
                     <div className="space-y-16 max-w-6xl mx-auto">
                         {visibleCategories.map((category, ci) => (
                             <div key={ci}>
-                                <div className="mb-6 pl-4" style={{ borderLeft: '3px solid #49a942' }}>
-                                    <h3 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#fff' }}>
+                                <div className="mb-6 pl-4 border-l-[3px] border-matrix-green">
+                                    <h3 className="text-xl md:text-2xl font-medium mb-1 text-foreground">
                                         {category.title}
                                     </h3>
-                                    <p className="text-xs tracking-wider font-medium mb-2" style={{ color: '#49a942' }}>
+                                    <p className="text-xs tracking-wider font-medium mb-2 text-matrix-green">
                                         {category.titleEn}
                                     </p>
-                                    <p className="text-sm leading-relaxed max-w-3xl" style={{ color: '#8a8aad' }}>
+                                    <p className="text-sm leading-relaxed max-w-3xl text-muted-foreground">
                                         {category.description}
                                     </p>
                                 </div>
@@ -301,15 +284,9 @@ export const MatrixBrand: React.FC = () => {
                                             href={machine.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group block relative rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(73,169,66,0.15)]"
-                                            style={{
-                                                backgroundColor: '#1a1a2e',
-                                                border: '1px solid rgba(73, 169, 66, 0.1)',
-                                            }}
-                                            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.5)'; }}
-                                            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(73, 169, 66, 0.1)'; }}
+                                            className="group block relative rounded-lg overflow-hidden transition-all duration-500 bg-card border border-matrix-green/10 hover:border-matrix-green/50"
                                         >
-                                            <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: '#f5f5f5' }}>
+                                            <div className="relative aspect-[4/3] overflow-hidden bg-foreground/95">
                                                 <img
                                                     src={machine.image}
                                                     alt={machine.name}
@@ -319,25 +296,22 @@ export const MatrixBrand: React.FC = () => {
                                                         target.style.display = 'none';
                                                         const parent = target.parentElement;
                                                         if (parent) {
-                                                            parent.style.backgroundColor = '#252540';
-                                                            parent.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#49a942;font-size:0.85rem;text-align:center;padding:1.5rem;line-height:1.6;">${machine.model}<br/>${machine.name}</div>`;
+                                                            parent.style.backgroundColor = 'hsl(var(--secondary))';
+                                                            parent.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-matrix-green);font-size:0.85rem;text-align:center;padding:1.5rem;line-height:1.6;">${machine.model}<br/>${machine.name}</div>`;
                                                         }
                                                     }}
                                                 />
-                                                <div
-                                                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                                    style={{ backgroundColor: 'rgba(73, 169, 66, 0.08)' }}
-                                                >
-                                                    <ExternalLink size={24} style={{ color: '#49a942' }} />
+                                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-matrix-green/10">
+                                                    <ExternalLink size={24} className="text-matrix-green" />
                                                 </div>
                                             </div>
 
-                                            <div className="p-5" style={{ borderTop: '1px solid rgba(73, 169, 66, 0.1)' }}>
-                                                <h4 className="text-lg font-bold mb-1 transition-colors duration-300 group-hover:text-white" style={{ color: '#c0c0c8' }}>
+                                            <div className="p-5 border-t border-matrix-green/10">
+                                                <h4 className="text-lg font-medium mb-1 transition-colors duration-300 text-foreground/80 group-hover:text-foreground">
                                                     {machine.model}
                                                 </h4>
-                                                <p className="text-xs font-medium mb-2" style={{ color: '#49a942' }}>{machine.name}</p>
-                                                <p className="text-xs leading-relaxed" style={{ color: '#6a6a8a' }}>
+                                                <p className="text-xs font-medium mb-2 text-matrix-green">{machine.name}</p>
+                                                <p className="text-xs leading-relaxed text-muted-foreground">
                                                     {machine.description}
                                                 </p>
                                             </div>
@@ -351,39 +325,39 @@ export const MatrixBrand: React.FC = () => {
             </section>
 
             {/* Features */}
-            <section className="py-20" style={{ backgroundColor: '#141428' }}>
+            <section className="py-20 bg-secondary">
                 <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-center mb-16" style={{ color: '#fff' }}>
+                    <h2 className="text-3xl font-medium text-center mb-16 text-foreground">
                         MATRIXが選ばれる理由
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div className="p-8 rounded-lg text-center" style={{ backgroundColor: '#1a1a2e', border: '1px solid rgba(73, 169, 66, 0.1)' }}>
-                            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'rgba(73, 169, 66, 0.1)' }}>
-                                <Shield size={24} style={{ color: '#49a942' }} />
+                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                                <Shield size={24} className="text-matrix-green" />
                             </div>
-                            <h3 className="text-lg font-bold mb-3" style={{ color: '#fff' }}>100年超の歴史</h3>
-                            <p className="text-sm leading-relaxed" style={{ color: '#8a8aad' }}>
+                            <h3 className="text-lg font-medium mb-3 text-foreground">100年超の歴史</h3>
+                            <p className="text-sm leading-relaxed text-muted-foreground">
                                 1913年、英国コヴェントリーで創業。百年超のエンジニアリング知見を現代の精密研削技術に継承。
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-lg text-center" style={{ backgroundColor: '#1a1a2e', border: '1px solid rgba(73, 169, 66, 0.1)' }}>
-                            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'rgba(73, 169, 66, 0.1)' }}>
-                                <Cpu size={24} style={{ color: '#49a942' }} />
+                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                                <Cpu size={24} className="text-matrix-green" />
                             </div>
-                            <h3 className="text-lg font-bold mb-3" style={{ color: '#fff' }}>サブミクロン精度</h3>
-                            <p className="text-sm leading-relaxed" style={{ color: '#8a8aad' }}>
+                            <h3 className="text-lg font-medium mb-3 text-foreground">サブミクロン精度</h3>
+                            <p className="text-sm leading-relaxed text-muted-foreground">
                                 FANUC・SIEMENS制御による最先端NC制御と、独自開発の対話型ソフトウェア「MATRIWORK」で高精度加工を実現。
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-lg text-center" style={{ backgroundColor: '#1a1a2e', border: '1px solid rgba(73, 169, 66, 0.1)' }}>
-                            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: 'rgba(73, 169, 66, 0.1)' }}>
-                                <Wrench size={24} style={{ color: '#49a942' }} />
+                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                                <Wrench size={24} className="text-matrix-green" />
                             </div>
-                            <h3 className="text-lg font-bold mb-3" style={{ color: '#fff' }}>清水商會のサポート</h3>
-                            <p className="text-sm leading-relaxed" style={{ color: '#8a8aad' }}>
+                            <h3 className="text-lg font-medium mb-3 text-foreground">清水商會のサポート</h3>
+                            <p className="text-sm leading-relaxed text-muted-foreground">
                                 導入前の技術相談から、設置・立ち上げ、稼働後のメンテナンスまで。日本国内のアフターサービスを一貫して対応。
                             </p>
                         </div>
@@ -392,19 +366,18 @@ export const MatrixBrand: React.FC = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20" style={{ borderTop: '1px solid rgba(73, 169, 66, 0.15)' }}>
+            <section className="py-20 border-t border-matrix-green/15">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold mb-4" style={{ color: '#fff' }}>
+                    <h2 className="text-3xl font-medium mb-4 text-foreground">
                         MATRIX製品に関するお問い合わせ
                     </h2>
-                    <p className="mb-8 max-w-2xl mx-auto" style={{ color: '#8a8aad' }}>
+                    <p className="mb-8 max-w-2xl mx-auto text-muted-foreground">
                         仕様の確認、見積り依頼、デモのご相談など、お気軽にご連絡ください。<br />
                         MATRIX製品に精通した担当者が対応いたします。
                     </p>
                     <Link
                         to="/contact"
-                        className="inline-flex items-center gap-2 px-10 py-4 rounded font-semibold transition-all duration-300 hover:shadow-[0_0_32px_rgba(73,169,66,0.4)]"
-                        style={{ backgroundColor: '#49a942', color: '#fff' }}
+                        className="inline-flex items-center gap-2 px-10 py-4 rounded-md font-medium tracking-wider transition-all duration-300 bg-matrix-green text-foreground"
                     >
                         お問い合わせフォームへ
                         <ArrowRight size={18} />

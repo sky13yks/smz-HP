@@ -87,30 +87,30 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
   return (
     <div
       ref={itemRef}
-      className={`relative transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+      className={`relative transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
         }`}
       style={{ transitionDelay: `${index * 50}ms` }}
     >
       <div className="flex gap-8 md:gap-16">
         {/* Year marker */}
         <div className="flex-shrink-0 w-24 md:w-40 text-right pt-2">
-          <div className="text-3xl md:text-5xl font-black text-white leading-none italic">{item.year}</div>
-          {item.month && <div className="text-[10px] font-black tracking-widest text-blue-400 mt-2 uppercase">{item.month}</div>}
+          <div className="text-3xl md:text-5xl font-serif font-light text-foreground leading-none">{item.year}</div>
+          {item.month && <div className="font-mono text-xs tracking-[0.15em] text-primary mt-2 uppercase">{item.month}</div>}
         </div>
 
         {/* Timeline line */}
         <div className="relative flex-shrink-0">
-          <div className={`w-3 h-3 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] relative z-10 transition-colors duration-500 ${isVisible ? "bg-blue-500" : "bg-white/10"}`} />
+          <div className={`w-3 h-3 rounded-full relative z-10 transition-colors duration-500 ${isVisible ? "bg-primary" : "bg-muted-foreground/20"}`} />
           {index < timelineData.length - 1 && (
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-blue-500/50 to-transparent" />
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[1px] h-full bg-border" />
           )}
         </div>
 
         {/* Content */}
         <div className="flex-1 pb-20">
-          <div className="glass-panel p-8 rounded-3xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.07]">
-            <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-            <p className="text-white/50 leading-relaxed text-sm">{item.description}</p>
+          <div className="surface p-8 rounded-lg transition-all duration-500 hover:border-border/80">
+            <h3 className="text-xl font-medium mb-4 text-foreground">{item.title}</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
           </div>
         </div>
       </div>
@@ -121,17 +121,16 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
 export function History() {
   useDocumentTitle('沿革');
   return (
-    <div className="min-h-screen bg-background bg-grid-white">
+    <div className="min-h-screen bg-background">
       {/* Page Header */}
       <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px] rounded-full" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-none">
+            <h1 className="font-serif text-5xl md:text-7xl font-light mb-8 leading-none">
               OUR <br />
-              <span className="text-gradient-blue uppercase">History</span>
+              <span className="text-primary">History</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               1950年の創業から現在まで。<br />
               切削工具の専門商社として歩んできた、75年の研鑽の軌跡。
             </p>
@@ -151,28 +150,28 @@ export function History() {
       </section>
 
       {/* Milestones */}
-      <section className="py-32 relative bg-white/5">
+      <section className="py-32 relative bg-secondary/50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-black mb-20 text-center italic opacity-20 uppercase tracking-[0.5em]">Milestones</h2>
+            <h2 className="font-serif text-4xl font-light mb-20 text-center opacity-20 uppercase tracking-[0.15em]">Milestones</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="text-center group">
-                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">75</div>
-                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Years of Expertise</div>
-                <div className="text-white/50 text-sm font-bold">創業からの不変の信頼</div>
+              <div className="text-center">
+                <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">75</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Years of Expertise</div>
+                <div className="text-muted-foreground text-sm font-normal">創業からの不変の信頼</div>
               </div>
 
-              <div className="text-center group">
-                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">03</div>
-                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Generations</div>
-                <div className="text-white/50 text-sm font-bold">受け継がれる技術と想い</div>
+              <div className="text-center">
+                <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">03</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Generations</div>
+                <div className="text-muted-foreground text-sm font-normal">受け継がれる技術と想い</div>
               </div>
 
-              <div className="text-center group">
-                <div className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/10 mb-4 group-hover:scale-110 transition-transform duration-500 italic">10+</div>
-                <div className="text-xs font-black tracking-[0.4em] text-blue-400 mb-2 uppercase">Global Partners</div>
-                <div className="text-white/50 text-sm font-bold">世界へ広がるネットワーク</div>
+              <div className="text-center">
+                <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">10+</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Global Partners</div>
+                <div className="text-muted-foreground text-sm font-normal">世界へ広がるネットワーク</div>
               </div>
             </div>
           </div>
@@ -183,17 +182,17 @@ export function History() {
       <section className="py-32 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="glass-panel p-16 md:p-24 rounded-[4rem] relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-              <h2 className="text-3xl md:text-4xl font-black mb-12">これからの展望</h2>
-              <div className="space-y-8 text-white/50 text-lg leading-relaxed">
+            <div className="surface p-16 md:p-24 rounded-lg relative overflow-hidden">
+              <div className="h-px w-full bg-border absolute top-0 left-0" />
+              <h2 className="font-serif text-3xl md:text-4xl font-light mb-12">これからの展望</h2>
+              <div className="space-y-8 text-muted-foreground text-lg leading-relaxed">
                 <p>
                   時代とともに、製造現場のニーズは常に変化し続けています。
                 </p>
                 <p>
                   私たちは、75年で培った「目利き」の力を基盤に、最新のデジタル技術やグローバルなネットワークを融合させ、次世代の「つくる」を支えるソリューションを提供し続けます。
                 </p>
-                <p className="text-white font-bold italic">
+                <p className="text-foreground font-medium">
                   「歴史を重んじ、未来を創る。温故知新の精神で、次の100年へ。」
                 </p>
               </div>

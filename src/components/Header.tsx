@@ -20,14 +20,14 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto">
-        <div className="glass-panel pointer-events-auto rounded-2xl px-6 py-2 flex items-center justify-between transition-all duration-500">
-          <Link to="/" className="flex items-center group">
+        <div className="bg-background/95 backdrop-blur-sm border-b border-border px-6 py-2 flex items-center justify-between">
+          <Link to="/" className="flex items-center">
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="logo-outlined h-14 md:h-16 w-auto object-contain transition-all duration-500"
+              className="logo-outlined h-14 md:h-16 w-auto object-contain"
             />
           </Link>
 
@@ -37,24 +37,20 @@ export function Header() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative py-2 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 group ${location.pathname === item.path
-                  ? "text-white"
-                  : "text-white/50 hover:text-white"
-                  }`}
+                className={`py-2 text-sm tracking-wide transition-colors duration-300 ${
+                  location.pathname === item.path
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {item.label}
-                {/* Precise Indicator */}
-                <span
-                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 rounded-full transition-all duration-500 bg-gradient-to-r ${item.path === "/matrix" ? "from-green-400 to-green-600" : "from-blue-400 to-blue-600"
-                    } ${location.pathname === item.path ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'}`}
-                />
               </Link>
             ))}
             <a
               href={INVENTORY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold tracking-[0.15em] uppercase border border-white/30 rounded-lg text-white/70 hover:text-white hover:border-white/60 transition-all duration-300"
+              className="flex items-center gap-1.5 px-4 py-1.5 text-sm border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-300"
             >
               在庫一覧
               <ExternalLink className="w-3 h-3" />
@@ -63,7 +59,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={isMenuOpen}
@@ -75,14 +71,15 @@ export function Header() {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-24 left-4 right-4 glass-panel rounded-2xl p-6 animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-auto">
+        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-background border-b border-border p-6">
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm tracking-widest font-bold py-3 border-b border-white/5 transition-colors ${location.pathname === item.path ? "text-white" : "text-white/50"
-                  }`}
+                className={`text-sm tracking-wide py-3 border-b border-border transition-colors ${
+                  location.pathname === item.path ? "text-foreground" : "text-muted-foreground"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -92,7 +89,7 @@ export function Header() {
               href={INVENTORY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm tracking-widest font-bold py-3 text-white/50 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm tracking-wide py-3 text-muted-foreground hover:text-foreground transition-colors"
             >
               在庫一覧
               <ExternalLink className="w-4 h-4" />
@@ -103,4 +100,3 @@ export function Header() {
     </header>
   );
 }
-
