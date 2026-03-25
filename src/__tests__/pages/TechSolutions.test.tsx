@@ -16,8 +16,7 @@ function renderPage(search = '') {
 describe('TechSolutions ページ', () => {
   it('ページが正常にレンダリングされる', () => {
     renderPage()
-    const matches = screen.getAllByText(/TECH/i)
-    expect(matches.length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/技術資料/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('タブコンテンツが存在する', () => {

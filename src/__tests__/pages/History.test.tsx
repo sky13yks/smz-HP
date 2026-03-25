@@ -16,7 +16,7 @@ function renderPage() {
 describe('History ページ', () => {
   it('ページタイトルが表示される', () => {
     renderPage()
-    expect(screen.getByText(/HISTORY/i)).toBeInTheDocument()
+    expect(screen.getByText(/沿革/)).toBeInTheDocument()
   })
 
   it('創業年「1950」がタイムラインに表示される', () => {

@@ -23,7 +23,6 @@ describe('Services ページ', () => {
 
   it('ページタイトルが表示される', () => {
     renderPage()
-    expect(screen.getByText(/OUR/)).toBeInTheDocument()
-    expect(screen.getByText(/Services/i)).toBeInTheDocument()
+    expect(screen.getByText(/事業内容/)).toBeInTheDocument()
   })
 })

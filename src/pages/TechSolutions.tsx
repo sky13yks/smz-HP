@@ -62,8 +62,7 @@ export const TechSolutions: React.FC = () => {
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-3xl animate-fade-in-up">
                         <h1 className="text-5xl md:text-7xl font-serif font-light mb-8 leading-none">
-                            TECH <br />
-                            <span className="text-primary">Resources</span>
+                            技術資料
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed">
                             現場の精度を支える、計算ツールと技術アーカイブ。<br />
@@ -77,8 +76,8 @@ export const TechSolutions: React.FC = () => {
                 <div className="container mx-auto px-6 max-w-6xl">
                     <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
                         <TabsList className="grid w-full grid-cols-2 mb-12 bg-secondary border border-border p-1 rounded-md h-16">
-                            <TabsTrigger value="calculators" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">Calculators</TabsTrigger>
-                            <TabsTrigger value="docs" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">Technical Docs</TabsTrigger>
+                            <TabsTrigger value="calculators" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">計算ツール</TabsTrigger>
+                            <TabsTrigger value="docs" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">技術資料</TabsTrigger>
                         </TabsList>
 
                         <TabsContent value="calculators" className="animate-fade-in mt-0 outline-none">
@@ -88,40 +87,40 @@ export const TechSolutions: React.FC = () => {
                                     <div className="absolute top-0 left-0 w-full h-px bg-primary/50" />
                                     <div className="mb-10">
                                         <h2 className="text-2xl font-medium mb-2">SMZ向心度補正</h2>
-                                        <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground">Y-Axis Compensation for Hob Sharpeners</p>
+                                        <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground">ホブ刃溝研削用 Y軸補正計算</p>
                                     </div>
 
                                     <div className="space-y-6">
                                         <div className="grid grid-cols-2 gap-6">
                                             <div className="space-y-2">
-                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Diameter (mm)</Label>
+                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">直径 (mm)</Label>
                                                 <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={smzInputs.diameter} onChange={e => setSmzInputs({ ...smzInputs, diameter: +e.target.value })} />
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Concentricity (μm)</Label>
+                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">向心度 (μm)</Label>
                                                 <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={smzInputs.concentricity} onChange={e => setSmzInputs({ ...smzInputs, concentricity: +e.target.value })} />
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Form Error (μm)</Label>
+                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">形状誤差 (μm)</Label>
                                                 <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={smzInputs.formError} onChange={e => setSmzInputs({ ...smzInputs, formError: +e.target.value })} />
                                             </div>
                                             <div className="space-y-2">
-                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Tip Base (mm)</Label>
+                                                <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">先端基準 (mm)</Label>
                                                 <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={smzInputs.tipBase} onChange={e => setSmzInputs({ ...smzInputs, tipBase: +e.target.value })} />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Root Base (mm)</Label>
+                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">歯元基準 (mm)</Label>
                                             <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={smzInputs.rootBase} onChange={e => setSmzInputs({ ...smzInputs, rootBase: +e.target.value })} />
                                         </div>
 
                                         <button onClick={calculateSmz} className="w-full mt-6 py-4 bg-primary text-primary-foreground rounded-md font-medium text-sm tracking-wider transition-all">
-                                            Execute Calculation
+                                            計算する
                                         </button>
 
                                         {smzResult !== null && (
                                             <div className="mt-8 p-6 bg-primary/10 rounded-md border border-primary/20 text-center">
-                                                <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">Correction Output (mm)</p>
+                                                <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">補正値 (mm)</p>
                                                 <div className="text-4xl font-light text-primary font-mono tracking-tighter">
                                                     {smzResult.toFixed(6)}
                                                 </div>
@@ -135,30 +134,30 @@ export const TechSolutions: React.FC = () => {
                                     <div className="absolute top-0 left-0 w-full h-px bg-border" />
                                     <div className="mb-10">
                                         <h2 className="text-2xl font-medium mb-2">汎用補正計算</h2>
-                                        <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground">Arc Sine Geometric Algorithm</p>
+                                        <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground">逆正弦幾何計算</p>
                                     </div>
 
                                     <div className="space-y-6">
                                         <div className="space-y-2">
-                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Diameter</Label>
+                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">直径</Label>
                                             <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={simpleInputs.diameter} onChange={e => setSimpleInputs({ ...simpleInputs, diameter: +e.target.value })} />
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Measured Height</Label>
+                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">計測高さ</Label>
                                             <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={simpleInputs.height} onChange={e => setSimpleInputs({ ...simpleInputs, height: +e.target.value })} />
                                         </div>
                                         <div className="space-y-2">
-                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">Base Length</Label>
+                                            <Label className="font-mono text-xs tracking-[0.15em] text-muted-foreground ml-1">基準長さ</Label>
                                             <Input type="number" className="bg-secondary border-border rounded-md h-12 text-foreground font-mono" value={simpleInputs.base} onChange={e => setSimpleInputs({ ...simpleInputs, base: +e.target.value })} />
                                         </div>
 
                                         <button onClick={calculateSimple} className="w-full mt-6 py-4 bg-secondary border border-border rounded-md font-medium text-sm tracking-wider transition-all hover:bg-secondary/80">
-                                            Execute Calculation
+                                            計算する
                                         </button>
 
                                         {simpleResult !== null && (
                                             <div className="mt-8 p-6 bg-secondary border border-border rounded-md text-center">
-                                                <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">Result Output (Units)</p>
+                                                <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">計算結果</p>
                                                 <div className="text-4xl font-light text-foreground font-mono tracking-tighter">
                                                     {simpleResult.toFixed(6)}
                                                 </div>
@@ -175,7 +174,7 @@ export const TechSolutions: React.FC = () => {
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                         <div>
                                             <div className="flex items-center gap-4 mb-4">
-                                                <span className="px-3 py-1 bg-primary text-primary-foreground font-mono text-xs tracking-[0.15em]">New Tech</span>
+                                                <span className="px-3 py-1 bg-primary text-primary-foreground font-mono text-xs tracking-[0.15em]">技術記事</span>
                                                 <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">2026.03.02</span>
                                             </div>
                                             <h3 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors">ホブ刃溝研削における向心度の重要性</h3>
@@ -195,7 +194,7 @@ export const TechSolutions: React.FC = () => {
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                         <div>
                                             <div className="flex items-center gap-4 mb-4">
-                                                <span className="px-3 py-1 bg-secondary border border-border text-muted-foreground font-mono text-xs tracking-[0.15em]">Coming Soon</span>
+                                                <span className="px-3 py-1 bg-secondary border border-border text-muted-foreground font-mono text-xs tracking-[0.15em]">準備中</span>
                                                 <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">2026.02.15</span>
                                             </div>
                                             <h3 className="text-2xl font-medium mb-3">チェンジギアーの組合わせ最適化</h3>

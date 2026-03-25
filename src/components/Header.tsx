@@ -27,7 +27,7 @@ export function Header() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="logo-outlined h-14 md:h-16 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain"
             />
           </Link>
 

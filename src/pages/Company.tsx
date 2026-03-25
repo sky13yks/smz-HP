@@ -10,8 +10,7 @@ export function Company() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-serif font-light mb-8 leading-none">
-              COMPANY <br />
-              <span className="text-primary uppercase">Profile</span>
+              会社情報
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
               歯車加工の構造を理解し、技術者と対話できる専門商社として。<br />
@@ -28,7 +27,7 @@ export function Company() {
             <div className="bg-card border border-border p-10 md:p-20 rounded-lg relative overflow-hidden">
               <div className="grid lg:grid-cols-1 gap-12">
                 <div>
-                  <h2 className="font-mono text-xs font-medium tracking-[0.15em] text-primary uppercase mb-6">CEO Message</h2>
+                  <h2 className="font-mono text-xs font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
                   <p className="text-3xl md:text-4xl font-medium mb-12 leading-tight">
                     温故知新。<br />
                     75年の研鑽を、これからの「つくる」へ。
@@ -58,7 +57,7 @@ export function Company() {
 
                   <div className="mt-20 pt-12 border-t border-border flex flex-col md:flex-row justify-between items-end gap-6">
                     <div>
-                      <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase mb-2">Representative Director</p>
+                      <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase mb-2">代表取締役</p>
                       <p className="text-3xl font-medium">清水 正太</p>
                     </div>
                     <div className="text-right">
@@ -76,7 +75,7 @@ export function Company() {
       <section className="py-32 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-serif font-light mb-4 uppercase">Our Philosophy</h2>
+            <h2 className="text-4xl font-serif font-light mb-4 uppercase">私たちの理念</h2>
             <div className="h-px w-20 bg-primary mx-auto" />
           </div>
 
@@ -119,7 +118,7 @@ export function Company() {
       <section className="py-32 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-serif font-light mb-16 text-center italic">Corporate Profile</h2>
+            <h2 className="text-4xl font-serif font-light mb-16 text-center italic">会社概要</h2>
 
             <div className="bg-card border border-border rounded-lg overflow-hidden">
               {[

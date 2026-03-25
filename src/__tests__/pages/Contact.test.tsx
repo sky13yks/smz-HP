@@ -23,7 +23,7 @@ function renderPage() {
 describe('Contact ページ', () => {
   it('ページタイトルが表示される', () => {
     renderPage()
-    expect(screen.getByText(/GET IN/)).toBeInTheDocument()
+    expect(screen.getAllByText(/お問い合わせ/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('電話番号が表示される', () => {
@@ -38,17 +38,16 @@ describe('Contact ページ', () => {
 
   it('フォームの必須フィールドにlabel関連付けがある', () => {
     renderPage()
-    // htmlFor と id の関連付けを確認
-    expect(screen.getByLabelText(/Category/)).toBeInTheDocument()
-    expect(screen.getByLabelText(/Company Name/)).toBeInTheDocument()
-    expect(screen.getByLabelText(/Full Name/)).toBeInTheDocument()
+    expect(screen.getByLabelText(/お問合せ種別/)).toBeInTheDocument()
+    expect(screen.getByLabelText(/会社名/)).toBeInTheDocument()
+    expect(screen.getByLabelText(/お名前/)).toBeInTheDocument()
     expect(screen.getByLabelText(/Email/)).toBeInTheDocument()
-    expect(screen.getByLabelText(/Message Content/)).toBeInTheDocument()
+    expect(screen.getByLabelText(/お問合せ内容/)).toBeInTheDocument()
   })
 
   it('送信ボタンが表示される', () => {
     renderPage()
-    const submitButton = screen.getByRole('button', { name: /Process & Send/i })
+    const submitButton = screen.getByRole('button', { name: /送信する/i })
     expect(submitButton).toBeInTheDocument()
   })
 
@@ -58,14 +57,14 @@ describe('Contact ページ', () => {
     renderPage()
 
     // フォーム入力
-    await user.selectOptions(screen.getByLabelText(/Category/), 'quotation')
-    await user.type(screen.getByLabelText(/Company Name/), 'テスト株式会社')
-    await user.type(screen.getByLabelText(/Full Name/), '山田太郎')
+    await user.selectOptions(screen.getByLabelText(/お問合せ種別/), 'quotation')
+    await user.type(screen.getByLabelText(/会社名/), 'テスト株式会社')
+    await user.type(screen.getByLabelText(/お名前/), '山田太郎')
     await user.type(screen.getByLabelText(/Email/), 'test@example.com')
-    await user.type(screen.getByLabelText(/Message Content/), 'テストメッセージ')
+    await user.type(screen.getByLabelText(/お問合せ内容/), 'テストメッセージ')
 
     // 送信
-    await user.click(screen.getByRole('button', { name: /Process & Send/i }))
+    await user.click(screen.getByRole('button', { name: /送信する/i }))
 
     // toast.success が呼ばれた
     expect(toast.success).toHaveBeenCalledWith(

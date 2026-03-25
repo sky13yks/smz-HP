@@ -65,7 +65,7 @@ export function Services() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-serif font-light mb-8">
-              OUR <span className="text-primary uppercase">Services</span>
+              事業内容
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
               清水商會が、現場の「困った」を解決する5つのカタチ。
@@ -136,7 +136,7 @@ export function Services() {
                           to="/matrix"
                           className="inline-flex items-center gap-3 mt-10 text-sm font-medium tracking-wider text-matrix-green uppercase border-b border-matrix-green/20 pb-1 hover:border-matrix-green transition-all"
                         >
-                          Technology Details <ArrowRight size={16} />
+                          技術詳細を見る <ArrowRight size={16} />
                         </Link>
                       )}
                     </div>
@@ -162,7 +162,7 @@ export function Services() {
               to="/contact"
               className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-12 py-5 font-medium tracking-wider text-sm uppercase transition-all duration-500"
             >
-              Start Conversation <ArrowRight size={18} />
+              お問い合わせする <ArrowRight size={18} />
             </Link>
           </div>
         </div>

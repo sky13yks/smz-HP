@@ -30,13 +30,13 @@ export function Home() {
                 to="/services"
                 className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider uppercase transition-all duration-500 flex items-center gap-3"
               >
-                Our Services <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                事業内容を見る <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/matrix"
                 className="bg-card border border-border px-10 py-5 font-medium text-sm tracking-wider uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
               >
-                The Matrix Brand
+                Matrix ブランド
               </Link>
             </div>
           </div>
@@ -92,7 +92,7 @@ export function Home() {
                 <h3 className="text-2xl font-medium mb-4">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">{feature.desc}</p>
                 <div className="flex items-center gap-2 text-primary font-medium text-xs tracking-wider uppercase">
-                  Learn More <ArrowRight className="w-4 h-4" />
+                  詳しく見る <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>
             ))}
@@ -115,19 +115,19 @@ export function Home() {
                 その誇りと責任を胸に、日本のものづくりを支え続けます。
               </p>
               <Link to="/company" className="inline-flex items-center gap-4 text-primary font-medium tracking-wider text-sm hover:gap-6 transition-all">
-                VIEW OUR HERITAGE <ArrowRight className="w-5 h-5" />
+                会社情報を見る <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
             <div className="flex-1 grid grid-cols-2 gap-6 w-full">
               <div className="bg-card border border-border p-8 rounded-lg">
                 <ShieldCheck className="w-10 h-10 text-primary mb-6" />
                 <div className="text-4xl font-medium mb-2">75+</div>
-                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">Years of Trust</div>
+                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
               </div>
               <div className="bg-card border border-border p-8 rounded-lg">
                 <Globe className="w-10 h-10 text-primary mb-6" />
                 <div className="text-4xl font-medium mb-2">GLOBAL</div>
-                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">Supplier Network</div>
+                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
               </div>
             </div>
           </div>

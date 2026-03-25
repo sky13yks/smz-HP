@@ -16,7 +16,7 @@ function renderPage() {
 describe('Access ページ', () => {
   it('ページタイトルが表示される', () => {
     renderPage()
-    expect(screen.getByText(/LOCATIONS/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/アクセス/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('本社住所が表示される', () => {

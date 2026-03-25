@@ -10,7 +10,7 @@ export function Footer() {
             <img
               src={logoImg}
               alt="SHIMIZU SHOKAI"
-              className="logo-outlined h-16 md:h-20 w-auto object-contain mb-4"
+              className="h-16 md:h-20 w-auto object-contain mb-4"
             />
             <p className="text-sm leading-relaxed text-muted-foreground">
               精密機械・歯車分野における<br />

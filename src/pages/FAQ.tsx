@@ -17,8 +17,7 @@ export const FAQ: React.FC = () => {
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-3xl animate-fade-in-up">
                         <h1 className="text-5xl md:text-7xl font-serif font-light mb-8 leading-none">
-                            COMMON <br />
-                            <span className="text-primary">Questions</span>
+                            よくあるご質問
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed">
                             サービス内容や製品に関する、よくあるご質問をまとめています。<br />

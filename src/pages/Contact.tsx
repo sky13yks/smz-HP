@@ -39,8 +39,7 @@ export function Contact() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="font-serif text-5xl md:text-7xl font-light mb-8 leading-none">
-              GET IN <br />
-              <span className="text-primary">Touch</span>
+              お問い合わせ
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               技術的なご相談、製品のお問合せなど、お気軽にご連絡ください。<br />
@@ -56,7 +55,7 @@ export function Contact() {
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-8 animate-fade-in">
               <div className="surface p-10 rounded-lg">
-                <h2 className="font-mono text-xs font-medium mb-10 tracking-[0.15em] uppercase text-muted-foreground">Contact Info</h2>
+                <h2 className="font-mono text-xs font-medium mb-10 tracking-[0.15em] uppercase text-muted-foreground">お問い合わせ先</h2>
 
                 <div className="space-y-10">
                   <div className="flex items-start gap-6">
@@ -64,7 +63,7 @@ export function Contact() {
                       <Phone size={24} />
                     </div>
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">Domestic</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">電話番号</p>
                       <p className="text-xl font-medium font-mono">03-5732-2800</p>
                       <p className="text-xs text-muted-foreground mt-1">平日 9:00 - 18:00</p>
                     </div>
@@ -75,7 +74,7 @@ export function Contact() {
                       <Mail size={24} />
                     </div>
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">Inquiry Email</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">メール</p>
                       <p className="text-sm font-medium font-mono text-foreground/80 transition-colors hover:text-primary cursor-pointer">team@smz-shokai.com</p>
                       <p className="text-xs text-muted-foreground mt-1">24時間受付</p>
                     </div>
@@ -86,7 +85,7 @@ export function Contact() {
                       <MapPin size={24} />
                     </div>
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">Headquarters</p>
+                      <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">所在地</p>
                       <p className="text-sm font-medium text-foreground/80 leading-relaxed">
                         〒146-0093<br />
                         東京都大田区矢口3-1-20
@@ -96,7 +95,7 @@ export function Contact() {
                 </div>
 
                 <div className="mt-12 p-6 bg-secondary rounded-lg border border-border">
-                  <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-primary mb-3">Technical Consultation</h3>
+                  <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-primary mb-3">技術相談について</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     図面がある場合は、メールへの添付を推奨いたします。PDF, DXF, STP等、主要な設計形式に対応しております。
                   </p>
@@ -110,7 +109,7 @@ export function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label htmlFor="category" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">Category <span className="text-primary">*</span></label>
+                      <label htmlFor="category" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">お問合せ種別 <span className="text-primary">*</span></label>
                       <select
                         id="category"
                         name="category"
@@ -127,7 +126,7 @@ export function Contact() {
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="company" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">Company Name <span className="text-primary">*</span></label>
+                      <label htmlFor="company" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">会社名 <span className="text-primary">*</span></label>
                       <input
                         id="company"
                         type="text"
@@ -142,7 +141,7 @@ export function Contact() {
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">Full Name <span className="text-primary">*</span></label>
+                      <label htmlFor="name" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">お名前 <span className="text-primary">*</span></label>
                       <input
                         id="name"
                         type="text"
@@ -168,7 +167,7 @@ export function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">Message Content <span className="text-primary">*</span></label>
+                    <label htmlFor="message" className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground ml-1">お問合せ内容 <span className="text-primary">*</span></label>
                     <textarea
                       id="message"
                       name="message"
@@ -186,7 +185,7 @@ export function Contact() {
                       type="submit"
                       className="group w-full md:w-auto px-16 py-5 bg-primary text-primary-foreground rounded-md font-medium tracking-wider text-sm uppercase transition-all duration-500 flex items-center justify-center gap-4"
                     >
-                      Process & Send <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                      送信する <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
                     </button>
                     <p className="text-xs text-muted-foreground font-normal mt-6 tracking-wider leading-relaxed">
                       ※ ご入力いただいた情報は暗号化され、安全に送信されます。<br />

@@ -117,16 +117,4 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix-green to-emerald-400;
   }
 
-  /* Logo dark outline for light background */
-  .logo-outlined {
-    filter:
-      drop-shadow(1px 0px 0px rgba(0,0,0,0.7))
-      drop-shadow(-1px 0px 0px rgba(0,0,0,0.7))
-      drop-shadow(0px 1px 0px rgba(0,0,0,0.7))
-      drop-shadow(0px -1px 0px rgba(0,0,0,0.7))
-      drop-shadow(1px 1px 0px rgba(0,0,0,0.5))
-      drop-shadow(-1px -1px 0px rgba(0,0,0,0.5))
-      drop-shadow(1px -1px 0px rgba(0,0,0,0.5))
-      drop-shadow(-1px 1px 0px rgba(0,0,0,0.5));
-  }
 }

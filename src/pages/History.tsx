@@ -127,8 +127,7 @@ export function History() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="font-serif text-5xl md:text-7xl font-light mb-8 leading-none">
-              OUR <br />
-              <span className="text-primary">History</span>
+              沿革
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               1950年の創業から現在まで。<br />
@@ -158,19 +157,19 @@ export function History() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div className="text-center">
                 <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">75</div>
-                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Years of Expertise</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">年の研鑽</div>
                 <div className="text-muted-foreground text-sm font-normal">創業からの不変の信頼</div>
               </div>
 
               <div className="text-center">
                 <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">03</div>
-                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Generations</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">代の継承</div>
                 <div className="text-muted-foreground text-sm font-normal">受け継がれる技術と想い</div>
               </div>
 
               <div className="text-center">
                 <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">10+</div>
-                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">Global Partners</div>
+                <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">海外パートナー</div>
                 <div className="text-muted-foreground text-sm font-normal">世界へ広がるネットワーク</div>
               </div>
             </div>

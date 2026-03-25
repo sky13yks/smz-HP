@@ -71,7 +71,7 @@ describe('ルーティング', () => {
 
   it('/access でアクセスページが表示される', () => {
     renderRoute('/access')
-    expect(screen.getByText(/LOCATIONS/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/アクセス/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('/history で沿革ページが表示される', () => {
@@ -81,8 +81,7 @@ describe('ルーティング', () => {
 
   it('/tech で技術資料ページが表示される', () => {
     renderRoute('/tech')
-    const matches = screen.getAllByText(/TECH/i)
-    expect(matches.length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/技術資料/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('/matrix でMatrixページが表示される', () => {

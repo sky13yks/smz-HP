@@ -10,8 +10,7 @@ export function Access() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-serif font-light mb-8 leading-none">
-              LOCATIONS <br />
-              <span className="text-primary">Access</span>
+              アクセス
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               本社および各拠点へのアクセス。
@@ -32,21 +31,21 @@ export function Access() {
                     <Building2 size={24} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-medium">HEADQUARTERS</h2>
-                    <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground truncate">Main Office & Administration</p>
+                    <h2 className="text-2xl font-medium">本社</h2>
+                    <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground truncate">本社事務所</p>
                   </div>
                 </div>
 
                 <div className="space-y-6 text-foreground/80">
                   <div>
-                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">Location</p>
+                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">所在地</p>
                     <p className="text-lg leading-relaxed">
                       〒146-0093<br />
                       東京都大田区矢口3-1-20
                     </p>
                   </div>
                   <div>
-                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">Direct Line</p>
+                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">電話番号</p>
                     <p className="text-xl font-mono font-medium tracking-tight">03.5732.2800</p>
                   </div>
                 </div>
@@ -58,7 +57,7 @@ export function Access() {
                     <Train size={20} />
                   </div>
                   <div>
-                    <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">Public Transport</h3>
+                    <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">電車でお越しの場合</h3>
                     <p className="text-sm">東急多摩川線「矢口渡駅」より徒歩約10分</p>
                   </div>
                 </div>
@@ -68,7 +67,7 @@ export function Access() {
                     <Car size={20} />
                   </div>
                   <div>
-                    <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">By Vehicle</h3>
+                    <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">お車でお越しの場合</h3>
                     <p className="text-sm">首都高速「羽田」出口より約15分</p>
                     <p className="text-xs text-muted-foreground mt-1">※駐車場あり（事前予約推奨）</p>
                   </div>
@@ -82,7 +81,7 @@ export function Access() {
                   rel="noopener noreferrer"
                   className="block w-full py-5 border border-border rounded-md text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                 >
-                  Open Coordinates in Maps
+                  Google マップで開く
                 </a>
               </div>
             </div>
@@ -95,21 +94,21 @@ export function Access() {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-medium">TECH CENTER</h2>
-                    <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground truncate">Tsurumi Machinery Showroom</p>
+                    <h2 className="text-2xl font-medium">テクニカルセンター</h2>
+                    <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground truncate">鶴見マシンセンター</p>
                   </div>
                 </div>
 
                 <div className="space-y-6 text-foreground/80">
                   <div>
-                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">Location</p>
+                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">所在地</p>
                     <p className="text-lg leading-relaxed">
                       〒230-0071<br />
                       神奈川県横浜市鶴見区駒岡4-39-25
                     </p>
                   </div>
                   <div>
-                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">Direct Line</p>
+                    <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">電話番号</p>
                     <p className="text-xl font-mono font-medium tracking-tight">045.574.3019</p>
                   </div>
                 </div>
@@ -129,7 +128,7 @@ export function Access() {
                   rel="noopener noreferrer"
                   className="block w-full py-5 border border-border rounded-md text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                 >
-                  Open Coordinates in Maps
+                  Google マップで開く
                 </a>
               </div>
             </div>
@@ -138,17 +137,17 @@ export function Access() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="bg-card border border-border p-8 rounded-lg">
               <div className="text-primary mb-4"><Clock size={24} /></div>
-              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">Service Hours</h3>
+              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">営業時間</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">平日 9:00 - 18:00<br />(土日祝は事前にご相談ください)</p>
             </div>
             <div className="bg-card border border-border p-8 rounded-lg">
               <div className="text-primary mb-4"><Users size={24} /></div>
-              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">Consultation</h3>
+              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">技術相談</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">展示場にて、経験豊富な技術者による実機を用いたご相談を承ります。</p>
             </div>
             <div className="bg-card border border-border p-8 rounded-lg">
               <div className="text-primary mb-4"><MapPin size={24} /></div>
-              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">Online Session</h3>
+              <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">オンライン対応</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">Web会議を通じた遠隔での製品説明・状態確認も可能です。</p>
             </div>
           </div>
@@ -156,7 +155,7 @@ export function Access() {
           {/* CTA */}
           <div className="bg-card border border-border p-16 md:p-24 rounded-lg text-center relative overflow-hidden">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-serif font-light mb-8">READY TO <span className="text-primary">Connect?</span></h2>
+              <h2 className="text-3xl md:text-5xl font-serif font-light mb-8">お気軽に<span className="text-primary">お問い合わせください</span></h2>
               <p className="text-muted-foreground text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
                 ご来社のご予約、技術相談のお申し込みは、<br className="hidden md:block" />
                 以下よりお気軽にお問い合わせください。
@@ -172,7 +171,7 @@ export function Access() {
                   href="/contact"
                   className="px-12 py-5 bg-primary text-primary-foreground rounded-md font-medium tracking-wider text-lg transition-all hover:bg-primary/90"
                 >
-                  SEND MESSAGE
+                  お問い合わせ
                 </a>
               </div>
             </div>

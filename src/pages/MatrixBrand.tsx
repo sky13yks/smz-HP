@@ -174,7 +174,7 @@ export const MatrixBrand: React.FC = () => {
                         <div className="animate-fade-in-up">
                             <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-md border border-border bg-secondary mb-8">
                                 <span className="flex h-2 w-2 rounded-full bg-matrix-green" />
-                                <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Coventry - Since 1913</span>
+                                <span className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">英国コヴェントリー創業 1913年</span>
                             </div>
 
                             <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter leading-none mb-8 opacity-90">
@@ -193,7 +193,7 @@ export const MatrixBrand: React.FC = () => {
                                     rel="noopener noreferrer"
                                     className="surface px-10 py-5 rounded-md font-medium text-sm tracking-wider uppercase transition-all duration-500 hover:border-matrix-green/50"
                                 >
-                                    Explore Technology
+                                    MATRIX 公式サイト
                                 </a>
                             </div>
                         </div>
@@ -205,7 +205,7 @@ export const MatrixBrand: React.FC = () => {
                                 className="relative z-10 w-full h-auto rounded-lg shadow-2xl"
                             />
                             <div className="absolute -bottom-6 -left-6 surface p-6 rounded-lg">
-                                <p className="font-mono text-xs tracking-[0.15em] text-matrix-green uppercase">Scanning Axis Accuracy</p>
+                                <p className="font-mono text-xs tracking-[0.15em] text-matrix-green uppercase">走査軸精度</p>
                                 <p className="text-2xl font-mono text-foreground">±0.0001 mm</p>
                             </div>
                         </div>
