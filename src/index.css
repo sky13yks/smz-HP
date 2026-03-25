@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* === Obsidian & Pure Silver === */
-  --color-background: oklch(12% 0.003 260);
-  --color-foreground: oklch(97% 0.003 260);
+  /* === Light Mode: Pure & Refined === */
+  --color-background: oklch(97.5% 0.003 260);
+  --color-foreground: oklch(15% 0.003 260);
 
-  --color-card: oklch(16% 0.003 260);
-  --color-card-foreground: oklch(97% 0.003 260);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(15% 0.003 260);
 
-  --color-popover: oklch(16% 0.003 260);
-  --color-popover-foreground: oklch(97% 0.003 260);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(15% 0.003 260);
 
-  --color-primary: oklch(90% 0.005 260);
-  --color-primary-foreground: oklch(12% 0.003 260);
+  --color-primary: oklch(25% 0.005 260);
+  --color-primary-foreground: oklch(97.5% 0.003 260);
 
-  --color-secondary: oklch(22% 0.003 260);
-  --color-secondary-foreground: oklch(90% 0.005 260);
+  --color-secondary: oklch(95% 0.003 260);
+  --color-secondary-foreground: oklch(25% 0.005 260);
 
-  --color-muted: oklch(22% 0.003 260);
-  --color-muted-foreground: oklch(55% 0.005 260);
+  --color-muted: oklch(95% 0.003 260);
+  --color-muted-foreground: oklch(50% 0.005 260);
 
-  --color-accent: oklch(90% 0.005 260);
-  --color-accent-foreground: oklch(12% 0.003 260);
+  --color-accent: oklch(25% 0.005 260);
+  --color-accent-foreground: oklch(97.5% 0.003 260);
 
-  --color-destructive: oklch(63% 0.25 25);
-  --color-destructive-foreground: oklch(97% 0.003 260);
+  --color-destructive: oklch(55% 0.25 25);
+  --color-destructive-foreground: oklch(97.5% 0.003 260);
 
-  --color-border: oklch(22% 0.003 260);
-  --color-input: oklch(22% 0.003 260);
-  --color-ring: oklch(90% 0.005 260);
+  --color-border: oklch(90% 0.003 260);
+  --color-input: oklch(90% 0.003 260);
+  --color-ring: oklch(25% 0.005 260);
 
   /* Matrix Green (refined) */
-  --color-matrix-green: oklch(62% 0.16 155);
-  --color-matrix-bg: oklch(10% 0.01 155);
+  --color-matrix-green: oklch(45% 0.18 155);
+  --color-matrix-bg: oklch(97% 0.01 155);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -100,7 +100,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+    @apply bg-foreground/10 rounded-full hover:bg-foreground/20 transition-colors;
   }
 }
 
@@ -110,23 +110,23 @@
   }
 
   .surface-elevated {
-    @apply bg-card border border-border shadow-[0_1px_2px_rgba(0,0,0,0.3)];
+    @apply bg-card border border-border shadow-[0_1px_3px_rgba(0,0,0,0.08)];
   }
 
   .text-gradient-matrix {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix-green to-emerald-400;
   }
 
-  /* Logo white outline */
+  /* Logo dark outline for light background */
   .logo-outlined {
     filter:
-      drop-shadow(1px 0px 0px rgba(255,255,255,0.85))
-      drop-shadow(-1px 0px 0px rgba(255,255,255,0.85))
-      drop-shadow(0px 1px 0px rgba(255,255,255,0.85))
-      drop-shadow(0px -1px 0px rgba(255,255,255,0.85))
-      drop-shadow(1px 1px 0px rgba(255,255,255,0.6))
-      drop-shadow(-1px -1px 0px rgba(255,255,255,0.6))
-      drop-shadow(1px -1px 0px rgba(255,255,255,0.6))
-      drop-shadow(-1px 1px 0px rgba(255,255,255,0.6));
+      drop-shadow(1px 0px 0px rgba(0,0,0,0.7))
+      drop-shadow(-1px 0px 0px rgba(0,0,0,0.7))
+      drop-shadow(0px 1px 0px rgba(0,0,0,0.7))
+      drop-shadow(0px -1px 0px rgba(0,0,0,0.7))
+      drop-shadow(1px 1px 0px rgba(0,0,0,0.5))
+      drop-shadow(-1px -1px 0px rgba(0,0,0,0.5))
+      drop-shadow(1px -1px 0px rgba(0,0,0,0.5))
+      drop-shadow(-1px 1px 0px rgba(0,0,0,0.5));
   }
 }

@@ -34,7 +34,7 @@ export function Company() {
                     75年の研鑽を、これからの「つくる」へ。
                   </p>
 
-                  <div className="prose prose-invert max-w-none space-y-8 text-foreground/70 text-lg leading-relaxed">
+                  <div className="max-w-none space-y-8 text-foreground/70 text-lg leading-relaxed">
                     <p>
                       東京都大田区という、世界に誇る「ものづくりの聖地」で、株式会社清水商會は歩みを続けてまいりました。
                     </p>
