@@ -100,7 +100,7 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
 
         {/* Timeline line */}
         <div className="relative flex-shrink-0">
-          <div className={`w-3 h-3 rounded-full relative z-10 transition-colors duration-500 ${isVisible ? "bg-primary" : "bg-muted-foreground/20"}`} />
+          <div className={`w-3 h-3 rounded-full relative z-10 transition-all duration-500 ${isVisible ? "bg-primary shadow-sm" : "bg-muted-foreground/20"}`} />
           {index < timelineData.length - 1 && (
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[1px] h-full bg-border" />
           )}

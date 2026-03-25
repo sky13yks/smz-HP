@@ -84,7 +84,7 @@ export function Services() {
               return (
                 <div
                   key={i}
-                  className="group relative bg-card border border-border rounded-lg p-8 md:p-12 transition-all duration-500 hover:border-foreground/20"
+                  className="group relative bg-card border border-border rounded-lg p-8 md:p-12 transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
                 >
                   {/* Number badge */}
                   <div

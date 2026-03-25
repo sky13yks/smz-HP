@@ -20,9 +20,9 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
       <div className="container mx-auto">
-        <div className="bg-background/95 backdrop-blur-sm border-b border-border px-6 py-2 flex items-center justify-between">
+        <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-sm pointer-events-auto px-6 py-2 flex items-center justify-between transition-all duration-500">
           <Link to="/" className="flex items-center">
             <img
               src={logoImg}
@@ -50,7 +50,7 @@ export function Header() {
               href={INVENTORY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-1.5 text-sm border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-300"
+              className="flex items-center gap-1.5 px-4 py-1.5 text-sm border border-border rounded-lg text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all duration-300"
             >
               在庫一覧
               <ExternalLink className="w-3 h-3" />
@@ -71,13 +71,13 @@ export function Header() {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-background border-b border-border p-6">
+        <div className="md:hidden absolute top-24 left-4 right-4 bg-card/90 backdrop-blur-xl border border-border/50 rounded-2xl shadow-sm p-6 pointer-events-auto">
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm tracking-wide py-3 border-b border-border transition-colors ${
+                className={`text-sm tracking-wide py-3 border-b border-border/50 transition-colors ${
                   location.pathname === item.path ? "text-foreground" : "text-muted-foreground"
                 }`}
                 onClick={() => setIsMenuOpen(false)}

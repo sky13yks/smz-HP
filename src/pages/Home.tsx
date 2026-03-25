@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { GearAnimation } from "../components/GearAnimation";
 import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
@@ -8,10 +9,15 @@ export function Home() {
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
+        {/* Background Gear - 設計図の透かし */}
+        <div className="absolute -right-48 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none hidden lg:block select-none scale-150">
+          <GearAnimation size={1200} speed={0.4} theme="sketch" reverse />
+        </div>
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-3 px-4 py-2 bg-card border border-border rounded-lg mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-primary" />
+              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">Precision Engineering Since 1947</span>
             </div>
 
@@ -84,7 +90,7 @@ export function Home() {
               <Link
                 key={i}
                 to={feature.link}
-                className="bg-card border border-border p-10 rounded-lg group transition-all duration-500 hover:border-primary/30"
+                className="bg-card border border-border p-10 rounded-lg group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
               >
                 <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="w-8 h-8 text-primary" />
