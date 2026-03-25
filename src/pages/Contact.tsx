@@ -54,7 +54,7 @@ export function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-8 animate-fade-in">
-              <div className="surface p-10 rounded-lg">
+              <div className="surface p-10 rounded-xl">
                 <h2 className="font-mono text-xs font-medium mb-10 tracking-[0.15em] uppercase text-muted-foreground">お問い合わせ先</h2>
 
                 <div className="space-y-10">
@@ -105,7 +105,7 @@ export function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="surface p-10 md:p-16 rounded-lg animate-fade-in-up">
+              <div className="surface p-10 md:p-16 rounded-xl animate-fade-in-up">
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">

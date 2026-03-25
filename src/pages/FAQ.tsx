@@ -30,10 +30,10 @@ export const FAQ: React.FC = () => {
             <section className="pb-32">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <Accordion type="single" collapsible className="w-full space-y-6 animate-fade-in">
-                        <AccordionItem value="item-1" className="bg-card border border-border px-8 rounded-lg transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
+                        <AccordionItem value="item-1" className="bg-card border border-border px-8 rounded-xl transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
                             <AccordionTrigger className="text-left py-8 hover:no-underline group">
                                 <span className="flex items-center gap-6">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
                                         <HelpCircle size={20} />
                                     </div>
                                     <span className="text-lg font-medium text-foreground/90">中古機械の買取・販売は行っていますか？</span>
@@ -46,10 +46,10 @@ export const FAQ: React.FC = () => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="item-2" className="bg-card border border-border px-8 rounded-lg transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
+                        <AccordionItem value="item-2" className="bg-card border border-border px-8 rounded-xl transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
                             <AccordionTrigger className="text-left py-8 hover:no-underline group">
                                 <span className="flex items-center gap-6">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
                                         <HelpCircle size={20} />
                                     </div>
                                     <span className="text-lg font-medium text-foreground/90">MATRIXブランドの新品研削盤の取り扱いはありますか？</span>
@@ -62,10 +62,10 @@ export const FAQ: React.FC = () => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="item-3" className="bg-card border border-border px-8 rounded-lg transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
+                        <AccordionItem value="item-3" className="bg-card border border-border px-8 rounded-xl transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
                             <AccordionTrigger className="text-left py-8 hover:no-underline group">
                                 <span className="flex items-center gap-6">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
                                         <HelpCircle size={20} />
                                     </div>
                                     <span className="text-lg font-medium text-foreground/90">レトロフィット（旧型機械の更新）は可能ですか？</span>
@@ -77,10 +77,10 @@ export const FAQ: React.FC = () => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="item-4" className="bg-card border border-border px-8 rounded-lg transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
+                        <AccordionItem value="item-4" className="bg-card border border-border px-8 rounded-xl transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
                             <AccordionTrigger className="text-left py-8 hover:no-underline group">
                                 <span className="flex items-center gap-6">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
                                         <HelpCircle size={20} />
                                     </div>
                                     <span className="text-lg font-medium text-foreground/90">計算ツールは無料で使えますか？</span>
@@ -93,10 +93,10 @@ export const FAQ: React.FC = () => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="item-5" className="bg-card border border-border px-8 rounded-lg transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
+                        <AccordionItem value="item-5" className="bg-card border border-border px-8 rounded-xl transition-all duration-300 data-[state=open]:border-primary/30 data-[state=open]:bg-card">
                             <AccordionTrigger className="text-left py-8 hover:no-underline group">
                                 <span className="flex items-center gap-6">
-                                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-all">
                                         <HelpCircle size={20} />
                                     </div>
                                     <span className="text-lg font-medium text-foreground/90">修理やメンテナンスの対応エリアは？</span>

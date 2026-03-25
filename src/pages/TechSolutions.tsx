@@ -75,7 +75,7 @@ export const TechSolutions: React.FC = () => {
             <section className="pb-32">
                 <div className="container mx-auto px-6 max-w-6xl">
                     <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 mb-12 bg-secondary border border-border p-1 rounded-md h-16">
+                        <TabsList className="grid w-full grid-cols-2 mb-12 bg-secondary border border-border p-1 rounded-lg h-16">
                             <TabsTrigger value="calculators" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">計算ツール</TabsTrigger>
                             <TabsTrigger value="docs" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">技術資料</TabsTrigger>
                         </TabsList>
@@ -83,7 +83,7 @@ export const TechSolutions: React.FC = () => {
                         <TabsContent value="calculators" className="animate-fade-in mt-0 outline-none">
                             <div className="grid gap-12 md:grid-cols-2">
                                 {/* SMZ Calculator */}
-                                <div className="bg-card border border-border p-8 md:p-12 rounded-lg relative overflow-hidden">
+                                <div className="bg-card border border-border p-8 md:p-12 rounded-xl relative overflow-hidden">
                                     <div className="absolute top-0 left-0 w-full h-px bg-primary/50" />
                                     <div className="mb-10">
                                         <h2 className="text-2xl font-medium mb-2">SMZ向心度補正</h2>
@@ -119,7 +119,7 @@ export const TechSolutions: React.FC = () => {
                                         </button>
 
                                         {smzResult !== null && (
-                                            <div className="mt-8 p-6 bg-primary/10 rounded-md border border-primary/20 text-center">
+                                            <div className="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20 text-center">
                                                 <p className="font-mono text-xs tracking-[0.15em] text-primary mb-2">補正値 (mm)</p>
                                                 <div className="text-4xl font-light text-primary font-mono tracking-tighter">
                                                     {smzResult.toFixed(6)}
@@ -130,7 +130,7 @@ export const TechSolutions: React.FC = () => {
                                 </div>
 
                                 {/* Simple Calculator */}
-                                <div className="bg-card border border-border p-8 md:p-12 rounded-lg relative overflow-hidden">
+                                <div className="bg-card border border-border p-8 md:p-12 rounded-xl relative overflow-hidden">
                                     <div className="absolute top-0 left-0 w-full h-px bg-border" />
                                     <div className="mb-10">
                                         <h2 className="text-2xl font-medium mb-2">汎用補正計算</h2>
@@ -156,7 +156,7 @@ export const TechSolutions: React.FC = () => {
                                         </button>
 
                                         {simpleResult !== null && (
-                                            <div className="mt-8 p-6 bg-secondary border border-border rounded-md text-center">
+                                            <div className="mt-8 p-6 bg-secondary border border-border rounded-lg text-center">
                                                 <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-2">計算結果</p>
                                                 <div className="text-4xl font-light text-foreground font-mono tracking-tighter">
                                                     {simpleResult.toFixed(6)}
@@ -170,7 +170,7 @@ export const TechSolutions: React.FC = () => {
 
                         <TabsContent value="docs" className="animate-fade-in mt-0 outline-none">
                             <div className="grid gap-8">
-                                <div className="bg-card border border-border p-8 rounded-lg group cursor-pointer hover:border-primary/30 transition-all duration-500">
+                                <div className="bg-card border border-border p-8 rounded-xl group cursor-pointer hover:border-primary/30 transition-all duration-500">
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                         <div>
                                             <div className="flex items-center gap-4 mb-4">
@@ -183,14 +183,14 @@ export const TechSolutions: React.FC = () => {
                                             </p>
                                         </div>
                                         <div className="flex-shrink-0">
-                                            <div className="w-16 h-16 rounded-lg bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+                                            <div className="w-16 h-16 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
                                                 <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-card border border-border p-8 rounded-lg opacity-50 group cursor-not-allowed">
+                                <div className="bg-card border border-border p-8 rounded-xl opacity-50 group cursor-not-allowed">
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                         <div>
                                             <div className="flex items-center gap-4 mb-4">

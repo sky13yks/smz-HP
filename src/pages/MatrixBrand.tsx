@@ -284,7 +284,7 @@ export const MatrixBrand: React.FC = () => {
                                             href={machine.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group block relative rounded-lg overflow-hidden transition-all duration-500 bg-card border border-matrix-green/10 hover:border-matrix-green/50"
+                                            className="group block relative rounded-xl overflow-hidden transition-all duration-500 bg-card border border-matrix-green/10 hover:border-matrix-green/50"
                                         >
                                             <div className="relative aspect-[4/3] overflow-hidden bg-foreground/95">
                                                 <img
@@ -332,8 +332,8 @@ export const MatrixBrand: React.FC = () => {
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
-                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                        <div className="p-8 rounded-xl text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
                                 <Shield size={24} className="text-matrix-green" />
                             </div>
                             <h3 className="text-lg font-medium mb-3 text-foreground">100年超の歴史</h3>
@@ -342,8 +342,8 @@ export const MatrixBrand: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
-                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                        <div className="p-8 rounded-xl text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
                                 <Cpu size={24} className="text-matrix-green" />
                             </div>
                             <h3 className="text-lg font-medium mb-3 text-foreground">サブミクロン精度</h3>
@@ -352,8 +352,8 @@ export const MatrixBrand: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="p-8 rounded-lg text-center bg-card border border-matrix-green/10">
-                            <div className="w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
+                        <div className="p-8 rounded-xl text-center bg-card border border-matrix-green/10">
+                            <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6 bg-matrix-green/10">
                                 <Wrench size={24} className="text-matrix-green" />
                             </div>
                             <h3 className="text-lg font-medium mb-3 text-foreground">清水商會のサポート</h3>

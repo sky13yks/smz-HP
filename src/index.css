@@ -2,8 +2,8 @@
 
 @theme {
   /* === Light Mode: Pure & Refined === */
-  --color-background: oklch(97.5% 0.003 260);
-  --color-foreground: oklch(15% 0.003 260);
+  --color-background: oklch(97.5% 0.006 75);
+  --color-foreground: oklch(15% 0.006 75);
 
   --color-card: oklch(100% 0 0);
   --color-card-foreground: oklch(15% 0.003 260);
@@ -11,14 +11,14 @@
   --color-popover: oklch(100% 0 0);
   --color-popover-foreground: oklch(15% 0.003 260);
 
-  --color-primary: oklch(25% 0.005 260);
-  --color-primary-foreground: oklch(97.5% 0.003 260);
+  --color-primary: oklch(22% 0.02 250);
+  --color-primary-foreground: oklch(97.5% 0.006 75);
 
-  --color-secondary: oklch(95% 0.003 260);
-  --color-secondary-foreground: oklch(25% 0.005 260);
+  --color-secondary: oklch(95% 0.006 75);
+  --color-secondary-foreground: oklch(22% 0.02 250);
 
-  --color-muted: oklch(95% 0.003 260);
-  --color-muted-foreground: oklch(50% 0.005 260);
+  --color-muted: oklch(95% 0.006 75);
+  --color-muted-foreground: oklch(50% 0.008 75);
 
   --color-accent: oklch(25% 0.005 260);
   --color-accent-foreground: oklch(97.5% 0.003 260);
@@ -26,9 +26,9 @@
   --color-destructive: oklch(55% 0.25 25);
   --color-destructive-foreground: oklch(97.5% 0.003 260);
 
-  --color-border: oklch(90% 0.003 260);
-  --color-input: oklch(90% 0.003 260);
-  --color-ring: oklch(25% 0.005 260);
+  --color-border: oklch(90% 0.008 75);
+  --color-input: oklch(90% 0.008 75);
+  --color-ring: oklch(22% 0.02 250);
 
   /* Matrix Green (refined) */
   --color-matrix-green: oklch(45% 0.18 155);
@@ -40,9 +40,9 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Radii (restrained) */
-  --radius-lg: 0.75rem;
-  --radius-md: 0.5rem;
-  --radius-sm: 0.25rem;
+  --radius-lg: 1.25rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
 
   /* Animations */
   @keyframes fade-in-up {
@@ -106,7 +106,7 @@
 
 @layer components {
   .surface {
-    @apply bg-card border border-border;
+    @apply bg-card border border-border shadow-[0_1px_3px_rgba(0,0,0,0.04)];
   }
 
   .surface-elevated {

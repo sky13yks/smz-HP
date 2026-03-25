@@ -24,7 +24,7 @@ export function Company() {
       <section className="pb-32">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="bg-card border border-border p-10 md:p-20 rounded-lg relative overflow-hidden">
+            <div className="bg-card border border-border p-10 md:p-20 rounded-xl relative overflow-hidden">
               <div className="grid lg:grid-cols-1 gap-12">
                 <div>
                   <h2 className="font-mono text-xs font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
@@ -102,8 +102,8 @@ export function Company() {
                 desc: "できないことは「できない」と正直に伝えます。最初から現実的な提案をすることが、結果的にものづくりの現場を守ることに繋がると信じています。"
               }
             ].map((v, i) => (
-              <div key={i} className="bg-card border border-border p-10 rounded-lg group hover:border-primary/30 transition-all duration-500">
-                <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
+              <div key={i} className="bg-card border border-border p-10 rounded-xl group hover:border-primary/30 transition-all duration-500">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
                   <v.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{v.title}</h3>
@@ -120,7 +120,7 @@ export function Company() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-light mb-16 text-center italic">会社概要</h2>
 
-            <div className="bg-card border border-border rounded-lg overflow-hidden">
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
               {[
                 { label: "商号", value: "株式会社清水商會 / Shimizu Shokai Co., Ltd." },
                 { label: "創業 / 設立", value: "1950年4月（創業） / 1959年4月（設立）" },

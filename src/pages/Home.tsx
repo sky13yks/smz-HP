@@ -16,7 +16,7 @@ export function Home() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-card border border-border rounded-lg mb-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-card border border-border rounded-full mb-8">
               <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">Precision Engineering Since 1947</span>
             </div>
@@ -34,13 +34,13 @@ export function Home() {
             <div className="flex flex-wrap gap-6">
               <Link
                 to="/services"
-                className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider uppercase transition-all duration-500 flex items-center gap-3"
+                className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
               >
                 事業内容を見る <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/matrix"
-                className="bg-card border border-border px-10 py-5 font-medium text-sm tracking-wider uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
+                className="bg-card border border-border px-10 py-5 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
               >
                 Matrix ブランド
               </Link>
@@ -57,7 +57,7 @@ export function Home() {
           ].map((stat, i) => (
             <div key={i} className="text-right border-r border-border pr-6 last:border-0 last:pr-0">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">{stat.label}</p>
-              <p className="text-xl font-medium font-mono">{stat.value}</p>
+              <p className="text-xl font-medium font-mono font-serif">{stat.value}</p>
             </div>
           ))}
         </div>
@@ -90,9 +90,9 @@ export function Home() {
               <Link
                 key={i}
                 to={feature.link}
-                className="bg-card border border-border p-10 rounded-lg group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
+                className="bg-card border border-border p-10 rounded-xl group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-2xl font-medium mb-4">{feature.title}</h3>
@@ -125,12 +125,12 @@ export function Home() {
               </Link>
             </div>
             <div className="flex-1 grid grid-cols-2 gap-6 w-full">
-              <div className="bg-card border border-border p-8 rounded-lg">
+              <div className="bg-card border border-border p-8 rounded-xl">
                 <ShieldCheck className="w-10 h-10 text-primary mb-6" />
                 <div className="text-4xl font-medium mb-2">75+</div>
                 <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
               </div>
-              <div className="bg-card border border-border p-8 rounded-lg">
+              <div className="bg-card border border-border p-8 rounded-xl">
                 <Globe className="w-10 h-10 text-primary mb-6" />
                 <div className="text-4xl font-medium mb-2">GLOBAL</div>
                 <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>

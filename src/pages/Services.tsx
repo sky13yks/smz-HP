@@ -84,11 +84,11 @@ export function Services() {
               return (
                 <div
                   key={i}
-                  className="group relative bg-card border border-border rounded-lg p-8 md:p-12 transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
+                  className="group relative bg-card border border-border rounded-xl p-8 md:p-12 transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
                 >
                   {/* Number badge */}
                   <div
-                    className={`absolute -top-5 left-10 px-6 py-2 rounded-lg font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
+                    className={`absolute -top-5 left-10 px-6 py-2 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
                       }`}
                   >
                     SERVICE {service.number}
@@ -98,7 +98,7 @@ export function Services() {
                     {/* Icon Container */}
                     <div className="flex-shrink-0">
                       <div
-                        className={`w-20 h-20 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"
+                        className={`w-20 h-20 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"
                           }`}
                       >
                         <Icon size={32} />
@@ -123,7 +123,7 @@ export function Services() {
                         {service.items.map((item, j) => (
                           <span
                             key={j}
-                            className="inline-block px-4 py-1.5 rounded-lg text-xs font-medium border border-border bg-secondary text-foreground/70 transition-colors group-hover:border-foreground/10 group-hover:text-foreground"
+                            className="inline-block px-4 py-1.5 rounded-full text-xs font-medium border border-border bg-secondary text-foreground/70 transition-colors group-hover:border-foreground/10 group-hover:text-foreground"
                           >
                             {item}
                           </span>
@@ -151,7 +151,7 @@ export function Services() {
       {/* CTA */}
       <section className="py-32 relative">
         <div className="container mx-auto px-6 text-center">
-          <div className="bg-card border border-border max-w-4xl mx-auto p-16 rounded-lg relative overflow-hidden">
+          <div className="bg-card border border-border max-w-4xl mx-auto p-16 rounded-xl relative overflow-hidden">
             <h2 className="text-4xl font-medium mb-8">お気軽にご相談ください</h2>
             <p className="text-foreground/60 mb-12 text-lg leading-relaxed max-w-2xl mx-auto">
               「ちょっと清水さんに聞いてみよう」<br />
@@ -160,7 +160,7 @@ export function Services() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-12 py-5 font-medium tracking-wider text-sm uppercase transition-all duration-500"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-12 py-5 rounded-md font-medium tracking-wider text-sm uppercase transition-all duration-500"
             >
               お問い合わせする <ArrowRight size={18} />
             </Link>

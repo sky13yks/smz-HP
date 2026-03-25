@@ -24,7 +24,7 @@ export function Access() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 animate-fade-in">
             {/* Headquarters */}
-            <div className="bg-card border border-border p-10 md:p-12 rounded-lg relative overflow-hidden group">
+            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group">
               <div className="mb-10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-card border border-border rounded-lg w-12 h-12 flex items-center justify-center text-primary">
@@ -79,7 +79,7 @@ export function Access() {
                   href="https://maps.app.goo.gl/De8Qp5ebq1YKShN66?g_st=ic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full py-5 border border-border rounded-md text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+                  className="block w-full py-5 border border-border rounded-lg text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                 >
                   Google マップで開く
                 </a>
@@ -87,7 +87,7 @@ export function Access() {
             </div>
 
             {/* Tsurumi Machine Center */}
-            <div className="bg-card border border-border p-10 md:p-12 rounded-lg relative overflow-hidden group">
+            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group">
               <div className="mb-10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-card border border-border rounded-lg w-12 h-12 flex items-center justify-center text-primary">
@@ -114,7 +114,7 @@ export function Access() {
                 </div>
               </div>
 
-              <div className="bg-secondary border border-border p-6 rounded-md mb-10">
+              <div className="bg-secondary border border-border p-6 rounded-lg mb-10">
                 <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                   中古歯車機械・研削盤を常時多数展示しております。
                   実物をご覧いただきながら、加工プランのシミュレーションが可能です。
@@ -126,7 +126,7 @@ export function Access() {
                   href="https://maps.app.goo.gl/W1pkgZqTnvLtqAC29?g_st=ic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full py-5 border border-border rounded-md text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+                  className="block w-full py-5 border border-border rounded-lg text-center font-medium tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                 >
                   Google マップで開く
                 </a>
@@ -135,17 +135,17 @@ export function Access() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="bg-card border border-border p-8 rounded-lg">
+            <div className="bg-card border border-border p-8 rounded-xl">
               <div className="text-primary mb-4"><Clock size={24} /></div>
               <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">営業時間</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">平日 9:00 - 18:00<br />(土日祝は事前にご相談ください)</p>
             </div>
-            <div className="bg-card border border-border p-8 rounded-lg">
+            <div className="bg-card border border-border p-8 rounded-xl">
               <div className="text-primary mb-4"><Users size={24} /></div>
               <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">技術相談</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">展示場にて、経験豊富な技術者による実機を用いたご相談を承ります。</p>
             </div>
-            <div className="bg-card border border-border p-8 rounded-lg">
+            <div className="bg-card border border-border p-8 rounded-xl">
               <div className="text-primary mb-4"><MapPin size={24} /></div>
               <h3 className="font-mono text-xs tracking-[0.15em] text-muted-foreground mb-3">オンライン対応</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">Web会議を通じた遠隔での製品説明・状態確認も可能です。</p>
@@ -153,7 +153,7 @@ export function Access() {
           </div>
 
           {/* CTA */}
-          <div className="bg-card border border-border p-16 md:p-24 rounded-lg text-center relative overflow-hidden">
+          <div className="bg-card border border-border p-16 md:p-24 rounded-xl text-center relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-serif font-light mb-8">お気軽に<span className="text-primary">お問い合わせください</span></h2>
               <p className="text-muted-foreground text-xl mb-12 max-w-2xl mx-auto leading-relaxed">

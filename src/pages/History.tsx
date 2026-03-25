@@ -108,7 +108,7 @@ function TimelineItemComponent({ item, index }: { item: TimelineItem; index: num
 
         {/* Content */}
         <div className="flex-1 pb-20">
-          <div className="surface p-8 rounded-lg transition-all duration-500 hover:border-border/80">
+          <div className="surface p-8 rounded-xl transition-all duration-500 hover:border-border/80">
             <h3 className="text-xl font-medium mb-4 text-foreground">{item.title}</h3>
             <p className="text-muted-foreground leading-relaxed text-sm">{item.description}</p>
           </div>
@@ -181,7 +181,7 @@ export function History() {
       <section className="py-32 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="surface p-16 md:p-24 rounded-lg relative overflow-hidden">
+            <div className="surface p-16 md:p-24 rounded-xl relative overflow-hidden">
               <div className="h-px w-full bg-border absolute top-0 left-0" />
               <h2 className="font-serif text-3xl md:text-4xl font-light mb-12">これからの展望</h2>
               <div className="space-y-8 text-muted-foreground text-lg leading-relaxed">
