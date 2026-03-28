@@ -157,7 +157,7 @@ const specs = [
 import machineImg from "../assets/matrix_grinder.png";
 
 export const MatrixBrand: React.FC = () => {
-    useDocumentTitle('Matrix Precision');
+    useDocumentTitle('MATRIX 歯車研削盤 | CNC歯車研削・成形研削・創成研削 | 清水商會');
     const [activeTab, setActiveTab] = useState("all");
 
     const visibleCategories = activeTab === "all"
@@ -360,6 +360,44 @@ export const MatrixBrand: React.FC = () => {
                                 導入前の技術相談から、設置・立ち上げ、稼働後のメンテナンスまで。日本国内のアフターサービスを一貫して対応。
                             </p>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* SEO: About MATRIX */}
+            <section className="py-20 border-t border-matrix-green/15">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <h2 className="text-2xl md:text-3xl font-medium mb-8 text-foreground">
+                        MATRIX Precision Machines について
+                    </h2>
+                    <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
+                        <p>
+                            <strong className="text-foreground">MATRIX（マトリックス）</strong>は、1913年に英国コヴェントリーで創業した歯車研削盤の専門メーカーです。
+                            100年以上にわたり蓄積された歯車加工技術を基盤に、CNC歯車研削盤・CNC歯車成形研削盤・CNC創成研削盤・CNCウォーム研削盤・ベベルギア研削盤・ホブ刃溝研削盤など、
+                            歯車製造に必要なあらゆる研削工程をカバーする製品群を提供しています。
+                        </p>
+                        <p>
+                            現在の生産拠点は台湾に置き、FANUC・SIEMENS両社のCNC制御に対応。
+                            独自開発の対話型ソフトウェア「MATRIWORK」により、複雑な歯形修整プログラムの作成を効率化しています。
+                            走査軸精度±0.0001mmのサブミクロン精度は、自動車のトランスミッション、航空機のギアボックス、産業用ロボットの減速機など、
+                            高い静粛性と耐久性が求められる歯車部品の仕上げ研削に最適です。
+                        </p>
+                        <p>
+                            株式会社清水商會は、MATRIX製品の日本国内における代理店として、導入前の技術相談・加工テスト（テストカット）の手配から、
+                            据付・立ち上げ支援、稼働後の定期メンテナンス・修理対応まで、一貫したアフターサービスを提供しています。
+                            歯車研削盤の新規導入、既存設備のリプレイス、中古MATRIX機械の調達など、お気軽にご相談ください。
+                        </p>
+                    </div>
+
+                    <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            "歯車研削盤", "CNC研削盤", "成形研削", "創成研削",
+                            "ウォーム研削", "ベベルギア", "ホブ刃溝研削", "歯車加工",
+                        ].map(keyword => (
+                            <span key={keyword} className="px-3 py-1.5 bg-secondary rounded text-xs text-muted-foreground text-center">
+                                {keyword}
+                            </span>
+                        ))}
                     </div>
                 </div>
             </section>
