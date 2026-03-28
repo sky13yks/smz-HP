@@ -44,6 +44,7 @@
             "react-router": "*",
             "react-router-dom": "^7.13.0",
             "recharts": "^2.15.2",
+            "resend": "^6.9.4",
             "sonner": "^2.0.3",
             "tailwind-merge": "*",
             "vaul": "^1.1.2"

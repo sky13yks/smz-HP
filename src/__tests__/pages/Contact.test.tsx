@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { Contact } from '@/pages/Contact'
@@ -8,7 +8,7 @@ vi.stubGlobal('scrollTo', vi.fn())
 
 // sonner の toast をモック
 vi.mock('sonner', () => ({
-  toast: { success: vi.fn() },
+  toast: { success: vi.fn(), error: vi.fn() },
   Toaster: () => null,
 }))
 
@@ -21,6 +21,11 @@ function renderPage() {
 }
 
 describe('Contact ページ', () => {
+  beforeEach(() => {
+    vi.restoreAllMocks()
+    vi.stubGlobal('scrollTo', vi.fn())
+  })
+
   it('ページタイトルが表示される', () => {
     renderPage()
     expect(screen.getAllByText(/お問い合わせ/).length).toBeGreaterThanOrEqual(1)
@@ -51,7 +56,13 @@ describe('Contact ページ', () => {
     expect(submitButton).toBeInTheDocument()
   })
 
-  it('フォーム送信でtoastが表示されフォームがリセットされる', async () => {
+  it('フォーム送信成功でtoastが表示されフォームがリセットされる', async () => {
+    // fetch をモック（成功）
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ success: true }),
+    }))
+
     const { toast } = await import('sonner')
     const user = userEvent.setup()
     renderPage()
@@ -67,8 +78,10 @@ describe('Contact ページ', () => {
     await user.click(screen.getByRole('button', { name: /送信する/i }))
 
     // toast.success が呼ばれた
-    expect(toast.success).toHaveBeenCalledWith(
-      expect.stringContaining('お問合せを受け付けました')
-    )
+    await waitFor(() => {
+      expect(toast.success).toHaveBeenCalledWith(
+        expect.stringContaining('お問合せを受け付けました')
+      )
+    })
   })
 })

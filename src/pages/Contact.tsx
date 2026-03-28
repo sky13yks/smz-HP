@@ -14,11 +14,28 @@ const initialFormData = {
 export function Contact() {
   useDocumentTitle('お問い合わせ');
   const [formData, setFormData] = useState(initialFormData);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("お問合せを受け付けました。24時間以内に担当者よりご連絡いたします。");
-    setFormData(initialFormData);
+    setSubmitting(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('送信失敗');
+
+      toast.success("お問合せを受け付けました。24時間以内に担当者よりご連絡いたします。");
+      setFormData(initialFormData);
+    } catch {
+      toast.error("送信に失敗しました。お手数ですがメールまたはお電話でご連絡ください。");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -183,9 +200,10 @@ export function Contact() {
                   <div className="pt-6">
                     <button
                       type="submit"
-                      className="group w-full md:w-auto px-16 py-5 bg-primary text-primary-foreground rounded-md font-medium tracking-wider text-sm uppercase transition-all duration-500 flex items-center justify-center gap-4"
+                      disabled={submitting}
+                      className="group w-full md:w-auto px-16 py-5 bg-primary text-primary-foreground rounded-md font-medium tracking-wider text-sm uppercase transition-all duration-500 flex items-center justify-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      送信する <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                      {submitting ? '送信中...' : '送信する'} {!submitting && <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />}
                     </button>
                     <p className="text-xs text-muted-foreground font-normal mt-6 tracking-wider leading-relaxed">
                       ※ ご入力いただいた情報は暗号化され、安全に送信されます。<br />
