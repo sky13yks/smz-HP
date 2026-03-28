@@ -183,7 +183,7 @@ export const MatrixBrand: React.FC = () => {
 
                             <p className="text-2xl md:text-3xl font-light mb-8 max-w-xl leading-relaxed text-foreground/80">
                                 歯車研削の極致へ。<br />
-                                <span className="text-gradient-green font-medium">サブミクロン精度の再定義。</span>
+                                <span className="text-gradient-matrix font-medium">サブミクロン精度の再定義。</span>
                             </p>
 
                             <div className="flex flex-wrap gap-6 pt-4">
@@ -198,13 +198,13 @@ export const MatrixBrand: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="relative animate-fade-in pointer-events-none">
+                        <div className="relative animate-fade-in pointer-events-none pb-8">
                             <img
                                 src={machineImg}
                                 alt="MATRIX CNC Gear Grinder"
                                 className="relative z-10 w-full h-auto rounded-lg shadow-2xl"
                             />
-                            <div className="absolute -bottom-6 -left-6 surface p-6 rounded-lg">
+                            <div className="absolute -bottom-2 left-4 z-20 surface p-5 rounded-lg shadow-lg">
                                 <p className="font-mono text-xs tracking-[0.15em] text-matrix-green uppercase">走査軸精度</p>
                                 <p className="text-2xl font-mono text-foreground">±0.0001 mm</p>
                             </div>
@@ -252,7 +252,7 @@ export const MatrixBrand: React.FC = () => {
                                 onClick={() => setActiveTab(tab.id)}
                                 className={`px-5 py-2 rounded-md text-sm font-medium tracking-wider transition-all duration-300 ${
                                     activeTab === tab.id
-                                        ? 'bg-matrix-green text-foreground'
+                                        ? 'bg-matrix-green text-white'
                                         : 'border border-matrix-green/20 text-muted-foreground hover:text-foreground'
                                 }`}
                             >
@@ -286,21 +286,20 @@ export const MatrixBrand: React.FC = () => {
                                             rel="noopener noreferrer"
                                             className="group block relative rounded-xl overflow-hidden transition-all duration-500 bg-card border border-matrix-green/10 hover:border-matrix-green/50"
                                         >
-                                            <div className="relative aspect-[4/3] overflow-hidden bg-foreground/95">
-                                                <img
-                                                    src={machine.image}
-                                                    alt={machine.name}
-                                                    className="w-full h-full object-contain p-4 transition-all duration-500 group-hover:scale-105"
-                                                    onError={e => {
-                                                        const target = e.target as HTMLImageElement;
-                                                        target.style.display = 'none';
-                                                        const parent = target.parentElement;
-                                                        if (parent) {
-                                                            parent.style.backgroundColor = 'hsl(var(--secondary))';
-                                                            parent.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-matrix-green);font-size:0.85rem;text-align:center;padding:1.5rem;line-height:1.6;">${machine.model}<br/>${machine.name}</div>`;
-                                                        }
-                                                    }}
-                                                />
+                                            <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                                                {machine.image ? (
+                                                    <img
+                                                        src={machine.image}
+                                                        alt={machine.name}
+                                                        className="w-full h-full object-contain p-4 transition-all duration-500 group-hover:scale-105"
+                                                    />
+                                                ) : (
+                                                    <div className="flex flex-col items-center justify-center h-full gap-2 px-6">
+                                                        <Cpu size={32} className="text-matrix-green/60" />
+                                                        <p className="text-sm font-mono font-medium text-matrix-green">{machine.model}</p>
+                                                        <p className="text-xs text-muted-foreground text-center">{machine.name}</p>
+                                                    </div>
+                                                )}
                                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-matrix-green/10">
                                                     <ExternalLink size={24} className="text-matrix-green" />
                                                 </div>
