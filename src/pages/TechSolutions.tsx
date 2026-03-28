@@ -1,19 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+
+interface Article {
+    id: string;
+    title: string;
+    category: string;
+    topics: string[];
+    publishedAt: string | null;
+    articleNumber: string;
+}
+
+const TOPIC_LABELS: Record<string, string> = {
+    'supply-chain': 'サプライチェーン',
+    'ai-news': 'AIニュース',
+    'it-basics': 'IT基礎',
+    'cybersecurity': 'サイバーセキュリティ',
+    'erp': 'ERP',
+    'iot': 'IoT',
+    'rpa': 'RPA',
+    'ai-regulation': 'AI規制',
+    'digital-twin': 'デジタルツイン',
+    'quality-control': '品質管理',
+    'skill-transfer': '技能伝承',
+    'cross-industry': '異業種',
+    'generative-ai': '生成AI',
+};
+
+const CATEGORY_TABS = [
+    { id: 'all', label: 'すべて' },
+    { id: 'ウィークリー深掘り', label: 'ウィークリー深掘り' },
+    { id: 'デイリー/AIニュース', label: 'AIニュース' },
+    { id: 'デイリー/IT基礎', label: 'IT基礎' },
+];
+
+function formatDate(dateStr: string | null): string {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
 
 export const TechSolutions: React.FC = () => {
     useDocumentTitle('技術資料');
     const [searchParams, setSearchParams] = useSearchParams();
     const currentTab = searchParams.get('tab') || 'calculators';
+    const [articleCategory, setArticleCategory] = useState('all');
 
     const handleTabChange = (val: string) => {
         setSearchParams({ tab: val });
     };
+
+    // Article state
+    const [articles, setArticles] = useState<Article[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (currentTab !== 'docs') return;
+
+        let cancelled = false;
+        setLoading(true);
+        setError(null);
+
+        fetch('/api/articles')
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                if (!cancelled) setArticles(data.articles);
+            })
+            .catch(() => {
+                if (!cancelled) setError('記事の取得に失敗しました');
+            })
+            .finally(() => {
+                if (!cancelled) setLoading(false);
+            });
+
+        return () => { cancelled = true; };
+    }, [currentTab]);
+
+    const filteredArticles = articleCategory === 'all'
+        ? articles
+        : articles.filter(a => a.category === articleCategory);
 
     // SMZ Calculator State
     const [smzInputs, setSmzInputs] = useState({
@@ -169,42 +242,99 @@ export const TechSolutions: React.FC = () => {
                         </TabsContent>
 
                         <TabsContent value="docs" className="animate-fade-in mt-0 outline-none">
-                            <div className="grid gap-8">
-                                <div className="bg-card border border-border p-8 rounded-xl group cursor-pointer hover:border-primary/30 transition-all duration-500">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                                        <div>
-                                            <div className="flex items-center gap-4 mb-4">
-                                                <span className="px-3 py-1 bg-primary text-primary-foreground font-mono text-xs tracking-[0.15em]">技術記事</span>
-                                                <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">2026.03.02</span>
-                                            </div>
-                                            <h3 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors">ホブ刃溝研削における向心度の重要性</h3>
-                                            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
-                                                歯車工作機械の心臓部とも言えるホブ刃。その再研磨において向心度がいかに仕上がり精度に影響を及ぼすか、補正計算の背景と共に解説します。
-                                            </p>
-                                        </div>
-                                        <div className="flex-shrink-0">
-                                            <div className="w-16 h-16 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                                                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="bg-card border border-border p-8 rounded-xl opacity-50 group cursor-not-allowed">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                                        <div>
-                                            <div className="flex items-center gap-4 mb-4">
-                                                <span className="px-3 py-1 bg-secondary border border-border text-muted-foreground font-mono text-xs tracking-[0.15em]">準備中</span>
-                                                <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">2026.02.15</span>
-                                            </div>
-                                            <h3 className="text-2xl font-medium mb-3">チェンジギアーの組合わせ最適化</h3>
-                                            <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
-                                                近日公開予定のチェンジギアー掛け換え計算ツールの裏側にある計算ロジックを公開します。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                            {/* Category filter */}
+                            <div className="flex flex-wrap gap-2 mb-8">
+                                {CATEGORY_TABS.map(tab => (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setArticleCategory(tab.id)}
+                                        className={`px-4 py-2 rounded-md text-sm font-medium tracking-wider transition-all duration-300 ${
+                                            articleCategory === tab.id
+                                                ? 'bg-primary text-primary-foreground'
+                                                : 'border border-border text-muted-foreground hover:text-foreground'
+                                        }`}
+                                    >
+                                        {tab.label}
+                                    </button>
+                                ))}
                             </div>
+
+                            {/* Loading */}
+                            {loading && (
+                                <div className="flex items-center justify-center py-20">
+                                    <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+                                    <span className="ml-3 text-sm text-muted-foreground">記事を読み込み中...</span>
+                                </div>
+                            )}
+
+                            {/* Error */}
+                            {error && !loading && (
+                                <div className="text-center py-20">
+                                    <p className="text-sm text-muted-foreground">{error}</p>
+                                    <p className="text-xs text-muted-foreground mt-2">しばらく経ってから再度お試しください。</p>
+                                </div>
+                            )}
+
+                            {/* Empty */}
+                            {!loading && !error && filteredArticles.length === 0 && (
+                                <div className="text-center py-20">
+                                    <p className="text-sm text-muted-foreground">公開中の記事はまだありません。</p>
+                                </div>
+                            )}
+
+                            {/* Article list */}
+                            {!loading && !error && filteredArticles.length > 0 && (
+                                <div className="grid gap-6">
+                                    {filteredArticles.map(article => (
+                                        <div
+                                            key={article.id}
+                                            className="bg-card border border-border p-8 rounded-xl group cursor-default hover:border-primary/30 transition-all duration-500"
+                                        >
+                                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                                <div>
+                                                    <div className="flex items-center gap-3 mb-4 flex-wrap">
+                                                        {article.category && (
+                                                            <span className="px-3 py-1 bg-primary text-primary-foreground font-mono text-xs tracking-[0.15em]">
+                                                                {article.category}
+                                                            </span>
+                                                        )}
+                                                        {article.publishedAt && (
+                                                            <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">
+                                                                {formatDate(article.publishedAt)}
+                                                            </span>
+                                                        )}
+                                                        {article.articleNumber && (
+                                                            <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground">
+                                                                #{article.articleNumber}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <h3 className="text-xl md:text-2xl font-medium mb-3 group-hover:text-primary transition-colors">
+                                                        {article.title}
+                                                    </h3>
+                                                    {article.topics.length > 0 && (
+                                                        <div className="flex flex-wrap gap-2">
+                                                            {article.topics.map(topic => (
+                                                                <span
+                                                                    key={topic}
+                                                                    className="px-2 py-0.5 bg-secondary text-muted-foreground text-xs rounded font-mono"
+                                                                >
+                                                                    {TOPIC_LABELS[topic] ?? topic}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="flex-shrink-0">
+                                                    <div className="w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+                                                        <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </TabsContent>
                     </Tabs>
                 </div>
