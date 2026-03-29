@@ -1,25 +1,64 @@
+import { useState, useEffect } from "react";
 import { ArrowRight, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 import dtrToolsWhite from "@/assets/dtr_tools_white.jpg";
-import seiwaHb403 from "@/assets/seiwa_hb403_2.jpg";
 import fabrisHr254 from "@/assets/fabris_hr254.jpeg";
 import fabrisHr355 from "@/assets/fabris_hr355.jpeg";
+import seiwaHb403_1 from "@/assets/seiwa_hb403_1.jpg";
+import seiwaHb403_2 from "@/assets/seiwa_hb403_2.jpg";
 
-interface ServiceData {
-  icon: typeof Package;
-  number: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  items: string[];
-  itemLabel: string;
-  image?: string;
-  imageAlt?: string;
-  isMatrix?: boolean;
+const productImages = [
+  { src: dtrToolsDark, alt: "歯車加工工具コレクション — ホブカッター・ギアカッター" },
+  { src: dtrToolsWhite, alt: "DTR製 歯車加工工具ラインナップ" },
+  { src: fabrisHr254, alt: "FABRIS HR254 CNCホブ盤" },
+  { src: fabrisHr355, alt: "FABRIS HR355 CNCホブ盤" },
+  { src: seiwaHb403_1, alt: "SEIWA Orbis HB403 歯車加工機" },
+  { src: seiwaHb403_2, alt: "SEIWA Orbis HB403 歯車加工機（別角度）" },
+];
+
+function ImageCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % productImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative overflow-hidden bg-secondary rounded-xl">
+      <div className="relative aspect-[4/3]">
+        {productImages.map((img, i) => (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === current ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+      </div>
+      {/* Dots */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {productImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              i === current ? 'bg-primary w-4' : 'bg-foreground/30'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-const services: ServiceData[] = [
+const services = [
   {
     icon: Package,
     number: "01",
@@ -29,8 +68,7 @@ const services: ServiceData[] = [
       "創業以来の強みである「歯車用工具」の専門知識をベースに、国内外の最新工作機械をご提案します。カタログスペックだけでは分からない、現場の相性に合わせた「間違いのない選定」をお手伝いします。",
     items: ["歯車用工具", "各種工作機械（新品）", "周辺機器"],
     itemLabel: "取扱商品",
-    image: dtrToolsWhite,
-    imageAlt: "DTR製 歯車加工工具ラインナップ — ホブカッター・ギアカッター・ブローチ",
+    hasCarousel: true,
   },
   {
     icon: Wrench,
@@ -41,8 +79,6 @@ const services: ServiceData[] = [
       "「調子が悪いけれど、だましだまし使っている」「メーカーサポートが終わってしまった」そんな機械もお任せください。古き良き機械は次の世代へ遺したい。そんな温故知新の精神で、長年培った修理技術を駆使し、お客様の大切な資産を守ります。",
     items: ["工作機械の修理", "オーバーホール", "定期メンテナンス"],
     itemLabel: "サービス内容",
-    image: seiwaHb403,
-    imageAlt: "SEIWA Orbis HB403 歯車加工機 — メンテナンス対応機種の一例",
   },
   {
     icon: RefreshCw,
@@ -53,8 +89,6 @@ const services: ServiceData[] = [
       "「新機を導入したいがコストを抑えたい」「使わなくなった機械を有効活用したい」という声に応えます。ただの中古販売ではなく、プロの目でしっかり点検・整備した「動く財産」を橋渡しします。",
     items: ["中古工作機械の買取・販売", "リユース提案"],
     itemLabel: "サービス内容",
-    image: fabrisHr254,
-    imageAlt: "FABRIS HR254 CNCホブ盤 — 中古整備済み機械の一例",
   },
   {
     icon: Factory,
@@ -76,8 +110,6 @@ const services: ServiceData[] = [
     items: ["MATRIX社製 歯車用工作機械の輸入・販売・技術サポート"],
     itemLabel: "取扱内容",
     isMatrix: true,
-    image: fabrisHr355,
-    imageAlt: "FABRIS HR355 CNCホブ盤 — 海外調達機械の一例",
   },
 ];
 
@@ -119,21 +151,16 @@ export function Services() {
                     SERVICE {service.number}
                   </div>
 
-                  <div className={`flex flex-col ${service.image ? 'md:flex-row' : ''}`}>
-                    {/* Image */}
-                    {service.image && (
-                      <div className="md:w-2/5 relative overflow-hidden bg-secondary">
-                        <img
-                          src={service.image}
-                          alt={service.imageAlt}
-                          className="w-full h-64 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/10" />
+                  <div className={`flex flex-col ${service.hasCarousel ? 'md:flex-row' : ''}`}>
+                    {/* Carousel for SERVICE 01 only */}
+                    {service.hasCarousel && (
+                      <div className="md:w-2/5">
+                        <ImageCarousel />
                       </div>
                     )}
 
                     {/* Content */}
-                    <div className={`flex-1 p-8 md:p-12 ${service.image ? 'pt-16 md:pt-12' : 'pt-16'}`}>
+                    <div className={`flex-1 p-8 md:p-12 pt-16 ${service.hasCarousel ? 'md:pt-12' : ''}`}>
                       <div className="flex items-start gap-6 mb-6">
                         <div
                           className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"

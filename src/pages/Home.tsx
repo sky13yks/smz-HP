@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
-import fabrisHr355 from "@/assets/fabris_hr355.jpeg";
-import seiwaHb403 from "@/assets/seiwa_hb403_1.jpg";
 
 export function Home() {
   useDocumentTitle('');
@@ -11,54 +9,46 @@ export function Home() {
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={dtrToolsDark}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-card border border-border rounded-full mb-8">
-                <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">Precision Engineering Since 1950</span>
-              </div>
-
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter leading-[0.9] mb-10">
-                MASTERING <br />
-                <span className="text-primary">THE MICRON.</span>
-              </h1>
-
-              <p className="text-xl md:text-2xl font-sans font-light text-foreground/70 max-w-2xl leading-relaxed mb-12">
-                東京都大田区から世界へ。清水商會は、工作機械・切削工具・加工代行を融合させた
-                次世代の「技術商社」として、ものづくりの未来を削り出します。
-              </p>
-
-              <div className="flex flex-wrap gap-6">
-                <Link
-                  to="/services"
-                  className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
-                >
-                  事業内容を見る <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                </Link>
-                <Link
-                  to="/matrix"
-                  className="bg-card border border-border px-10 py-5 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
-                >
-                  Matrix ブランド
-                </Link>
-              </div>
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-card/80 backdrop-blur border border-border rounded-full mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">Precision Engineering Since 1950</span>
             </div>
 
-            {/* Hero Image */}
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={dtrToolsDark}
-                  alt="歯車加工工具コレクション — ホブカッター・ギアカッター・ピニオンカッター"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 surface p-5 rounded-lg shadow-lg z-20">
-                <p className="font-mono text-xs tracking-[0.15em] text-primary uppercase">取扱工具</p>
-                <p className="text-lg font-medium text-foreground">300+ 種類</p>
-              </div>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter leading-[0.9] mb-10">
+              MASTERING <br />
+              <span className="text-primary">THE MICRON.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl font-sans font-light text-foreground/70 max-w-2xl leading-relaxed mb-12">
+              東京都大田区から世界へ。清水商會は、工作機械・切削工具・加工代行を融合させた
+              次世代の「技術商社」として、ものづくりの未来を削り出します。
+            </p>
+
+            <div className="flex flex-wrap gap-6">
+              <Link
+                to="/services"
+                className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
+              >
+                事業内容を見る <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+              </Link>
+              <Link
+                to="/matrix"
+                className="bg-card/80 backdrop-blur border border-border px-10 py-5 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
+              >
+                Matrix ブランド
+              </Link>
             </div>
           </div>
         </div>
@@ -124,7 +114,7 @@ export function Home() {
       {/* Trust & Heritage Section */}
       <section className="py-32 bg-secondary">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="flex flex-col md:flex-row items-center gap-20">
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight">
                 世界に誇る「大田区」の<br />
@@ -139,26 +129,16 @@ export function Home() {
                 会社情報を見る <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
-            <div className="flex-1 w-full space-y-6">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img src={fabrisHr355} alt="FABRIS HR355 ホブ盤" className="w-full h-48 object-cover" />
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img src={seiwaHb403} alt="SEIWA Orbis HB403 歯車加工機" className="w-full h-48 object-cover" />
-                </div>
+            <div className="flex-1 grid grid-cols-2 gap-6 w-full">
+              <div className="bg-card border border-border p-8 rounded-xl">
+                <ShieldCheck className="w-10 h-10 text-primary mb-6" />
+                <div className="text-4xl font-medium mb-2">75+</div>
+                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-card border border-border p-8 rounded-xl">
-                  <ShieldCheck className="w-10 h-10 text-primary mb-4" />
-                  <div className="text-4xl font-medium mb-2">75+</div>
-                  <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
-                </div>
-                <div className="bg-card border border-border p-8 rounded-xl">
-                  <Globe className="w-10 h-10 text-primary mb-4" />
-                  <div className="text-4xl font-medium mb-2">GLOBAL</div>
-                  <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
-                </div>
+              <div className="bg-card border border-border p-8 rounded-xl">
+                <Globe className="w-10 h-10 text-primary mb-6" />
+                <div className="text-4xl font-medium mb-2">GLOBAL</div>
+                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
               </div>
             </div>
           </div>
