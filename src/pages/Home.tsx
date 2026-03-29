@@ -14,9 +14,9 @@ export function Home() {
           <img
             src={dtrToolsDark}
             alt=""
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/80 to-foreground" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/30 via-foreground/50 to-foreground/80" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -30,15 +30,15 @@ export function Home() {
             {/* Main Copy */}
             <p className="font-mono text-sm tracking-[0.2em] text-background/40 uppercase mb-4">— 歯車屋の意地</p>
 
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[1.1] mb-6">
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[1.1] mb-6 text-background/90">
               The Resolve<br />
               that Turns<br />
-              <span className="text-primary italic">the World.</span>
+              <span className="text-background italic">the World.</span>
             </h1>
 
             <div className="w-16 h-px bg-primary mb-8" />
 
-            <p className="text-lg md:text-xl font-light text-background/50 max-w-xl leading-relaxed mb-12">
+            <p className="text-lg md:text-xl font-light text-background/60 max-w-xl leading-relaxed mb-12">
               工具の選定から、機械の修理、加工の代行まで。<br />
               75年の知見で、歯車づくりの「困った」に応え続ける。
             </p>
