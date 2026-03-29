@@ -117,8 +117,11 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix-green to-emerald-400;
   }
 
-  .text-gradient-hero {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-300 to-cyan-400;
+  .text-gradient-logo {
+    background: linear-gradient(90deg, #1a3a5c, #2563eb, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
 }

@@ -31,8 +31,9 @@ export function Home() {
             <p className="font-mono text-sm tracking-[0.2em] text-background/40 uppercase mb-4">— 歯車屋の意地</p>
 
             <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[1.1] mb-6 text-background/90">
-              The Resolve that<br />
-              <span className="text-gradient-hero italic">Turns the World.</span>
+              The Resolve<br />
+              that Turns<br />
+              <span className="text-gradient-logo italic">the World.</span>
             </h1>
 
             <div className="w-16 h-px bg-primary mb-8" />
