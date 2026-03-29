@@ -23,17 +23,17 @@ export function Home() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-3 px-4 py-2 bg-card/80 backdrop-blur border border-border rounded-full mb-8">
               <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">Precision Engineering Since 1950</span>
+              <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">The Gear Partner Since 1950</span>
             </div>
 
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter leading-[0.9] mb-10">
-              MASTERING <br />
-              <span className="text-primary">THE MICRON.</span>
+              歯車に、<br />
+              <span className="text-primary">最適解を。</span>
             </h1>
 
             <p className="text-xl md:text-2xl font-sans font-light text-foreground/70 max-w-2xl leading-relaxed mb-12">
-              東京都大田区から世界へ。清水商會は、工作機械・切削工具・加工代行を融合させた
-              次世代の「技術商社」として、ものづくりの未来を削り出します。
+              工具の選定から、機械の修理、加工の代行まで。
+              清水商會は75年の知見で、歯車づくりの「困った」に応え続ける技術商社です。
             </p>
 
             <div className="flex flex-wrap gap-6">
