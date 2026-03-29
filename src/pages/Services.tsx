@@ -1,8 +1,25 @@
 import { ArrowRight, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import dtrToolsWhite from "@/assets/dtr_tools_white.jpg";
+import seiwaHb403 from "@/assets/seiwa_hb403_2.jpg";
+import fabrisHr254 from "@/assets/fabris_hr254.jpeg";
+import fabrisHr355 from "@/assets/fabris_hr355.jpeg";
 
-const services = [
+interface ServiceData {
+  icon: typeof Package;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  items: string[];
+  itemLabel: string;
+  image?: string;
+  imageAlt?: string;
+  isMatrix?: boolean;
+}
+
+const services: ServiceData[] = [
   {
     icon: Package,
     number: "01",
@@ -12,6 +29,8 @@ const services = [
       "創業以来の強みである「歯車用工具」の専門知識をベースに、国内外の最新工作機械をご提案します。カタログスペックだけでは分からない、現場の相性に合わせた「間違いのない選定」をお手伝いします。",
     items: ["歯車用工具", "各種工作機械（新品）", "周辺機器"],
     itemLabel: "取扱商品",
+    image: dtrToolsWhite,
+    imageAlt: "DTR製 歯車加工工具ラインナップ — ホブカッター・ギアカッター・ブローチ",
   },
   {
     icon: Wrench,
@@ -22,6 +41,8 @@ const services = [
       "「調子が悪いけれど、だましだまし使っている」「メーカーサポートが終わってしまった」そんな機械もお任せください。古き良き機械は次の世代へ遺したい。そんな温故知新の精神で、長年培った修理技術を駆使し、お客様の大切な資産を守ります。",
     items: ["工作機械の修理", "オーバーホール", "定期メンテナンス"],
     itemLabel: "サービス内容",
+    image: seiwaHb403,
+    imageAlt: "SEIWA Orbis HB403 歯車加工機 — メンテナンス対応機種の一例",
   },
   {
     icon: RefreshCw,
@@ -32,6 +53,8 @@ const services = [
       "「新機を導入したいがコストを抑えたい」「使わなくなった機械を有効活用したい」という声に応えます。ただの中古販売ではなく、プロの目でしっかり点検・整備した「動く財産」を橋渡しします。",
     items: ["中古工作機械の買取・販売", "リユース提案"],
     itemLabel: "サービス内容",
+    image: fabrisHr254,
+    imageAlt: "FABRIS HR254 CNCホブ盤 — 中古整備済み機械の一例",
   },
   {
     icon: Factory,
@@ -53,6 +76,8 @@ const services = [
     items: ["MATRIX社製 歯車用工作機械の輸入・販売・技術サポート"],
     itemLabel: "取扱内容",
     isMatrix: true,
+    image: fabrisHr355,
+    imageAlt: "FABRIS HR355 CNCホブ盤 — 海外調達機械の一例",
   },
 ];
 
@@ -84,36 +109,49 @@ export function Services() {
               return (
                 <div
                   key={i}
-                  className="group relative bg-card border border-border rounded-xl p-8 md:p-12 transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
+                  className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
                 >
                   {/* Number badge */}
                   <div
-                    className={`absolute -top-5 left-10 px-6 py-2 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
+                    className={`absolute top-6 left-10 z-10 px-6 py-2 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
                       }`}
                   >
                     SERVICE {service.number}
                   </div>
 
-                  <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-                    {/* Icon Container */}
-                    <div className="flex-shrink-0">
-                      <div
-                        className={`w-20 h-20 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"
-                          }`}
-                      >
-                        <Icon size={32} />
+                  <div className={`flex flex-col ${service.image ? 'md:flex-row' : ''}`}>
+                    {/* Image */}
+                    {service.image && (
+                      <div className="md:w-2/5 relative overflow-hidden bg-secondary">
+                        <img
+                          src={service.image}
+                          alt={service.imageAlt}
+                          className="w-full h-64 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/10" />
                       </div>
-                    </div>
+                    )}
 
                     {/* Content */}
-                    <div className="flex-1">
-                      <h2 className="text-2xl md:text-3xl font-medium mb-3">
-                        {service.title}
-                      </h2>
-                      <p className={`text-sm font-medium tracking-wider mb-6 ${service.isMatrix ? "text-matrix-green" : "text-primary"
-                        }`}>
-                        {service.subtitle}
-                      </p>
+                    <div className={`flex-1 p-8 md:p-12 ${service.image ? 'pt-16 md:pt-12' : 'pt-16'}`}>
+                      <div className="flex items-start gap-6 mb-6">
+                        <div
+                          className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"
+                            }`}
+                        >
+                          <Icon size={28} />
+                        </div>
+                        <div>
+                          <h2 className="text-2xl md:text-3xl font-medium mb-2">
+                            {service.title}
+                          </h2>
+                          <p className={`text-sm font-medium tracking-wider ${service.isMatrix ? "text-matrix-green" : "text-primary"
+                            }`}>
+                            {service.subtitle}
+                          </p>
+                        </div>
+                      </div>
+
                       <p className="text-foreground/60 leading-relaxed mb-8 text-lg">
                         {service.description}
                       </p>
@@ -134,7 +172,7 @@ export function Services() {
                       {service.isMatrix && (
                         <Link
                           to="/matrix"
-                          className="inline-flex items-center gap-3 mt-10 text-sm font-medium tracking-wider text-matrix-green uppercase border-b border-matrix-green/20 pb-1 hover:border-matrix-green transition-all"
+                          className="inline-flex items-center gap-3 mt-8 text-sm font-medium tracking-wider text-matrix-green uppercase border-b border-matrix-green/20 pb-1 hover:border-matrix-green transition-all"
                         >
                           技術詳細を見る <ArrowRight size={16} />
                         </Link>
