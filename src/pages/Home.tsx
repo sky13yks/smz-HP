@@ -8,35 +8,42 @@ export function Home() {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
+      <section className="relative min-h-screen flex items-center pt-20 bg-foreground text-background overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={dtrToolsDark}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-background/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/80 to-foreground" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-card/80 backdrop-blur border border-border rounded-full mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase">The Gear Partner Since 1950</span>
+          <div className="max-w-5xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-3 px-4 py-2 border border-background/20 rounded-full mb-10">
+              <span className="flex h-2 w-2 rounded-full bg-primary" />
+              <span className="font-mono text-xs tracking-[0.3em] text-background/60 uppercase">株式会社清水商會 — Est. 1950</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter leading-[0.9] mb-10">
-              歯車に、<br />
-              <span className="text-primary">最適解を。</span>
+            {/* Main Copy */}
+            <p className="font-mono text-sm tracking-[0.2em] text-background/40 uppercase mb-4">— 歯車屋の意地</p>
+
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[1.1] mb-6">
+              The Resolve<br />
+              that Turns<br />
+              <span className="text-primary italic">the World.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl font-sans font-light text-foreground/70 max-w-2xl leading-relaxed mb-12">
-              工具の選定から、機械の修理、加工の代行まで。
-              清水商會は75年の知見で、歯車づくりの「困った」に応え続ける技術商社です。
+            <div className="w-16 h-px bg-primary mb-8" />
+
+            <p className="text-lg md:text-xl font-light text-background/50 max-w-xl leading-relaxed mb-12">
+              工具の選定から、機械の修理、加工の代行まで。<br />
+              75年の知見で、歯車づくりの「困った」に応え続ける。
             </p>
 
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-5">
               <Link
                 to="/services"
                 className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
@@ -45,7 +52,7 @@ export function Home() {
               </Link>
               <Link
                 to="/matrix"
-                className="bg-card/80 backdrop-blur border border-border px-10 py-5 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green/50 hover:text-matrix-green"
+                className="border border-background/20 px-10 py-5 text-background/70 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green hover:text-matrix-green"
               >
                 Matrix ブランド
               </Link>
@@ -54,15 +61,15 @@ export function Home() {
         </div>
 
         {/* Floating Stats */}
-        <div className="absolute bottom-12 right-12 hidden xl:flex gap-12">
+        <div className="absolute bottom-12 right-12 hidden xl:flex gap-10">
           {[
             { label: "Precision", value: "Sub-micron" },
             { label: "Experience", value: "75+ Years" },
             { label: "Location", value: "Ota, Tokyo" },
           ].map((stat, i) => (
-            <div key={i} className="text-right border-r border-border pr-6 last:border-0 last:pr-0">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">{stat.label}</p>
-              <p className="text-xl font-medium font-serif">{stat.value}</p>
+            <div key={i} className="text-right border-r border-background/10 pr-6 last:border-0 last:pr-0">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-background/30 mb-1">{stat.label}</p>
+              <p className="text-lg font-medium font-serif text-background/60">{stat.value}</p>
             </div>
           ))}
         </div>
