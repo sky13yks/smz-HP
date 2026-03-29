@@ -117,4 +117,8 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-matrix-green to-emerald-400;
   }
 
+  .text-gradient-hero {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-300 to-cyan-400;
+  }
+
 }
