@@ -14,15 +14,15 @@ function renderPage() {
 }
 
 describe('Home ページ', () => {
-  it('ヒーローテキスト「MASTERING THE MICRON.」が表示される', () => {
+  it('ヒーローテキストが表示される', () => {
     renderPage()
-    expect(screen.getByText(/MASTERING/)).toBeInTheDocument()
-    expect(screen.getByText(/THE MICRON/)).toBeInTheDocument()
+    expect(screen.getByText(/The Resolve/)).toBeInTheDocument()
+    expect(screen.getByText(/the World\./)).toBeInTheDocument()
   })
 
-  it('サービスセクションが表示される', () => {
+  it('バッジが表示される', () => {
     renderPage()
-    expect(screen.getByText(/Precision Engineering/i)).toBeInTheDocument()
+    expect(screen.getByText(/Est\. 1950/)).toBeInTheDocument()
   })
 
   it('お問い合わせへのリンクが存在する', () => {

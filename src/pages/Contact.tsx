@@ -29,7 +29,7 @@ export function Contact() {
 
       if (!res.ok) throw new Error('送信失敗');
 
-      toast.success("お問合せを受け付けました。24時間以内に担当者よりご連絡いたします。");
+      toast.success("お問合せを受け付けました。担当者より迅速にご連絡いたします。");
       setFormData(initialFormData);
     } catch {
       toast.error("送信に失敗しました。お手数ですがメールまたはお電話でご連絡ください。");
@@ -60,7 +60,7 @@ export function Contact() {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               技術的なご相談、製品のお問合せなど、お気軽にご連絡ください。<br />
-              専門スタッフが24時間以内にご回答いたします。
+              専門スタッフが迅速にご回答いたします。
             </p>
           </div>
         </div>

@@ -143,14 +143,6 @@ export function Services() {
                   key={i}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
                 >
-                  {/* Number badge */}
-                  <div
-                    className={`absolute top-6 left-10 z-10 px-6 py-2 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground shadow-xl ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
-                      }`}
-                  >
-                    SERVICE {service.number}
-                  </div>
-
                   <div className={`flex flex-col ${service.hasCarousel ? 'md:flex-row' : ''}`}>
                     {/* Carousel for SERVICE 01 only */}
                     {service.hasCarousel && (
@@ -160,7 +152,14 @@ export function Services() {
                     )}
 
                     {/* Content */}
-                    <div className={`flex-1 p-8 md:p-12 pt-16 ${service.hasCarousel ? 'md:pt-12' : ''}`}>
+                    <div className="flex-1 p-8 md:p-12">
+                      {/* Number badge (inline) */}
+                      <div
+                        className={`inline-block px-5 py-1.5 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground mb-6 ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
+                          }`}
+                      >
+                        SERVICE {service.number}
+                      </div>
                       <div className="flex items-start gap-6 mb-6">
                         <div
                           className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 ${service.isMatrix ? "bg-matrix-green/10 text-matrix-green" : "bg-primary/10 text-primary"

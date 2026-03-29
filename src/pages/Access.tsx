@@ -24,7 +24,7 @@ export function Access() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 animate-fade-in">
             {/* Headquarters */}
-            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group">
+            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group flex flex-col">
               <div className="mb-10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-card border border-border rounded-lg w-12 h-12 flex items-center justify-center text-primary">
@@ -74,7 +74,7 @@ export function Access() {
                 </div>
               </div>
 
-              <div className="mt-12">
+              <div className="mt-auto pt-12">
                 <a
                   href="https://maps.app.goo.gl/De8Qp5ebq1YKShN66?g_st=ic"
                   target="_blank"
@@ -87,7 +87,7 @@ export function Access() {
             </div>
 
             {/* Tsurumi Machine Center */}
-            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group">
+            <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group flex flex-col">
               <div className="mb-10">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-card border border-border rounded-lg w-12 h-12 flex items-center justify-center text-primary">
@@ -121,7 +121,7 @@ export function Access() {
                 </p>
               </div>
 
-              <div className="mt-auto">
+              <div className="mt-auto pt-10">
                 <a
                   href="https://maps.app.goo.gl/W1pkgZqTnvLtqAC29?g_st=ic"
                   target="_blank"

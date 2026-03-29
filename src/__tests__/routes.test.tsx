@@ -42,7 +42,7 @@ function renderRoute(path: string) {
 describe('ルーティング', () => {
   it('/ でホームページが表示される', () => {
     renderRoute('/')
-    expect(screen.getByText(/MASTERING/i)).toBeInTheDocument()
+    expect(screen.getByText(/The Resolve/i)).toBeInTheDocument()
   })
 
   it('/company で会社情報ページが表示される', () => {
