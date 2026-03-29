@@ -118,7 +118,7 @@
   }
 
   .text-gradient-logo {
-    background: linear-gradient(90deg, #1a3a5c, #2563eb, #38bdf8);
+    background: linear-gradient(90deg, #3b82f6, #2563eb, #38bdf8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
