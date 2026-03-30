@@ -74,7 +74,8 @@ export const TechSolutions: React.FC = () => {
             .then(data => {
                 if (!cancelled) setArticles(data.articles ?? []);
             })
-            .catch(() => {
+            .catch(err => {
+                console.error('Articles fetch error:', err);
                 if (!cancelled) setError('記事の取得に失敗しました');
             })
             .finally(() => {
