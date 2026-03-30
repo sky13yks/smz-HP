@@ -24,21 +24,21 @@ export function Home() {
             {/* Badge */}
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-background/20 rounded-full mb-10">
               <span className="flex h-2 w-2 rounded-full bg-primary" />
-              <span className="font-mono text-xs tracking-[0.3em] text-background/60 uppercase">株式会社清水商會 — Est. 1950</span>
+              <span className="font-mono text-[11px] tracking-[0.3em] text-background/60 uppercase">株式会社清水商會 — Est. 1950</span>
             </div>
 
             {/* Main Copy */}
-            <p className="font-mono text-sm tracking-[0.2em] text-background/40 uppercase mb-4">— 歯車屋の意地</p>
+            <p className="font-mono text-xs tracking-[0.2em] text-background/40 uppercase mb-4">— 歯車屋の意地</p>
 
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-tight leading-[1.1] mb-6 text-background/90">
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.15] mb-6 text-background/90">
               The Resolve<br />
               that Turns<br />
               <span className="text-gradient-logo italic">the World.</span>
             </h1>
 
-            <div className="w-16 h-px bg-primary mb-8" />
+            <div className="w-12 h-px bg-primary mb-8" />
 
-            <p className="text-lg md:text-xl font-light text-background/60 max-w-xl leading-relaxed mb-12">
+            <p className="text-base md:text-lg font-light text-background/60 max-w-lg leading-relaxed mb-12">
               工具の選定から、機械の修理、加工の代行まで。<br />
               75年の知見で、歯車づくりの「困った」に応え続ける。
             </p>
@@ -46,13 +46,13 @@ export function Home() {
             <div className="flex flex-wrap gap-5">
               <Link
                 to="/services"
-                className="group px-10 py-5 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
+                className="group px-8 py-4 bg-primary text-primary-foreground font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 flex items-center gap-3"
               >
                 事業内容を見る <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
               </Link>
               <Link
                 to="/matrix"
-                className="border border-background/20 px-10 py-5 text-background/70 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green hover:text-matrix-green"
+                className="border border-background/20 px-8 py-4 text-background/70 font-medium text-sm tracking-wider rounded-md uppercase transition-all duration-500 hover:border-matrix-green hover:text-matrix-green"
               >
                 Matrix ブランド
               </Link>
@@ -61,22 +61,22 @@ export function Home() {
         </div>
 
         {/* Floating Stats */}
-        <div className="absolute bottom-12 right-12 hidden xl:flex gap-10">
+        <div className="absolute bottom-10 right-10 hidden xl:flex gap-10">
           {[
             { label: "Precision", value: "Sub-micron" },
             { label: "Experience", value: "75+ Years" },
             { label: "Location", value: "Ota, Tokyo" },
           ].map((stat, i) => (
             <div key={i} className="text-right border-r border-background/10 pr-6 last:border-0 last:pr-0">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-background/30 mb-1">{stat.label}</p>
-              <p className="text-lg font-medium font-serif text-background/60">{stat.value}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-background/30 mb-1">{stat.label}</p>
+              <p className="text-base font-medium font-serif text-background/60">{stat.value}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Core Solutions Grid */}
-      <section className="py-32 relative">
+      <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -102,13 +102,13 @@ export function Home() {
               <Link
                 key={i}
                 to={feature.link}
-                className="bg-card border border-border p-10 rounded-xl group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
+                className="bg-card border border-border p-8 rounded-xl group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-medium mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">{feature.desc}</p>
+                <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{feature.desc}</p>
                 <div className="flex items-center gap-2 text-primary font-medium text-xs tracking-wider uppercase">
                   詳しく見る <ArrowRight className="w-4 h-4" />
                 </div>
@@ -119,33 +119,33 @@ export function Home() {
       </section>
 
       {/* Trust & Heritage Section */}
-      <section className="py-32 bg-secondary">
+      <section className="py-24 bg-secondary">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-20">
+          <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight">
                 世界に誇る「大田区」の<br />
-                <span className="text-primary font-medium">技術と感性を、次世代へ。</span>
+                <span className="text-primary">技術と感性を、次世代へ。</span>
               </h2>
-              <p className="text-lg text-foreground/60 leading-relaxed mb-10">
+              <p className="text-sm text-foreground/60 leading-relaxed mb-8">
                 私たちは、ただの商社ではありません。現場の職人と共に歩み、
                 機械の「深奥」を知るからこそできる提案があります。
                 その誇りと責任を胸に、日本のものづくりを支え続けます。
               </p>
-              <Link to="/company" className="inline-flex items-center gap-4 text-primary font-medium tracking-wider text-sm hover:gap-6 transition-all">
-                会社情報を見る <ArrowRight className="w-5 h-5" />
+              <Link to="/company" className="inline-flex items-center gap-3 text-primary font-medium tracking-wider text-sm hover:gap-5 transition-all">
+                会社情報を見る <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="flex-1 grid grid-cols-2 gap-6 w-full">
-              <div className="bg-card border border-border p-8 rounded-xl">
-                <ShieldCheck className="w-10 h-10 text-primary mb-6" />
-                <div className="text-4xl font-medium mb-2">75+</div>
-                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
+              <div className="bg-card border border-border p-6 rounded-xl">
+                <ShieldCheck className="w-8 h-8 text-primary mb-4" />
+                <div className="text-3xl font-medium mb-1">75+</div>
+                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
               </div>
-              <div className="bg-card border border-border p-8 rounded-xl">
-                <Globe className="w-10 h-10 text-primary mb-6" />
-                <div className="text-4xl font-medium mb-2">GLOBAL</div>
-                <div className="font-mono text-xs text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
+              <div className="bg-card border border-border p-6 rounded-xl">
+                <Globe className="w-8 h-8 text-primary mb-4" />
+                <div className="text-3xl font-medium mb-1">GLOBAL</div>
+                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
               </div>
             </div>
           </div>
