@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Loader2, Info } from "lucide-react";
+import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 interface Article {
@@ -318,9 +319,10 @@ export const TechSolutions: React.FC = () => {
                             {!loading && !error && filteredArticles.length > 0 && (
                                 <div className="grid gap-6">
                                     {filteredArticles.map(article => (
-                                        <div
+                                        <Link
                                             key={article.id}
-                                            className="bg-card border border-border p-6 md:p-8 rounded-xl group cursor-default hover:border-primary/30 transition-all duration-500"
+                                            to={`/tech/articles/${article.id}`}
+                                            className="block bg-card border border-border p-6 md:p-8 rounded-xl group hover:border-primary/30 transition-all duration-500"
                                         >
                                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
                                                 <div>
@@ -358,12 +360,12 @@ export const TechSolutions: React.FC = () => {
                                                     )}
                                                 </div>
                                                 <div className="flex-shrink-0">
-                                                    <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+                                                    <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground transition-all duration-500">
                                                         <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     ))}
                                 </div>
                             )}
