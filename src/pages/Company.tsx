@@ -27,13 +27,13 @@ export function Company() {
             <div className="bg-card border border-border p-10 md:p-20 rounded-xl relative overflow-hidden">
               <div className="grid lg:grid-cols-1 gap-12">
                 <div>
-                  <h2 className="font-mono text-xs font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
-                  <p className="text-3xl md:text-4xl font-medium mb-12 leading-tight">
+                  <h2 className="text-sm font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
+                  <p className="text-2xl md:text-3xl font-medium mb-12 leading-tight">
                     温故知新。<br />
                     75年の研鑽を、これからの「つくる」へ。
                   </p>
 
-                  <div className="max-w-none space-y-8 text-foreground/70 text-lg leading-relaxed">
+                  <div className="max-w-none space-y-8 text-foreground/70 text-base leading-relaxed">
                     <p>
                       東京都大田区という、世界に誇る「ものづくりの聖地」で、株式会社清水商會は歩みを続けてまいりました。
                     </p>
@@ -57,8 +57,8 @@ export function Company() {
 
                   <div className="mt-20 pt-12 border-t border-border flex flex-col md:flex-row justify-between items-end gap-6">
                     <div>
-                      <p className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase mb-2">代表取締役</p>
-                      <p className="text-3xl font-medium">清水 正太</p>
+                      <p className="text-sm tracking-wider text-muted-foreground mb-2">代表取締役</p>
+                      <p className="text-2xl font-medium">清水 正太</p>
                     </div>
                     <div className="text-right">
                       <p className="text-6xl font-light opacity-5 select-none absolute bottom-10 right-10">SHIMIZU</p>
@@ -75,7 +75,7 @@ export function Company() {
       <section className="py-32 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-serif font-light mb-4 uppercase">私たちの理念</h2>
+            <h2 className="text-3xl font-serif font-light mb-4 uppercase">私たちの理念</h2>
             <div className="h-px w-20 bg-primary mx-auto" />
           </div>
 
@@ -107,7 +107,7 @@ export function Company() {
                   <v.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-medium mb-4">{v.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{v.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -118,7 +118,7 @@ export function Company() {
       <section className="py-32 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-serif font-light mb-16 text-center italic">会社概要</h2>
+            <h2 className="text-3xl font-serif font-light mb-16 text-center italic">会社概要</h2>
 
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               {[
@@ -131,10 +131,10 @@ export function Company() {
                 { label: "許認可", value: "古物工具機械商 第302220706952号" },
               ].map((row, i) => (
                 <div key={i} className="grid grid-cols-1 md:grid-cols-4 border-b border-border last:border-0">
-                  <div className="p-6 md:p-8 bg-secondary font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase flex items-center">
+                  <div className="p-5 md:p-6 bg-secondary text-sm tracking-wider text-muted-foreground flex items-center">
                     {row.label}
                   </div>
-                  <div className="p-6 md:p-8 col-span-3 text-foreground/80 font-medium">
+                  <div className="p-5 md:p-6 col-span-3 text-sm text-foreground/80">
                     {row.value}
                   </div>
                 </div>
