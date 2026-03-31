@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Loader2, Info } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { TOPIC_LABELS } from '@/constants/topics';
 
 interface Article {
     id: string;
@@ -15,22 +16,6 @@ interface Article {
     publishedAt: string | null;
     articleNumber: string;
 }
-
-const TOPIC_LABELS: Record<string, string> = {
-    'supply-chain': 'サプライチェーン',
-    'ai-news': 'AIニュース',
-    'it-basics': 'IT基礎',
-    'cybersecurity': 'サイバーセキュリティ',
-    'erp': 'ERP',
-    'iot': 'IoT',
-    'rpa': 'RPA',
-    'ai-regulation': 'AI規制',
-    'digital-twin': 'デジタルツイン',
-    'quality-control': '品質管理',
-    'skill-transfer': '技能伝承',
-    'cross-industry': '異業種',
-    'generative-ai': '生成AI',
-};
 
 const CATEGORY_TABS = [
     { id: 'all', label: 'すべて' },
@@ -107,12 +92,18 @@ export const TechSolutions: React.FC = () => {
         base: 2.25
     });
     const [simpleResult, setSimpleResult] = useState<number | null>(null);
+    const [calcError, setCalcError] = useState<string | null>(null);
 
     const calculateSmz = () => {
+        setCalcError(null);
         const { diameter, concentricity, formError, tipBase, rootBase } = smzInputs;
         const height = (concentricity - formError) / 1000;
         const base = (tipBase - rootBase) / 2;
-        if (base === 0) return;
+        if (Math.abs(base) < Number.EPSILON) {
+            setCalcError('先端基準と歯元基準の値が同じです。基準差がゼロのため計算できません。');
+            setSmzResult(null);
+            return;
+        }
 
         const radius = diameter / 2;
         const angle = Math.atan(height / base);
@@ -121,8 +112,13 @@ export const TechSolutions: React.FC = () => {
     };
 
     const calculateSimple = () => {
+        setCalcError(null);
         const { diameter, height, base } = simpleInputs;
-        if (base === 0) return;
+        if (Math.abs(base) < Number.EPSILON) {
+            setCalcError('基準長さがゼロのため計算できません。');
+            setSimpleResult(null);
+            return;
+        }
 
         const radius = diameter / 2;
         const angle = Math.atan(height / base);
@@ -207,6 +203,12 @@ export const TechSolutions: React.FC = () => {
                                             計算する
                                         </button>
 
+                                        {calcError && !simpleResult && (
+                                            <div className="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-sm text-destructive">
+                                                {calcError}
+                                            </div>
+                                        )}
+
                                         {smzResult !== null && (
                                             <div className="mt-6 p-5 bg-primary/10 rounded-lg border border-primary/20 text-center">
                                                 <p className="text-xs text-primary mb-2">補正値 (mm)</p>
@@ -250,6 +252,12 @@ export const TechSolutions: React.FC = () => {
                                         <button onClick={calculateSimple} className="w-full mt-4 py-3.5 bg-secondary border border-border rounded-md font-medium text-sm tracking-wider transition-all hover:bg-secondary/80">
                                             計算する
                                         </button>
+
+                                        {calcError && !smzResult && (
+                                            <div className="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-sm text-destructive">
+                                                {calcError}
+                                            </div>
+                                        )}
 
                                         {simpleResult !== null && (
                                             <div className="mt-6 p-5 bg-secondary border border-border rounded-lg text-center">

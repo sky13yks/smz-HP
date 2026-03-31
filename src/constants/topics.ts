@@ -1,0 +1,15 @@
+export const TOPIC_LABELS: Record<string, string> = {
+    'supply-chain': 'サプライチェーン',
+    'ai-news': 'AIニュース',
+    'it-basics': 'IT基礎',
+    'cybersecurity': 'サイバーセキュリティ',
+    'erp': 'ERP',
+    'iot': 'IoT',
+    'rpa': 'RPA',
+    'ai-regulation': 'AI規制',
+    'digital-twin': 'デジタルツイン',
+    'quality-control': '品質管理',
+    'skill-transfer': '技能伝承',
+    'cross-industry': '異業種',
+    'generative-ai': '生成AI',
+};

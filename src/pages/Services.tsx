@@ -21,7 +21,11 @@ const productImages = [
 function ImageCarousel() {
   const [current, setCurrent] = useState(0);
 
+  // H-4: prefers-reduced-motion を尊重
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) return;
+
     const timer = setInterval(() => {
       setCurrent(prev => (prev + 1) % productImages.length);
     }, 4000);
@@ -29,13 +33,14 @@ function ImageCarousel() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-secondary rounded-xl">
+    <div className="relative overflow-hidden bg-secondary rounded-xl" role="region" aria-label="取扱製品スライドショー" aria-live="polite">
       <div className="relative aspect-[4/3]">
         {productImages.map((img, i) => (
           <img
-            key={i}
+            key={img.alt}
             src={img.src}
             alt={img.alt}
+            aria-hidden={i !== current}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
               i === current ? 'opacity-100' : 'opacity-0'
             }`}
@@ -44,10 +49,11 @@ function ImageCarousel() {
       </div>
       {/* Dots */}
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-        {productImages.map((_, i) => (
+        {productImages.map((img, i) => (
           <button
-            key={i}
+            key={img.alt}
             onClick={() => setCurrent(i)}
+            aria-label={`スライド ${i + 1}: ${img.alt}`}
             className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
               i === current ? 'bg-primary w-4' : 'bg-foreground/30'
             }`}

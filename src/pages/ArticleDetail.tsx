@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { TOPIC_LABELS } from '@/constants/topics';
 
 interface RichTextSegment {
     text: string;
@@ -29,21 +30,11 @@ interface ArticleData {
     blocks: ArticleBlock[];
 }
 
-const TOPIC_LABELS: Record<string, string> = {
-    'supply-chain': 'サプライチェーン',
-    'ai-news': 'AIニュース',
-    'it-basics': 'IT基礎',
-    'cybersecurity': 'サイバーセキュリティ',
-    'erp': 'ERP',
-    'iot': 'IoT',
-    'rpa': 'RPA',
-    'ai-regulation': 'AI規制',
-    'digital-twin': 'デジタルツイン',
-    'quality-control': '品質管理',
-    'skill-transfer': '技能伝承',
-    'cross-industry': '異業種',
-    'generative-ai': '生成AI',
-};
+function formatDate(dateStr: string | null): string {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
 
 function RichText({ segments }: { segments?: RichTextSegment[] }) {
     if (!segments || segments.length === 0) return null;
@@ -54,25 +45,24 @@ function RichText({ segments }: { segments?: RichTextSegment[] }) {
                 let el: React.ReactNode = seg.text;
 
                 if (seg.code) {
-                    el = <code key={i} className="px-1.5 py-0.5 bg-secondary rounded text-sm font-mono">{el}</code>;
+                    el = <code className="px-1.5 py-0.5 bg-secondary rounded text-sm font-mono">{el}</code>;
                 }
                 if (seg.bold) {
-                    el = <strong key={`b-${i}`} className="font-semibold text-foreground">{el}</strong>;
+                    el = <strong className="font-semibold text-foreground">{el}</strong>;
                 }
                 if (seg.italic) {
-                    el = <em key={`i-${i}`}>{el}</em>;
+                    el = <em>{el}</em>;
                 }
                 if (seg.strikethrough) {
-                    el = <s key={`s-${i}`}>{el}</s>;
+                    el = <s>{el}</s>;
                 }
                 if (seg.underline) {
-                    el = <u key={`u-${i}`}>{el}</u>;
+                    el = <u>{el}</u>;
                 }
                 if (seg.href) {
                     if (seg.isInternal) {
                         el = (
                             <Link
-                                key={`a-${i}`}
                                 to={seg.href}
                                 className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
                             >
@@ -82,7 +72,6 @@ function RichText({ segments }: { segments?: RichTextSegment[] }) {
                     } else {
                         el = (
                             <a
-                                key={`a-${i}`}
                                 href={seg.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -100,7 +89,7 @@ function RichText({ segments }: { segments?: RichTextSegment[] }) {
     );
 }
 
-function BlockRenderer({ block }: { block: ArticleBlock }) {
+function SingleBlock({ block }: { block: ArticleBlock }) {
     switch (block.type) {
         case 'h1':
             return (
@@ -127,18 +116,6 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
                     <RichText segments={block.richText} />
                 </p>
             );
-        case 'bullet':
-            return (
-                <li className="text-base text-foreground/80 leading-[1.9] ml-6 list-disc">
-                    <RichText segments={block.richText} />
-                </li>
-            );
-        case 'numbered':
-            return (
-                <li className="text-base text-foreground/80 leading-[1.9] ml-6 list-decimal">
-                    <RichText segments={block.richText} />
-                </li>
-            );
         case 'quote':
             return (
                 <blockquote className="border-l-4 border-primary/30 pl-6 py-2 my-6 text-foreground/70 italic">
@@ -162,6 +139,53 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
         default:
             return null;
     }
+}
+
+// H-6: 連続するリスト要素を <ul>/<ol> でラップ
+function BlockList({ blocks }: { blocks: ArticleBlock[] }) {
+    const elements: React.ReactNode[] = [];
+    let i = 0;
+
+    while (i < blocks.length) {
+        const block = blocks[i];
+
+        if (block.type === 'bullet') {
+            const items: ArticleBlock[] = [];
+            while (i < blocks.length && blocks[i].type === 'bullet') {
+                items.push(blocks[i]);
+                i++;
+            }
+            elements.push(
+                <ul key={items[0].id} className="my-4 space-y-1">
+                    {items.map(item => (
+                        <li key={item.id} className="text-base text-foreground/80 leading-[1.9] ml-6 list-disc">
+                            <RichText segments={item.richText} />
+                        </li>
+                    ))}
+                </ul>
+            );
+        } else if (block.type === 'numbered') {
+            const items: ArticleBlock[] = [];
+            while (i < blocks.length && blocks[i].type === 'numbered') {
+                items.push(blocks[i]);
+                i++;
+            }
+            elements.push(
+                <ol key={items[0].id} className="my-4 space-y-1">
+                    {items.map(item => (
+                        <li key={item.id} className="text-base text-foreground/80 leading-[1.9] ml-6 list-decimal">
+                            <RichText segments={item.richText} />
+                        </li>
+                    ))}
+                </ol>
+            );
+        } else {
+            elements.push(<SingleBlock key={block.id} block={block} />);
+            i++;
+        }
+    }
+
+    return <>{elements}</>;
 }
 
 export const ArticleDetail: React.FC = () => {
@@ -222,7 +246,6 @@ export const ArticleDetail: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-background">
-            {/* Header */}
             <section className="pt-32 pb-12">
                 <div className="container mx-auto px-6 max-w-3xl">
                     <Link
@@ -241,7 +264,7 @@ export const ArticleDetail: React.FC = () => {
                         )}
                         {article.publishedAt && (
                             <span className="text-xs text-muted-foreground">
-                                {article.publishedAt}
+                                {formatDate(article.publishedAt)}
                             </span>
                         )}
                     </div>
@@ -262,16 +285,12 @@ export const ArticleDetail: React.FC = () => {
                 </div>
             </section>
 
-            {/* Content */}
             <section className="pb-32">
                 <div className="container mx-auto px-6 max-w-3xl">
                     <div className="border-t border-border pt-10">
-                        {article.blocks.map(block => (
-                            <BlockRenderer key={block.id} block={block} />
-                        ))}
+                        <BlockList blocks={article.blocks} />
                     </div>
 
-                    {/* Footer */}
                     <div className="mt-16 pt-8 border-t border-border">
                         <Link
                             to="/tech?tab=docs"

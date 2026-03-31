@@ -1,4 +1,5 @@
 import { MapPin, Train, Car, Clock, Phone, Building2, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export function Access() {
@@ -167,12 +168,12 @@ export function Access() {
                 >
                   <Phone size={24} /> 03.5732.2800
                 </a>
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="px-12 py-5 bg-primary text-primary-foreground rounded-md font-medium tracking-wider text-lg transition-all hover:bg-primary/90"
                 >
                   お問い合わせ
-                </a>
+                </Link>
               </div>
             </div>
           </div>

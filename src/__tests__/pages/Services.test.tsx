@@ -4,6 +4,16 @@ import { createMemoryRouter, RouterProvider } from 'react-router'
 import { Services } from '@/pages/Services'
 
 vi.stubGlobal('scrollTo', vi.fn())
+vi.stubGlobal('matchMedia', vi.fn().mockImplementation((query: string) => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
+  dispatchEvent: vi.fn(),
+})))
 
 function renderPage() {
   const router = createMemoryRouter(

@@ -25,7 +25,7 @@ function renderHeader(initialRoute = '/') {
 describe('Header コンポーネント', () => {
   it('ロゴ画像が表示される', () => {
     renderHeader()
-    const logo = screen.getByAltText('SHIMIZU SHOKAI')
+    const logo = screen.getByAltText('株式会社清水商會')
     expect(logo).toBeInTheDocument()
   })
 

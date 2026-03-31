@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ExternalLink, ArrowRight, Shield, Cpu, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import machineImg from "@/assets/matrix_grinder.png";
 
 interface Machine {
     model: string;
@@ -89,7 +90,7 @@ const categories: Category[] = [
                 nameEn: "CNC Worm Grinding Machine",
                 description: "外径300mm対応。大径ウォームギアの対応が可能な上位モデル。",
                 image: "",
-                link: "https://www.matrix-machine.tw/jp/THW2080jp.html",
+                link: "https://www.matrix-machine.tw/jp/THW3080jp.html",
             },
         ],
     },
@@ -153,8 +154,6 @@ const specs = [
     { label: "加工精度", value: "サブミクロン精度" },
     { label: "日本代理", value: "有限会社システムエンジニアリング & 株式会社清水商會" },
 ];
-
-import machineImg from "../assets/matrix_grinder.png";
 
 export const MatrixBrand: React.FC = () => {
     useDocumentTitle('MATRIX 歯車研削盤 | CNC歯車研削・成形研削・創成研削 | 清水商會');

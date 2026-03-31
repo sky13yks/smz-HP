@@ -1,23 +1,41 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import logoImg from "../assets/logo_transparent.png";
 import { Menu, X, ExternalLink } from "lucide-react";
 
 const INVENTORY_URL = "https://www.jp.usedmachinery.bz/members/general_list_id/356";
 
+const navItems = [
+  { path: "/", matchPath: "/", label: "ホーム" },
+  { path: "/services", matchPath: "/services", label: "事業内容" },
+  { path: "/company", matchPath: "/company", label: "会社情報" },
+  { path: "/matrix", matchPath: "/matrix", label: "Matrix" },
+  { path: "/tech?tab=docs", matchPath: "/tech", label: "技術資料" },
+  { path: "/history", matchPath: "/history", label: "沿革" },
+  { path: "/contact", matchPath: "/contact", label: "お問い合わせ" },
+];
+
 export function Header() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
-    { path: "/", label: "ホーム" },
-    { path: "/services", label: "事業内容" },
-    { path: "/company", label: "会社情報" },
-    { path: "/matrix", label: "Matrix" },
-    { path: "/tech?tab=docs", label: "技術資料" },
-    { path: "/history", label: "沿革" },
-    { path: "/contact", label: "お問い合わせ" },
-  ];
+  // M-7: Escapeキーでメニューを閉じる
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  // M-3: パス先頭一致でアクティブ判定（/tech/articles/:id でも「技術資料」がアクティブ）
+  function isActive(matchPath: string): boolean {
+    if (matchPath === '/') return location.pathname === '/';
+    return location.pathname.startsWith(matchPath);
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
@@ -26,7 +44,7 @@ export function Header() {
           <Link to="/" className="flex items-center">
             <img
               src={logoImg}
-              alt="SHIMIZU SHOKAI"
+              alt="株式会社清水商會"
               className="h-14 md:h-16 w-auto object-contain"
             />
           </Link>
@@ -35,10 +53,10 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
-                key={item.path}
+                key={item.label}
                 to={item.path}
                 className={`py-2 text-sm tracking-wide transition-colors duration-300 ${
-                  location.pathname === item.path
+                  isActive(item.matchPath)
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -75,10 +93,10 @@ export function Header() {
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link
-                key={item.path}
+                key={item.label}
                 to={item.path}
                 className={`text-sm tracking-wide py-3 border-b border-border/50 transition-colors ${
-                  location.pathname === item.path ? "text-foreground" : "text-muted-foreground"
+                  isActive(item.matchPath) ? "text-foreground" : "text-muted-foreground"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >

@@ -92,7 +92,7 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">メール</p>
-                      <p className="text-sm font-medium font-mono text-foreground/80 transition-colors hover:text-primary cursor-pointer">team@smz-shokai.com</p>
+                      <a href="mailto:team@smz-shokai.com" className="text-sm font-medium font-mono text-foreground/80 transition-colors hover:text-primary">team@smz-shokai.com</a>
                       <p className="text-xs text-muted-foreground mt-1">24時間受付</p>
                     </div>
                   </div>

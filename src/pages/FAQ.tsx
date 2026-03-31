@@ -84,7 +84,7 @@ export const FAQ: React.FC = () => {
                                         <span className="text-lg font-medium text-foreground/90">{item.question}</span>
                                     </span>
                                 </AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground leading-relaxed pb-8 text-md border-t border-border pt-6">
+                                <AccordionContent className="text-muted-foreground leading-relaxed pb-8 text-base border-t border-border pt-6">
                                     {item.answer}
                                 </AccordionContent>
                             </AccordionItem>
