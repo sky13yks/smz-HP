@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
@@ -207,7 +208,7 @@ export function Contact() {
                     </button>
                     <p className="text-xs text-muted-foreground font-normal mt-6 tracking-wider leading-relaxed">
                       ※ ご入力いただいた情報は暗号化され、安全に送信されます。<br />
-                      ※ プライバシーポリシーに同意の上、送信ボタンを押してください。
+                      ※ <Link to="/privacy" className="text-primary underline underline-offset-2 hover:text-primary/80">プライバシーポリシー</Link>に同意の上、送信ボタンを押してください。
                     </p>
                   </div>
                 </form>

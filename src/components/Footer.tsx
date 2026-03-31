@@ -9,7 +9,7 @@ export function Footer() {
           <div className="col-span-1">
             <img
               src={logoImg}
-              alt="SHIMIZU SHOKAI"
+              alt="株式会社清水商會"
               className="h-16 md:h-20 w-auto object-contain mb-4"
             />
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -34,6 +34,7 @@ export function Footer() {
               <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">お問合せフォーム</Link></li>
               <li><Link to="/access" className="text-muted-foreground hover:text-foreground transition-colors">アクセス</Link></li>
               <li><Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">よくあるご質問(FAQ)</Link></li>
+              <li><Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">プライバシーポリシー</Link></li>
             </ul>
           </div>
 
@@ -41,7 +42,7 @@ export function Footer() {
             <h3 className="mb-4 font-medium text-foreground">企業情報</h3>
             <div className="text-sm space-y-2 text-muted-foreground">
               <p>株式会社 清水商會</p>
-              <p>〒145-0093<br />東京都大田区矢口3-1-20</p>
+              <p>〒146-0093<br />東京都大田区矢口3-1-20</p>
               <p>TEL: 03-5732-2800</p>
             </div>
           </div>

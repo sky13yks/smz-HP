@@ -9,6 +9,7 @@ import { FAQ } from "./pages/FAQ";
 import { TechSolutions } from "./pages/TechSolutions";
 import { MatrixBrand } from "./pages/MatrixBrand";
 import { ArticleDetail } from "./pages/ArticleDetail";
+import { Privacy } from "./pages/Privacy";
 import { NotFound } from "./pages/NotFound";
 import { RootLayout } from "./components/RootLayout";
 
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       { path: "tech", Component: TechSolutions },
       { path: "tech/articles/:id", Component: ArticleDetail },
       { path: "matrix", Component: MatrixBrand },
+      { path: "privacy", Component: Privacy },
       { path: "*", Component: NotFound },
     ],
   },
