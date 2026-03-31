@@ -11,6 +11,7 @@ interface RichTextSegment {
     strikethrough: boolean;
     underline: boolean;
     href: string | null;
+    isInternal?: boolean;
 }
 
 interface ArticleBlock {
@@ -68,17 +69,29 @@ function RichText({ segments }: { segments?: RichTextSegment[] }) {
                     el = <u key={`u-${i}`}>{el}</u>;
                 }
                 if (seg.href) {
-                    el = (
-                        <a
-                            key={`a-${i}`}
-                            href={seg.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
-                        >
-                            {el}
-                        </a>
-                    );
+                    if (seg.isInternal) {
+                        el = (
+                            <Link
+                                key={`a-${i}`}
+                                to={seg.href}
+                                className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
+                            >
+                                {el}
+                            </Link>
+                        );
+                    } else {
+                        el = (
+                            <a
+                                key={`a-${i}`}
+                                href={seg.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
+                            >
+                                {el}
+                            </a>
+                        );
+                    }
                 }
 
                 return <React.Fragment key={i}>{el}</React.Fragment>;

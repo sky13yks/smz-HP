@@ -30,20 +30,54 @@ interface ArticleBlock {
     strikethrough: boolean;
     underline: boolean;
     href: string | null;
+    isInternal: boolean;
   }>;
   items?: string[];
 }
 
+function convertNotionLink(href: string | null): { href: string | null; isInternal: boolean } {
+  if (!href) return { href: null, isInternal: false };
+
+  // Match Notion page URLs: https://www.notion.so/xxx or https://notion.so/xxx
+  const notionMatch = href.match(/^https?:\/\/(?:www\.)?notion\.so\/(?:[^/]+\/)?([a-f0-9]{32})(?:[?#].*)?$/);
+  if (notionMatch) {
+    const pageId = notionMatch[1];
+    // Format as UUID
+    const uuid = `${pageId.slice(0, 8)}-${pageId.slice(8, 12)}-${pageId.slice(12, 16)}-${pageId.slice(16, 20)}-${pageId.slice(20)}`;
+    return { href: `/tech/articles/${uuid}`, isInternal: true };
+  }
+
+  // Also match Notion URLs with dashes already in the ID
+  const notionDashMatch = href.match(/^https?:\/\/(?:www\.)?notion\.so\/(?:[^/]+\/)?([a-f0-9-]{36})(?:[?#].*)?$/);
+  if (notionDashMatch) {
+    return { href: `/tech/articles/${notionDashMatch[1]}`, isInternal: true };
+  }
+
+  // Match /<page-id> style Notion links (relative)
+  const relativeMatch = href.match(/^\/([a-f0-9]{32})$/);
+  if (relativeMatch) {
+    const pageId = relativeMatch[1];
+    const uuid = `${pageId.slice(0, 8)}-${pageId.slice(8, 12)}-${pageId.slice(12, 16)}-${pageId.slice(16, 20)}-${pageId.slice(20)}`;
+    return { href: `/tech/articles/${uuid}`, isInternal: true };
+  }
+
+  return { href, isInternal: false };
+}
+
 function extractRichText(richTexts: NotionRichText[]) {
-  return richTexts.map(rt => ({
-    text: rt.plain_text,
-    bold: rt.annotations.bold,
-    italic: rt.annotations.italic,
-    code: rt.annotations.code,
-    strikethrough: rt.annotations.strikethrough,
-    underline: rt.annotations.underline,
-    href: rt.href,
-  }));
+  return richTexts.map(rt => {
+    const { href, isInternal } = convertNotionLink(rt.href);
+    return {
+      text: rt.plain_text,
+      bold: rt.annotations.bold,
+      italic: rt.annotations.italic,
+      code: rt.annotations.code,
+      strikethrough: rt.annotations.strikethrough,
+      underline: rt.annotations.underline,
+      href,
+      isInternal,
+    };
+  });
 }
 
 function plainText(richTexts: NotionRichText[]): string {
