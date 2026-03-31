@@ -61,6 +61,11 @@ function convertNotionLink(href: string | null): { href: string | null; isIntern
     return { href: `/tech/articles/${uuid}`, isInternal: true };
   }
 
+  // 外部URLはhttp/httpsのみ許可（javascript:, data: 等を排除）
+  if (!/^https?:\/\//.test(href)) {
+    return { href: null, isInternal: false };
+  }
+
   return { href, isInternal: false };
 }
 
@@ -120,6 +125,9 @@ function parseBlock(block: NotionBlock): ArticleBlock | null {
   }
 }
 
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const MAX_BLOCK_PAGES = 10; // 最大1000ブロック
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -130,6 +138,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (!notionKey || !id || typeof id !== 'string') {
     return res.status(400).json({ error: 'Invalid request' });
+  }
+
+  // C-1: UUIDフォーマット検証（パストラバーサル防止）
+  if (!UUID_REGEX.test(id)) {
+    return res.status(400).json({ error: 'Invalid article ID format' });
   }
 
   try {
@@ -148,6 +161,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const page = await pageRes.json();
     const props = page.properties;
 
+    // C-2: 未公開記事へのアクセスを拒否
+    const status = props['ステータス']?.select?.name;
+    if (status !== '配信済み') {
+      return res.status(404).json({ error: 'Article not found' });
+    }
+
     const titleProp = props['タイトル'];
     const title = titleProp?.title?.map((t: NotionRichText) => t.plain_text).join('') ?? '';
     const category = props['種別']?.select?.name ?? '';
@@ -157,6 +176,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Fetch blocks (content)
     let allBlocks: NotionBlock[] = [];
     let cursor: string | undefined;
+    let pageCount = 0;
 
     do {
       const url = new URL(`https://api.notion.com/v1/blocks/${id}/children`);
@@ -170,12 +190,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         },
       });
 
-      if (!blocksRes.ok) break;
+      if (!blocksRes.ok) {
+        console.error('Block fetch failed:', blocksRes.status);
+        break;
+      }
 
       const data = await blocksRes.json();
       allBlocks = allBlocks.concat(data.results);
       cursor = data.has_more ? data.next_cursor : undefined;
-    } while (cursor);
+      pageCount++;
+    } while (cursor && pageCount < MAX_BLOCK_PAGES);
 
     const blocks = allBlocks.map(parseBlock).filter((b): b is ArticleBlock => b !== null);
 
