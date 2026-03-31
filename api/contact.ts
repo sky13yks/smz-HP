@@ -153,6 +153,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('Reply email failed (notify succeeded):', replyResult.reason);
     }
 
+    // 受発注システムへWebhook送信（非同期・失敗しても問い合わせは成功扱い）
+    const webhookUrl = process.env.ORDER_SYSTEM_WEBHOOK_URL;
+    const webhookSecret = process.env.ORDER_SYSTEM_WEBHOOK_SECRET;
+    if (webhookUrl && webhookSecret) {
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Webhook-Secret': webhookSecret,
+        },
+        body: JSON.stringify({
+          source: 'smz-hp',
+          category,
+          company,
+          name,
+          email,
+          message,
+          timestamp: new Date().toISOString(),
+        }),
+      }).catch(err => {
+        console.error('Webhook to order system failed (non-blocking):', err);
+      });
+    }
+
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Email send error:', error);
