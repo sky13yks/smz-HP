@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
+import { ArrowRight, Cpu, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
@@ -66,19 +66,29 @@ function ImageCarousel() {
 
 const services = [
   {
-    icon: Package,
+    icon: Cpu,
     number: "01",
-    title: "専門商社としての「提案・納入」",
-    subtitle: "75年の目利きで、最適な一台を",
+    title: "工作機械の「提案・納入」",
+    subtitle: "現場の相性を知る目利きが選ぶ",
     description:
-      "創業以来の強みである「歯車用工具」の専門知識をベースに、国内外の最新工作機械をご提案します。カタログスペックだけでは分からない、現場の相性に合わせた「間違いのない選定」をお手伝いします。",
-    items: ["歯車用工具", "各種工作機械（新品）", "周辺機器"],
+      "歯車加工機械を中心に、研削盤・ホブ盤・測定機など国内外の新品工作機械をご提案します。カタログスペックだけでは判断できない「現場との相性」を、75年の経験で見極めます。",
+    items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
     itemLabel: "取扱商品",
     hasCarousel: true,
   },
   {
-    icon: Wrench,
+    icon: Package,
     number: "02",
+    title: "切削工具の「提案・納入」",
+    subtitle: "刃物ひとつで、精度が変わる",
+    description:
+      "ホブカッター、ギアカッター、ブローチ、ピニオンカッターなど、歯車加工に特化した切削工具を幅広く取り扱っています。加工条件や材質に合わせた最適な工具選定を、専門知識でサポートします。",
+    items: ["ホブカッター", "ギアカッター", "ブローチ", "ピニオンカッター", "各種切削工具"],
+    itemLabel: "取扱商品",
+  },
+  {
+    icon: Wrench,
+    number: "03",
     title: "機械を蘇らせる「修理・メンテナンス」",
     subtitle: "古い機械も、確かな技術で現役へ",
     description:
@@ -88,7 +98,7 @@ const services = [
   },
   {
     icon: RefreshCw,
-    number: "03",
+    number: "04",
     title: "賢くつなぐ「中古機械の売買・再生」",
     subtitle: "良いものを、次の現場へ",
     description:
@@ -98,7 +108,7 @@ const services = [
   },
   {
     icon: Factory,
-    number: "04",
+    number: "05",
     title: "現場を助ける「機械加工の代行業務」",
     subtitle: "「人手が足りない」時のパートナー",
     description:
@@ -108,7 +118,7 @@ const services = [
   },
   {
     icon: Globe,
-    number: "05",
+    number: "06",
     title: "海外からの「輸入・調達」",
     subtitle: "国内で手に入らないものも、世界から",
     description:

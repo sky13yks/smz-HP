@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe, FileText } from "lucide-react";
+import { ArrowRight, Cpu, Wrench, Package, RefreshCw, Factory, Globe, ShieldCheck, FileText } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { TOPIC_LABELS } from '@/constants/topics';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
@@ -106,39 +106,57 @@ export function Home() {
       {/* Core Solutions Grid */}
       <section className="py-24 relative">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
             {[
               {
                 icon: Cpu,
-                title: "工作機械・周辺機器",
-                desc: "国内外の最先端機から、生産性を最大化する周辺機器までをご提案。",
+                title: "工作機械",
+                desc: "歯車加工機械・研削盤・ホブ盤など、新品機械の提案・納入。",
                 link: "/services#service-01"
+              },
+              {
+                icon: Package,
+                title: "切削工具",
+                desc: "ホブカッター・ギアカッターなど歯車加工に特化した工具。",
+                link: "/services#service-02"
               },
               {
                 icon: Wrench,
                 title: "修理・メンテナンス",
-                desc: "数十年愛用された機械も、最先端の精度で蘇らせる職人技と知識。",
-                link: "/services#service-02"
+                desc: "古い機械も確かな技術で現役へ。オーバーホールも対応。",
+                link: "/services#service-03"
               },
               {
-                icon: Package,
-                title: "加工代行・受託",
-                desc: "商社の枠を超え、自社ネットワークを駆使した高精度加工の代行。",
+                icon: RefreshCw,
+                title: "中古機械の売買",
+                desc: "プロの目利きで点検・整備した中古機械の買取・販売。",
                 link: "/services#service-04"
+              },
+              {
+                icon: Factory,
+                title: "加工代行",
+                desc: "協力企業のネットワークを活用した高精度加工の代行。",
+                link: "/services#service-05"
+              },
+              {
+                icon: Globe,
+                title: "輸入・調達",
+                desc: "MATRIX社をはじめ、海外メーカーからの直接輸入。",
+                link: "/services#service-06"
               }
             ].map((feature, i) => (
               <Link
                 key={i}
                 to={feature.link}
-                className="bg-card border border-border p-8 rounded-xl group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
+                className="bg-card border border-border p-6 rounded-xl group transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-7 h-7 text-primary" />
+                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{feature.desc}</p>
-                <div className="flex items-center gap-2 text-primary font-medium text-xs tracking-wider uppercase">
-                  詳しく見る <ArrowRight className="w-4 h-4" />
+                <h3 className="text-base font-medium mb-2">{feature.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-4">{feature.desc}</p>
+                <div className="flex items-center gap-1.5 text-primary font-medium text-xs tracking-wider">
+                  詳しく見る <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
             ))}
