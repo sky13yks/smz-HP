@@ -1,10 +1,38 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe } from "lucide-react";
+import { ArrowRight, Cpu, Wrench, Package, ShieldCheck, Globe, FileText } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { TOPIC_LABELS } from '@/constants/topics';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
+
+interface Article {
+  id: string;
+  title: string;
+  category: string;
+  topics: string[];
+  publishedAt: string | null;
+  articleNumber: string;
+}
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+}
 
 export function Home() {
   useDocumentTitle('');
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  useEffect(() => {
+    fetch('/api/articles')
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data?.articles) setArticles(data.articles.slice(0, 3));
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
@@ -118,8 +146,73 @@ export function Home() {
         </div>
       </section>
 
+      {/* Latest Articles */}
+      {articles.length > 0 && (
+        <section className="py-24 bg-secondary">
+          <div className="container mx-auto px-6">
+            <div className="flex items-end justify-between mb-10">
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <FileText className="w-5 h-5 text-primary" />
+                  <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">Latest Articles</p>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-medium">最新の技術資料</h2>
+              </div>
+              <Link
+                to="/tech?tab=docs"
+                className="hidden md:inline-flex items-center gap-2 text-sm text-primary font-medium tracking-wider hover:gap-4 transition-all"
+              >
+                すべて見る <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {articles.map(article => (
+                <Link
+                  key={article.id}
+                  to={`/tech/articles/${article.id}`}
+                  className="bg-card border border-border p-6 rounded-xl group hover:border-primary/30 transition-all duration-500 hover:-translate-y-1"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    {article.category && (
+                      <span className="px-2.5 py-0.5 bg-primary text-primary-foreground text-xs tracking-wider rounded">
+                        {article.category}
+                      </span>
+                    )}
+                    {article.publishedAt && (
+                      <span className="text-xs text-muted-foreground">{formatDate(article.publishedAt)}</span>
+                    )}
+                  </div>
+                  <h3 className="text-sm font-medium leading-relaxed mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    {article.title}
+                  </h3>
+                  {article.topics.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {article.topics.slice(0, 2).map(topic => (
+                        <span key={topic} className="px-2 py-0.5 bg-secondary text-muted-foreground text-xs rounded">
+                          {TOPIC_LABELS[topic] ?? topic}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center md:hidden">
+              <Link
+                to="/tech?tab=docs"
+                className="inline-flex items-center gap-2 text-sm text-primary font-medium tracking-wider"
+              >
+                すべて見る <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Trust & Heritage Section */}
-      <section className="py-24 bg-secondary">
+      <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
