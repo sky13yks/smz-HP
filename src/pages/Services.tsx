@@ -36,15 +36,15 @@ function ImageCarousel({ images, label }: { images: { src: string; alt: string }
 
   return (
     <div className="relative overflow-hidden bg-secondary rounded-t-xl" role="region" aria-label={label} aria-live="polite">
-      <div className="relative flex items-center justify-center min-h-[200px] md:min-h-[300px]">
+      <div className="relative flex items-center justify-start min-h-[200px] md:min-h-[300px]">
         {images.map((img, i) => (
           <img
             key={img.alt}
             src={img.src}
             alt={img.alt}
             aria-hidden={i !== current}
-            className={`w-full h-auto max-h-[450px] object-contain transition-opacity duration-1000 ${
-              i === current ? 'opacity-100' : 'opacity-0 absolute inset-0'
+            className={`h-auto max-h-[450px] max-w-full object-contain transition-opacity duration-1000 ${
+              i === current ? 'opacity-100' : 'opacity-0 absolute inset-y-0 left-0'
             }`}
           />
         ))}
