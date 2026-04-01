@@ -20,6 +20,8 @@ interface ArticleBlock {
     type: string;
     text: string;
     richText?: RichTextSegment[];
+    imageUrl?: string;
+    caption?: string;
 }
 
 interface ArticleData {
@@ -135,6 +137,36 @@ function SingleBlock({ block }: { block: ArticleBlock }) {
                 <pre className="bg-foreground text-background rounded-lg p-5 my-6 overflow-x-auto text-sm font-mono leading-relaxed">
                     {block.text}
                 </pre>
+            );
+        case 'image':
+            if (!block.imageUrl) return null;
+            return (
+                <figure className="my-8">
+                    <img
+                        src={block.imageUrl}
+                        alt={block.caption || '記事画像'}
+                        className="w-full rounded-lg border border-border"
+                        loading="lazy"
+                    />
+                    {block.caption && (
+                        <figcaption className="text-xs text-muted-foreground text-center mt-3">
+                            {block.caption}
+                        </figcaption>
+                    )}
+                </figure>
+            );
+        case 'video':
+            if (!block.text) return null;
+            return (
+                <div className="my-8 aspect-video rounded-lg overflow-hidden border border-border">
+                    <iframe
+                        src={block.text.replace('watch?v=', 'embed/')}
+                        className="w-full h-full"
+                        allowFullScreen
+                        loading="lazy"
+                        title="埋め込み動画"
+                    />
+                </div>
             );
         default:
             return null;

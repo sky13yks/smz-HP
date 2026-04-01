@@ -32,7 +32,8 @@ interface ArticleBlock {
     href: string | null;
     isInternal: boolean;
   }>;
-  items?: string[];
+  imageUrl?: string;
+  caption?: string;
 }
 
 function convertNotionLink(href: string | null): { href: string | null; isInternal: boolean } {
@@ -117,6 +118,36 @@ function parseBlock(block: NotionBlock): ArticleBlock | null {
       return { id: block.id, type: 'divider', text: '' };
     case 'code':
       return { id: block.id, type: 'code', text: plainText(richTexts) };
+    case 'image': {
+      const imgData = data as Record<string, unknown>;
+      let imageUrl = '';
+      const imgType = imgData.type as string;
+      if (imgType === 'external') {
+        imageUrl = (imgData.external as { url: string })?.url ?? '';
+      } else if (imgType === 'file') {
+        imageUrl = (imgData.file as { url: string })?.url ?? '';
+      }
+      const captionTexts = (imgData.caption as NotionRichText[]) || [];
+      return {
+        id: block.id,
+        type: 'image',
+        text: '',
+        imageUrl,
+        caption: plainText(captionTexts),
+      };
+    }
+    case 'video': {
+      const vidData = data as Record<string, unknown>;
+      let videoUrl = '';
+      const vidType = vidData.type as string;
+      if (vidType === 'external') {
+        videoUrl = (vidData.external as { url: string })?.url ?? '';
+      }
+      if (videoUrl) {
+        return { id: block.id, type: 'video', text: videoUrl };
+      }
+      return null;
+    }
     default:
       if (richTexts.length > 0) {
         return { id: block.id, type: 'paragraph', text: plainText(richTexts), richText: extractRichText(richTexts) };
