@@ -57,8 +57,8 @@ export function Company() {
 
                   <div className="mt-20 pt-12 border-t border-border flex justify-end">
                     <div className="text-right">
-                      <p className="text-sm tracking-wider text-muted-foreground mb-2">代表取締役</p>
-                      <p className="text-2xl font-medium">清水 正太</p>
+                      <p className="text-xs tracking-wider text-muted-foreground mb-3">代表取締役</p>
+                      <p className="text-3xl font-serif italic font-light tracking-wide">清水 正太</p>
                     </div>
                   </div>
                 </div>
