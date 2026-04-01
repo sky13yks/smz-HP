@@ -1,14 +1,24 @@
-// src/components/ScrollToTop.tsx
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // パス(pathname)が変わるたびに、ウィンドウの座標(0, 0)へスクロールする
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      // ハッシュがある場合、該当要素までスムーズスクロール
+      // DOMレンダリング完了を待つため少し遅延
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
-  return null; // 画面には何も表示しない
+  return null;
 }
