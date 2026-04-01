@@ -84,19 +84,19 @@ export function Home() {
                 icon: Cpu,
                 title: "工作機械・周辺機器",
                 desc: "国内外の最先端機から、生産性を最大化する周辺機器までをご提案。",
-                link: "/services"
+                link: "/services#service-01"
               },
               {
                 icon: Wrench,
                 title: "修理・メンテナンス",
                 desc: "数十年愛用された機械も、最先端の精度で蘇らせる職人技と知識。",
-                link: "/services"
+                link: "/services#service-02"
               },
               {
                 icon: Package,
                 title: "加工代行・受託",
                 desc: "商社の枠を超え、自社ネットワークを駆使した高精度加工の代行。",
-                link: "/services"
+                link: "/services#service-04"
               }
             ].map((feature, i) => (
               <Link

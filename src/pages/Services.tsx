@@ -147,7 +147,8 @@ export function Services() {
               return (
                 <div
                   key={i}
-                  className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1"
+                  id={`service-${service.number}`}
+                  className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
                   <div className={`flex flex-col ${service.hasCarousel ? 'md:flex-row' : ''}`}>
                     {/* Carousel for SERVICE 01 only */}
