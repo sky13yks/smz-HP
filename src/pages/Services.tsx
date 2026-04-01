@@ -35,16 +35,16 @@ function ImageCarousel({ images, label }: { images: { src: string; alt: string }
   }, [images.length]);
 
   return (
-    <div className="relative overflow-hidden bg-secondary rounded-t-xl" role="region" aria-label={label} aria-live="polite">
-      <div className="relative flex items-center justify-start min-h-[200px] md:min-h-[300px]">
+    <div className="relative overflow-hidden bg-secondary" role="region" aria-label={label} aria-live="polite">
+      <div className="relative aspect-square">
         {images.map((img, i) => (
           <img
             key={img.alt}
             src={img.src}
             alt={img.alt}
             aria-hidden={i !== current}
-            className={`h-auto max-h-[450px] max-w-full object-contain transition-opacity duration-1000 ${
-              i === current ? 'opacity-100' : 'opacity-0 absolute inset-y-0 left-0'
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${
+              i === current ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
@@ -166,9 +166,9 @@ export function Services() {
                   id={`service-${service.number}`}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
-                  <div className="flex flex-col">
+                  <div className={`flex flex-col ${service.carouselType ? 'md:flex-row' : ''}`}>
                     {service.carouselType && (
-                      <div className="w-full">
+                      <div className="md:w-2/5 flex-shrink-0">
                         <ImageCarousel
                           images={service.carouselType === 'machine' ? machineImages : toolImages}
                           label={service.carouselType === 'machine' ? '取扱工作機械' : '取扱工具'}
