@@ -55,13 +55,10 @@ export function Company() {
                     </p>
                   </div>
 
-                  <div className="mt-20 pt-12 border-t border-border flex flex-col md:flex-row justify-between items-end gap-6">
-                    <div>
+                  <div className="mt-20 pt-12 border-t border-border flex justify-end">
+                    <div className="text-right">
                       <p className="text-sm tracking-wider text-muted-foreground mb-2">代表取締役</p>
                       <p className="text-2xl font-medium">清水 正太</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-6xl font-light opacity-5 select-none absolute bottom-10 right-10">SHIMIZU</p>
                     </div>
                   </div>
                 </div>
