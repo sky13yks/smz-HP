@@ -35,8 +35,8 @@ function ImageCarousel({ images, label }: { images: { src: string; alt: string }
   }, [images.length]);
 
   return (
-    <div className="relative overflow-hidden bg-secondary rounded-xl" role="region" aria-label={label} aria-live="polite">
-      <div className="relative aspect-[4/3]">
+    <div className="relative overflow-hidden bg-secondary rounded-t-xl" role="region" aria-label={label} aria-live="polite">
+      <div className="relative aspect-[21/9]">
         {images.map((img, i) => (
           <img
             key={img.alt}
@@ -166,9 +166,9 @@ export function Services() {
                   id={`service-${service.number}`}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
-                  <div className={`flex flex-col ${service.carouselType ? 'md:flex-row' : ''}`}>
+                  <div className="flex flex-col">
                     {service.carouselType && (
-                      <div className="md:w-2/5">
+                      <div className="w-full">
                         <ImageCarousel
                           images={service.carouselType === 'machine' ? machineImages : toolImages}
                           label={service.carouselType === 'machine' ? '取扱工作機械' : '取扱工具'}
