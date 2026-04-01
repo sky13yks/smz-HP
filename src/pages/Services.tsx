@@ -9,33 +9,35 @@ import fabrisHr355 from "@/assets/fabris_hr355.jpeg";
 import seiwaHb403_1 from "@/assets/seiwa_hb403_1.jpg";
 import seiwaHb403_2 from "@/assets/seiwa_hb403_2.jpg";
 
-const productImages = [
-  { src: dtrToolsDark, alt: "歯車加工工具コレクション — ホブカッター・ギアカッター" },
-  { src: dtrToolsWhite, alt: "DTR製 歯車加工工具ラインナップ" },
+const machineImages = [
   { src: fabrisHr254, alt: "FABRIS HR254 CNCホブ盤" },
   { src: fabrisHr355, alt: "FABRIS HR355 CNCホブ盤" },
   { src: seiwaHb403_1, alt: "SEIWA Orbis HB403 歯車加工機" },
   { src: seiwaHb403_2, alt: "SEIWA Orbis HB403 歯車加工機（別角度）" },
 ];
 
-function ImageCarousel() {
+const toolImages = [
+  { src: dtrToolsDark, alt: "DTR製 歯車加工工具コレクション" },
+  { src: dtrToolsWhite, alt: "DTR製 歯車加工工具ラインナップ" },
+];
+
+function ImageCarousel({ images, label }: { images: { src: string; alt: string }[]; label: string }) {
   const [current, setCurrent] = useState(0);
 
-  // H-4: prefers-reduced-motion を尊重
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mq.matches) return;
 
     const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % productImages.length);
+      setCurrent(prev => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
-    <div className="relative overflow-hidden bg-secondary rounded-xl" role="region" aria-label="取扱製品スライドショー" aria-live="polite">
+    <div className="relative overflow-hidden bg-secondary rounded-xl" role="region" aria-label={label} aria-live="polite">
       <div className="relative aspect-[4/3]">
-        {productImages.map((img, i) => (
+        {images.map((img, i) => (
           <img
             key={img.alt}
             src={img.src}
@@ -47,19 +49,20 @@ function ImageCarousel() {
           />
         ))}
       </div>
-      {/* Dots */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-        {productImages.map((img, i) => (
-          <button
-            key={img.alt}
-            onClick={() => setCurrent(i)}
-            aria-label={`スライド ${i + 1}: ${img.alt}`}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? 'bg-primary w-4' : 'bg-foreground/30'
-            }`}
-          />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+          {images.map((img, i) => (
+            <button
+              key={img.alt}
+              onClick={() => setCurrent(i)}
+              aria-label={`スライド ${i + 1}: ${img.alt}`}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? 'bg-primary w-4' : 'bg-foreground/30'
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -72,8 +75,10 @@ const services = [
     subtitle: "現場の相性を知る目利きが選ぶ",
     description:
       "歯車加工機械を中心に、研削盤・ホブ盤・測定機など国内外の新品工作機械をご提案します。カタログスペックだけでは判断できない「現場との相性」を、75年の経験で見極めます。",
+    makers: "MATRIX / 清和ジーテック / 唐津プレシジョン / カシフジ / 浜井産業 / 東京精密 / 東京テクニカル / 不二越 / FANUC ほか",
     items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
     itemLabel: "取扱商品",
+    carouselType: 'machine' as const,
   },
   {
     icon: Package,
@@ -82,9 +87,10 @@ const services = [
     subtitle: "刃物ひとつで、精度が変わる",
     description:
       "ホブカッター、ギアカッター、ブローチ、ピニオンカッターなどの切削工具に加え、砥石・ドレッサーなどの研削工具も幅広く取り扱っています。加工条件や材質に合わせた最適な工具選定を、専門知識でサポートします。",
-    items: ["ホブカッター", "ギアカッター", "ブローチ", "ピニオンカッター", "砥石", "ドレッサー"],
+    makers: "アヅミ / 伊澤技術研究所 / 小笠原プレシジョンラボラトリー / 大和精密工具 / DTR / ナチ不二越 / 新潟精密 ほか",
+    items: ["ホブカッター", "ギアカッター", "ブローチ", "ピニオンカッター", "砥石・ドレッサー"],
     itemLabel: "取扱商品",
-    hasCarousel: true,
+    carouselType: 'tool' as const,
   },
   {
     icon: Wrench,
@@ -160,11 +166,13 @@ export function Services() {
                   id={`service-${service.number}`}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
-                  <div className={`flex flex-col ${service.hasCarousel ? 'md:flex-row' : ''}`}>
-                    {/* Carousel for SERVICE 01 only */}
-                    {service.hasCarousel && (
+                  <div className={`flex flex-col ${service.carouselType ? 'md:flex-row' : ''}`}>
+                    {service.carouselType && (
                       <div className="md:w-2/5">
-                        <ImageCarousel />
+                        <ImageCarousel
+                          images={service.carouselType === 'machine' ? machineImages : toolImages}
+                          label={service.carouselType === 'machine' ? '取扱工作機械' : '取扱工具'}
+                        />
                       </div>
                     )}
 
@@ -195,9 +203,18 @@ export function Services() {
                         </div>
                       </div>
 
-                      <p className="text-foreground/60 leading-relaxed mb-8 text-lg">
+                      <p className="text-foreground/60 leading-relaxed mb-6 text-lg">
                         {service.description}
                       </p>
+
+                      {/* Makers */}
+                      {service.makers && (
+                        <div className="mb-6 p-4 bg-secondary rounded-lg border border-border">
+                          <p className="text-xs text-muted-foreground mb-1.5 font-medium">主な取扱メーカー（順不同）</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">{service.makers}</p>
+                          <p className="text-xs text-muted-foreground mt-2 italic">上記以外のメーカーも対応可能です。お気軽にご相談ください。</p>
+                        </div>
+                      )}
 
                       {/* Items Tags */}
                       <div className="flex flex-wrap gap-3 items-center">
