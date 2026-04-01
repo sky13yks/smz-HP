@@ -116,8 +116,8 @@ export function Home() {
               },
               {
                 icon: Package,
-                title: "切削工具",
-                desc: "ホブカッター・ギアカッターなど歯車加工に特化した工具。",
+                title: "切削・研削工具",
+                desc: "ホブカッター・ギアカッター・砥石など歯車加工の工具全般。",
                 link: "/services#service-02"
               },
               {
