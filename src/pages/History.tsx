@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface TimelineItem {
   year: string;
@@ -60,33 +60,11 @@ const timelineData: TimelineItem[] = [
 ];
 
 function TimelineItemComponent({ item, index }: { item: TimelineItem; index: number }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const itemRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (itemRef.current) {
-      observer.observe(itemRef.current);
-    }
-
-    return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current);
-      }
-    };
-  }, []);
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <div
-      ref={itemRef}
+      ref={ref}
       className={`relative transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
         }`}
       style={{ transitionDelay: `${index * 50}ms` }}
