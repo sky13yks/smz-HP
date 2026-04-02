@@ -214,7 +214,7 @@ export function Services() {
                         <div className="mb-6 p-4 bg-secondary rounded-lg border border-border">
                           <p className="text-xs text-muted-foreground mb-1.5 font-medium">主な取扱メーカー（順不同）</p>
                           <p className="text-xs text-foreground/70 leading-relaxed">{service.makers}</p>
-                          <p className="text-xs text-muted-foreground mt-2 italic">上記以外のメーカーも対応可能です。お気軽にご相談ください。</p>
+                          <p className="text-xs text-muted-foreground mt-2 italic">上記以外のメーカーも対応可能です。<Link to="/makers" className="text-primary underline underline-offset-2 not-italic">メーカー一覧を見る →</Link></p>
                         </div>
                       )}
 
