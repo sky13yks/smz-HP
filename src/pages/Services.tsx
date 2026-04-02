@@ -69,20 +69,8 @@ function ImageCarousel({ images, label }: { images: { src: string; alt: string }
 
 const services = [
   {
-    icon: Cpu,
-    number: "01",
-    title: "工作機械の「提案・納入」",
-    subtitle: "現場の相性を知る目利きが選ぶ",
-    description:
-      "歯車加工機械を中心に、研削盤・ホブ盤・測定機など国内外の新品工作機械をご提案します。カタログスペックだけでは判断できない「現場との相性」を、75年の経験で見極めます。",
-    makers: "MATRIX / 清和ジーテック / 唐津プレシジョン / カシフジ / 浜井産業 / 東京精密 / 東京テクニカル / 不二越 / FANUC ほか",
-    items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
-    itemLabel: "取扱商品",
-    carouselType: 'machine' as const,
-  },
-  {
     icon: Package,
-    number: "02",
+    number: "01",
     title: "切削・研削工具の「提案・納入」",
     subtitle: "刃物ひとつで、精度が変わる",
     description:
@@ -91,6 +79,18 @@ const services = [
     items: ["ホブカッター", "ギアカッター", "ブローチ", "ピニオンカッター", "砥石・ドレッサー"],
     itemLabel: "取扱商品",
     carouselType: 'tool' as const,
+  },
+  {
+    icon: Cpu,
+    number: "02",
+    title: "工作機械の「提案・納入」",
+    subtitle: "現場の相性を知る目利きが選ぶ",
+    description:
+      "歯車加工機械を中心に、研削盤・ホブ盤・測定機など国内外の新品工作機械をご提案します。カタログスペックだけでは判断できない「現場との相性」を、75年の経験で見極めます。",
+    makers: "MATRIX / 清和ジーテック / 唐津プレシジョン / カシフジ / 浜井産業 / 東京精密 / 東京テクニカル / 不二越 / FANUC ほか",
+    items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
+    itemLabel: "取扱商品",
+    carouselType: 'machine' as const,
   },
   {
     icon: Wrench,

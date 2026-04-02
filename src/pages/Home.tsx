@@ -110,15 +110,15 @@ export function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
             {[
               {
-                icon: Cpu,
-                title: "工作機械",
-                desc: "歯車加工機械・研削盤・ホブ盤など、新品機械の提案・納入。",
-                link: "/services#service-01"
-              },
-              {
                 icon: Package,
                 title: "切削・研削工具",
                 desc: "ホブカッター・ギアカッター・砥石など歯車加工の工具全般。",
+                link: "/services#service-01"
+              },
+              {
+                icon: Cpu,
+                title: "工作機械",
+                desc: "歯車加工機械・研削盤・ホブ盤など、新品機械の提案・納入。",
                 link: "/services#service-02"
               },
               {
