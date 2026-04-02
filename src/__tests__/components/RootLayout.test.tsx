@@ -24,7 +24,7 @@ function renderWithRouter(initialRoute = '/') {
 describe('RootLayout コンポーネント', () => {
   it('Header のロゴが表示される', () => {
     renderWithRouter()
-    const logos = screen.getAllByAltText('SHIMIZU SHOKAI')
+    const logos = screen.getAllByAltText('株式会社清水商會')
     expect(logos.length).toBeGreaterThanOrEqual(1)
   })
 
