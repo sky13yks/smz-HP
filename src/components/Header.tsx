@@ -8,11 +8,9 @@ const INVENTORY_URL = "https://www.jp.usedmachinery.bz/members/general_list_id/3
 const navItems = [
   { path: "/", matchPath: "/", label: "ホーム" },
   { path: "/services", matchPath: "/services", label: "事業内容" },
-  { path: "/company", matchPath: "/company", label: "会社情報" },
-  { path: "/matrix", matchPath: "/matrix", label: "Matrix" },
   { path: "/makers", matchPath: "/makers", label: "取扱メーカー" },
-  { path: "/tech?tab=docs", matchPath: "/tech", label: "技術資料" },
-  { path: "/history", matchPath: "/history", label: "沿革" },
+  { path: "/matrix", matchPath: "/matrix", label: "Matrix" },
+  { path: "/company", matchPath: "/company", label: "会社情報" },
   { path: "/contact", matchPath: "/contact", label: "お問い合わせ" },
 ];
 

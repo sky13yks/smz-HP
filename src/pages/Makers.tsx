@@ -5,27 +5,33 @@ import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { makerCategories, type Maker } from '@/constants/makers';
 
 function MakerCard({ maker }: { maker: Maker }) {
-  const content = (
-    <div className="flex-shrink-0 w-64 bg-card border border-border rounded-xl p-5 hover:border-primary/30 transition-all duration-300 mx-2">
-      <div className="flex items-center justify-between mb-1">
-        <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
-        {maker.url && <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 ml-2" />}
-      </div>
+  if (maker.url) {
+    return (
+      <a
+        href={maker.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-shrink-0 block w-64 bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-300 mx-2 cursor-pointer"
+      >
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
+          <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 ml-2" />
+        </div>
+        {maker.description && (
+          <p className="text-xs text-muted-foreground truncate">{maker.description}</p>
+        )}
+      </a>
+    );
+  }
+
+  return (
+    <div className="flex-shrink-0 w-64 bg-card border border-border rounded-xl p-5 mx-2">
+      <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
       {maker.description && (
         <p className="text-xs text-muted-foreground truncate">{maker.description}</p>
       )}
     </div>
   );
-
-  if (maker.url) {
-    return (
-      <a href={maker.url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-        {content}
-      </a>
-    );
-  }
-
-  return <div className="flex-shrink-0">{content}</div>;
 }
 
 function MarqueeBanner({ makers, speed = 30 }: { makers: Maker[]; speed?: number }) {

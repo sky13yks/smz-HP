@@ -33,10 +33,9 @@ describe('Header コンポーネント', () => {
     renderHeader()
     expect(screen.getByText('ホーム')).toBeInTheDocument()
     expect(screen.getByText('事業内容')).toBeInTheDocument()
-    expect(screen.getByText('会社情報')).toBeInTheDocument()
+    expect(screen.getByText('取扱メーカー')).toBeInTheDocument()
     expect(screen.getByText('Matrix')).toBeInTheDocument()
-    expect(screen.getByText('技術資料')).toBeInTheDocument()
-    expect(screen.getByText('沿革')).toBeInTheDocument()
+    expect(screen.getByText('会社情報')).toBeInTheDocument()
     expect(screen.getByText('お問い合わせ')).toBeInTheDocument()
   })
 
