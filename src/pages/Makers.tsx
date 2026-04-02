@@ -1,11 +1,81 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
-import { makerCategories } from '@/constants/makers';
+import { makerCategories, type Maker } from '@/constants/makers';
+
+function MakerCard({ maker }: { maker: Maker }) {
+  const content = (
+    <div className="flex-shrink-0 w-64 bg-card border border-border rounded-xl p-5 hover:border-primary/30 transition-all duration-300 mx-2">
+      <div className="flex items-center justify-between mb-1">
+        <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
+        {maker.url && <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 ml-2" />}
+      </div>
+      {maker.description && (
+        <p className="text-xs text-muted-foreground truncate">{maker.description}</p>
+      )}
+    </div>
+  );
+
+  if (maker.url) {
+    return (
+      <a href={maker.url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="flex-shrink-0">{content}</div>;
+}
+
+function MarqueeBanner({ makers, speed = 30 }: { makers: Maker[]; speed?: number }) {
+  // リストを2回繰り返して無限ループに見せる
+  const doubled = [...makers, ...makers];
+
+  return (
+    <div className="relative overflow-hidden py-4 group">
+      {/* 左右のフェード */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+      <div
+        className="flex animate-marquee group-hover:[animation-play-state:paused]"
+        style={{ animationDuration: `${speed}s` }}
+      >
+        {doubled.map((maker, i) => (
+          <MakerCard key={`${maker.name}-${i}`} maker={maker} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MarqueeBannerReverse({ makers, speed = 35 }: { makers: Maker[]; speed?: number }) {
+  const doubled = [...makers, ...makers];
+
+  return (
+    <div className="relative overflow-hidden py-4 group">
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none" />
+
+      <div
+        className="flex animate-marquee direction-reverse group-hover:[animation-play-state:paused]"
+        style={{ animationDuration: `${speed}s`, animationDirection: 'reverse' }}
+      >
+        {doubled.map((maker, i) => (
+          <MakerCard key={`${maker.name}-${i}`} maker={maker} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function Makers() {
   useDocumentTitle('取扱メーカー');
+
+  const toolMakers = makerCategories.find(c => c.id === 'tools')!;
+  const machineMakers = makerCategories.find(c => c.id === 'machines')!;
+
   return (
     <div className="min-h-screen bg-background">
       {/* Page Header */}
@@ -17,40 +87,41 @@ export function Makers() {
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
               清水商會が取り扱う主要メーカーをご紹介します。<br />
-              以下に記載のないメーカーにも対応可能です。お気軽にご相談ください。
+              各カードをクリックするとメーカー公式サイトへ移動します。
             </p>
           </div>
         </div>
       </section>
 
-      {makerCategories.map((category) => (
-        <section key={category.id} className="py-16 even:bg-secondary">
-          <ScrollRevealSection>
-            <div className="container mx-auto px-6 max-w-6xl">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium tracking-wider rounded-full">
-                  {category.subtitle}
-                </span>
-                <h2 className="text-2xl font-medium">{category.title}</h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {category.makers.map((maker) => (
-                  <div
-                    key={maker.name}
-                    className="bg-card border border-border p-5 rounded-xl hover:border-primary/30 transition-all duration-300"
-                  >
-                    <p className="text-sm font-medium text-foreground mb-1">{maker.name}</p>
-                    {maker.description && (
-                      <p className="text-xs text-muted-foreground">{maker.description}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
+      {/* Tool Makers Banner */}
+      <section className="py-12">
+        <ScrollRevealSection>
+          <div className="container mx-auto px-6 mb-6">
+            <div className="flex items-center gap-4">
+              <span className="px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium tracking-wider rounded-full">
+                {toolMakers.subtitle}
+              </span>
+              <h2 className="text-xl font-medium">{toolMakers.title}</h2>
             </div>
-          </ScrollRevealSection>
-        </section>
-      ))}
+          </div>
+          <MarqueeBanner makers={toolMakers.makers} speed={25} />
+        </ScrollRevealSection>
+      </section>
+
+      {/* Machine Makers Banner */}
+      <section className="py-12 bg-secondary">
+        <ScrollRevealSection>
+          <div className="container mx-auto px-6 mb-6">
+            <div className="flex items-center gap-4">
+              <span className="px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium tracking-wider rounded-full">
+                {machineMakers.subtitle}
+              </span>
+              <h2 className="text-xl font-medium">{machineMakers.title}</h2>
+            </div>
+          </div>
+          <MarqueeBannerReverse makers={machineMakers.makers} speed={35} />
+        </ScrollRevealSection>
+      </section>
 
       {/* Note + CTA */}
       <section className="py-20">
