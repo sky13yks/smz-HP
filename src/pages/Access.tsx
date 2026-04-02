@@ -1,6 +1,7 @@
 import { MapPin, Train, Car, Clock, Phone, Building2, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 
 export function Access() {
   useDocumentTitle('アクセス');
@@ -22,7 +23,7 @@ export function Access() {
       </section>
 
       <section className="pb-32">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <ScrollRevealSection><div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 animate-fade-in">
             {/* Headquarters */}
             <div className="bg-card border border-border p-10 md:p-12 rounded-xl relative overflow-hidden group flex flex-col">
@@ -177,7 +178,7 @@ export function Access() {
               </div>
             </div>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
     </div>
   );

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 
 const initialFormData = {
   category: "",
@@ -68,7 +69,7 @@ export function Contact() {
       </section>
 
       <section className="pb-32">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-8 animate-fade-in">
@@ -215,7 +216,7 @@ export function Contact() {
               </div>
             </div>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
     </div>
   );

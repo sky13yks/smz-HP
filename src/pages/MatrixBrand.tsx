@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ExternalLink, ArrowRight, Shield, Cpu, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import machineImg from "@/assets/matrix_grinder.png";
 
 interface Machine {
@@ -214,7 +215,7 @@ export const MatrixBrand: React.FC = () => {
 
             {/* Company Specs */}
             <section className="py-16 border-t border-matrix-green/15">
-                <div className="container mx-auto px-6">
+                <ScrollRevealSection><div className="container mx-auto px-6">
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                         {specs.map((spec, i) => (
                             <div key={i} className="text-center p-4">
@@ -227,12 +228,12 @@ export const MatrixBrand: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div></ScrollRevealSection>
             </section>
 
             {/* Product Lineup by Category */}
             <section className="py-20">
-                <div className="container mx-auto px-6">
+                <ScrollRevealSection><div className="container mx-auto px-6">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-medium mb-4 text-foreground">
                             製品ラインナップ
@@ -319,12 +320,12 @@ export const MatrixBrand: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div></ScrollRevealSection>
             </section>
 
             {/* Features */}
             <section className="py-20 bg-secondary">
-                <div className="container mx-auto px-6">
+                <ScrollRevealSection><div className="container mx-auto px-6">
                     <h2 className="text-3xl font-medium text-center mb-16 text-foreground">
                         MATRIXが選ばれる理由
                     </h2>
@@ -360,12 +361,12 @@ export const MatrixBrand: React.FC = () => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </div></ScrollRevealSection>
             </section>
 
             {/* SEO: About MATRIX */}
             <section className="py-20 border-t border-matrix-green/15">
-                <div className="container mx-auto px-6 max-w-4xl">
+                <ScrollRevealSection><div className="container mx-auto px-6 max-w-4xl">
                     <h2 className="text-2xl md:text-3xl font-medium mb-8 text-foreground">
                         MATRIX Precision Machines について
                     </h2>
@@ -398,12 +399,12 @@ export const MatrixBrand: React.FC = () => {
                             </span>
                         ))}
                     </div>
-                </div>
+                </div></ScrollRevealSection>
             </section>
 
             {/* CTA */}
             <section className="py-20 border-t border-matrix-green/15">
-                <div className="container mx-auto px-6 text-center">
+                <ScrollRevealSection><div className="container mx-auto px-6 text-center">
                     <h2 className="text-3xl font-medium mb-4 text-foreground">
                         MATRIX製品に関するお問い合わせ
                     </h2>
@@ -418,7 +419,7 @@ export const MatrixBrand: React.FC = () => {
                         お問い合わせフォームへ
                         <ArrowRight size={18} />
                     </Link>
-                </div>
+                </div></ScrollRevealSection>
             </section>
         </div>
     );

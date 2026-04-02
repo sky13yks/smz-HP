@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Cpu, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 import dtrToolsWhite from "@/assets/dtr_tools_white.jpg";
 import fabrisHr254 from "@/assets/fabris_hr254.jpeg";
@@ -156,7 +157,7 @@ export function Services() {
 
       {/* Service Cards */}
       <section className="pb-32">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto space-y-12">
             {services.map((service, i) => {
               const Icon = service.icon;
@@ -243,12 +244,12 @@ export function Services() {
               );
             })}
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
 
       {/* CTA */}
       <section className="py-32 relative">
-        <div className="container mx-auto px-6 text-center">
+        <ScrollRevealSection><div className="container mx-auto px-6 text-center">
           <div className="bg-card border border-border max-w-4xl mx-auto p-16 rounded-xl relative overflow-hidden">
             <h2 className="text-4xl font-medium mb-8">お気軽にご相談ください</h2>
             <p className="text-foreground/60 mb-12 text-lg leading-relaxed max-w-2xl mx-auto">
@@ -263,7 +264,7 @@ export function Services() {
               お問い合わせする <ArrowRight size={18} />
             </Link>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
     </div>
   );

@@ -1,5 +1,6 @@
 import { Target, Users, Building2, Heart } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 
 export function Company() {
   useDocumentTitle('会社情報');
@@ -22,7 +23,7 @@ export function Company() {
 
       {/* CEO Greeting */}
       <section className="pb-32">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="bg-card border border-border p-10 md:p-20 rounded-xl relative overflow-hidden">
               <div className="grid lg:grid-cols-1 gap-12">
@@ -65,12 +66,12 @@ export function Company() {
               </div>
             </div>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
 
       {/* Core Values */}
       <section className="py-32 relative">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl font-serif font-light mb-4 uppercase">私たちの理念</h2>
             <div className="h-px w-20 bg-primary mx-auto" />
@@ -108,12 +109,12 @@ export function Company() {
               </div>
             ))}
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
 
       {/* Company Profile (Grid Style) */}
       <section className="py-32 bg-secondary">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-serif font-light mb-16 text-center italic">会社概要</h2>
 
@@ -138,7 +139,7 @@ export function Company() {
               ))}
             </div>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
     </div>
   );

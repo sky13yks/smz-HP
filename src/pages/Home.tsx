@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Cpu, Wrench, Package, RefreshCw, Factory, Globe, ShieldCheck, FileText } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { useCountUp } from '@/hooks/useCountUp';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { TOPIC_LABELS } from '@/constants/topics';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 
@@ -22,6 +24,7 @@ function formatDate(dateStr: string | null): string {
 
 export function Home() {
   useDocumentTitle('');
+  const { ref: countUpRef, displayValue: yearsValue } = useCountUp<HTMLDivElement>({ end: 75, suffix: '+' });
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
@@ -106,7 +109,7 @@ export function Home() {
 
       {/* Core Solutions Grid */}
       <section className="py-24 relative">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
             {[
               {
@@ -162,13 +165,13 @@ export function Home() {
               </Link>
             ))}
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
 
       {/* Latest Articles */}
       {articles.length > 0 && (
         <section className="py-24 bg-secondary">
-          <div className="container mx-auto px-6">
+          <ScrollRevealSection><div className="container mx-auto px-6">
             <div className="flex items-end justify-between mb-10">
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -226,13 +229,13 @@ export function Home() {
                 すべて見る <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </div></ScrollRevealSection>
         </section>
       )}
 
       {/* Trust & Heritage Section */}
       <section className="py-24">
-        <div className="container mx-auto px-6">
+        <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight">
@@ -251,7 +254,7 @@ export function Home() {
             <div className="flex-1 grid grid-cols-2 gap-6 w-full">
               <div className="bg-card border border-border p-6 rounded-xl">
                 <ShieldCheck className="w-8 h-8 text-primary mb-4" />
-                <div className="text-3xl font-medium mb-1">75+</div>
+                <div ref={countUpRef} className="text-3xl font-medium mb-1">{yearsValue}</div>
                 <div className="font-mono text-[10px] text-muted-foreground tracking-[0.15em] uppercase">年の信頼</div>
               </div>
               <div className="bg-card border border-border p-6 rounded-xl">
@@ -261,7 +264,7 @@ export function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div></ScrollRevealSection>
       </section>
     </div>
   );

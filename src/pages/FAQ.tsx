@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 
 interface FAQItem {
     question: string;
@@ -68,7 +69,7 @@ export const FAQ: React.FC = () => {
             </section>
 
             <section className="pb-32">
-                <div className="container mx-auto px-6 max-w-4xl">
+                <ScrollRevealSection><div className="container mx-auto px-6 max-w-4xl">
                     <Accordion type="single" collapsible className="w-full space-y-6 animate-fade-in">
                         {faqItems.map((item, i) => (
                             <AccordionItem
@@ -90,7 +91,7 @@ export const FAQ: React.FC = () => {
                             </AccordionItem>
                         ))}
                     </Accordion>
-                </div>
+                </div></ScrollRevealSection>
             </section>
         </div>
     );

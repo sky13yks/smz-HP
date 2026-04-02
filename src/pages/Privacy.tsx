@@ -1,4 +1,5 @@
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 
 export function Privacy() {
     useDocumentTitle('プライバシーポリシー');
@@ -19,7 +20,7 @@ export function Privacy() {
             </section>
 
             <section className="pb-32">
-                <div className="container mx-auto px-6 max-w-3xl">
+                <ScrollRevealSection><div className="container mx-auto px-6 max-w-3xl">
                     <div className="space-y-12 text-sm text-foreground/80 leading-relaxed">
 
                         <div>
@@ -119,7 +120,7 @@ export function Privacy() {
                         </div>
 
                     </div>
-                </div>
+                </div></ScrollRevealSection>
             </section>
         </div>
     );

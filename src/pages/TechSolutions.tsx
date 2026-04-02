@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Loader2, Info } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { TOPIC_LABELS } from '@/constants/topics';
 
 interface Article {
@@ -143,7 +144,7 @@ export const TechSolutions: React.FC = () => {
             </section>
 
             <section className="pb-32">
-                <div className="container mx-auto px-6 max-w-6xl">
+                <ScrollRevealSection><div className="container mx-auto px-6 max-w-6xl">
                     <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
                         <TabsList className="grid w-full grid-cols-2 mb-12 bg-secondary border border-border p-1 rounded-lg h-14">
                             <TabsTrigger value="calculators" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">計算ツール</TabsTrigger>
@@ -379,7 +380,7 @@ export const TechSolutions: React.FC = () => {
                             )}
                         </TabsContent>
                     </Tabs>
-                </div>
+                </div></ScrollRevealSection>
             </section>
         </div>
     );
