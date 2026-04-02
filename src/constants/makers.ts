@@ -41,6 +41,7 @@ export const makerCategories: MakerCategory[] = [
         name: "大和精密工具株式会社",
         description: "歯車用切削工具メーカー",
         products: ["ホブカッタ", "ブローチ"],
+        url: "http://www.yamatoseimitsu.co.jp/",
       },
       {
         name: "DTR Corporation",
