@@ -3,6 +3,7 @@ import { ArrowRight, Cpu, Package, Wrench, RefreshCw, Factory, Globe } from "luc
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
+import { formatMakerNames } from '@/constants/makers';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 import dtrToolsWhite from "@/assets/dtr_tools_white.jpg";
 import fabrisHr254 from "@/assets/fabris_hr254.jpeg";
@@ -76,7 +77,7 @@ const services = [
     subtitle: "刃物ひとつで、精度が変わる",
     description:
       "ホブカッター、ピニオンカッター、ブローチなどの切削工具に加え、砥石・ドレッサーなどの研削工具、さらに特殊工具や治具の製作にも対応しています。加工条件や材質に合わせた最適な工具選定を、専門知識でサポートします。",
-    makers: "アヅミ / 伊澤技術研究所 / 小笠原プレシジョンラボラトリー / 大和精密工具 / DTR / ナチ不二越 / 新潟精密 ほか",
+    makers: formatMakerNames('tools'),
     items: ["ホブカッター", "ピニオンカッター", "ブローチ", "シェービングカッター", "砥石・ドレッサー", "特殊工具・治具製作"],
     itemLabel: "取扱商品",
     carouselType: 'tool' as const,
@@ -88,7 +89,7 @@ const services = [
     subtitle: "現場の相性を知る目利きが選ぶ",
     description:
       "歯車加工機械を中心に、研削盤・ホブ盤・測定機など国内外の新品工作機械をご提案します。カタログスペックだけでは判断できない「現場との相性」を、75年の経験で見極めます。",
-    makers: "DMG森精機株式会社 / FANUC株式会社 / MATRIX / オークマ株式会社 / 株式会社岡本工作機械製作所 / カシフジ株式会社 / 唐津プレシジョン株式会社 / 清和ジーテック株式会社 / 株式会社東京精密 / 東京テクニカル株式会社 / 株式会社不二越 / 浜井産業株式会社 / ヤマザキマザック株式会社 ほか",
+    makers: formatMakerNames('machines'),
     items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
     itemLabel: "取扱商品",
     carouselType: 'machine' as const,
