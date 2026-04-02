@@ -123,7 +123,7 @@ export function Makers() {
               <h2 className="text-xl font-medium">{machineMakers.title}</h2>
             </div>
           </div>
-          <MarqueeBanner makers={machineMakers.makers} speed={30} reverse bgClass="from-secondary" />
+          <MarqueeBanner makers={machineMakers.makers} speed={55} reverse bgClass="from-secondary" />
         </ScrollRevealSection>
       </section>
 
