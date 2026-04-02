@@ -79,9 +79,9 @@ describe('ルーティング', () => {
     expect(screen.getByText('1950')).toBeInTheDocument()
   })
 
-  it('/tech で技術資料ページが表示される', () => {
+  it('/tech でニュース & コラムページが表示される', () => {
     renderRoute('/tech')
-    expect(screen.getAllByText(/技術資料/).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/ニュース/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('/matrix でMatrixページが表示される', () => {

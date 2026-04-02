@@ -6,7 +6,6 @@ import { Menu, X, ExternalLink } from "lucide-react";
 const INVENTORY_URL = "https://www.jp.usedmachinery.bz/members/general_list_id/356";
 
 const navItems = [
-  { path: "/", matchPath: "/", label: "ホーム" },
   { path: "/services", matchPath: "/services", label: "事業内容" },
   { path: "/makers", matchPath: "/makers", label: "取扱メーカー" },
   { path: "/matrix", matchPath: "/matrix", label: "Matrix" },
@@ -40,7 +39,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 pointer-events-none">
       <div className="container mx-auto">
         <div className="bg-card/60 backdrop-blur-xl border border-border/30 rounded-2xl shadow-[0_2px_16px_rgba(0,0,0,0.04)] pointer-events-auto px-6 py-2 flex items-center justify-between transition-all duration-500">
-          <Link to="/" className="flex items-center">
+          <Link to="/" viewTransition className="flex items-center">
             <img
               src={logoImg}
               alt="株式会社清水商會"

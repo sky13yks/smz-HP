@@ -27,6 +27,7 @@ export function Footer() {
               <li><Link to="/history" className="text-muted-foreground hover:text-foreground transition-colors">沿革</Link></li>
               <li><Link to="/makers" className="text-muted-foreground hover:text-foreground transition-colors">取扱メーカー</Link></li>
               <li><Link to="/cases" className="text-muted-foreground hover:text-foreground transition-colors">導入事例</Link></li>
+              <li><Link to="/tech?tab=docs" className="text-muted-foreground hover:text-foreground transition-colors">ニュース & コラム</Link></li>
             </ul>
           </div>
 

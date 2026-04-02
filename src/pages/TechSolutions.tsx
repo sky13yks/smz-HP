@@ -32,7 +32,7 @@ function formatDate(dateStr: string | null): string {
 }
 
 export const TechSolutions: React.FC = () => {
-    useDocumentTitle('技術資料');
+    useDocumentTitle('ニュース & コラム');
     const [searchParams, setSearchParams] = useSearchParams();
     const currentTab = searchParams.get('tab') || 'calculators';
     const [articleCategory, setArticleCategory] = useState('all');
@@ -134,7 +134,7 @@ export const TechSolutions: React.FC = () => {
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-3xl animate-fade-in-up">
                         <h1 className="text-4xl md:text-6xl font-serif font-light mb-6 leading-none">
-                            技術資料
+                            ニュース & コラム
                         </h1>
                         <p className="text-base text-muted-foreground leading-relaxed">
                             現場の精度を支える、計算ツールと技術アーカイブ。
@@ -148,7 +148,7 @@ export const TechSolutions: React.FC = () => {
                     <Tabs value={currentTab} onValueChange={handleTabChange} className="w-full">
                         <TabsList className="grid w-full grid-cols-2 mb-12 bg-secondary border border-border p-1 rounded-lg h-14">
                             <TabsTrigger value="calculators" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">計算ツール</TabsTrigger>
-                            <TabsTrigger value="docs" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">技術資料</TabsTrigger>
+                            <TabsTrigger value="docs" className="rounded-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all font-medium tracking-wider text-sm">記事一覧</TabsTrigger>
                         </TabsList>
 
                         <TabsContent value="calculators" className="animate-fade-in mt-0 outline-none">

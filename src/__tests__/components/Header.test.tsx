@@ -31,7 +31,6 @@ describe('Header コンポーネント', () => {
 
   it('ナビゲーションリンクが表示される', () => {
     renderHeader()
-    expect(screen.getByText('ホーム')).toBeInTheDocument()
     expect(screen.getByText('事業内容')).toBeInTheDocument()
     expect(screen.getByText('取扱メーカー')).toBeInTheDocument()
     expect(screen.getByText('Matrix')).toBeInTheDocument()
@@ -63,7 +62,7 @@ describe('Header コンポーネント', () => {
     // aria-expanded が true に
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
     // メニューが開いてナビリンクが2セット表示
-    const homeLinks = screen.getAllByText('ホーム')
-    expect(homeLinks.length).toBeGreaterThanOrEqual(2)
+    const serviceLinks = screen.getAllByText('事業内容')
+    expect(serviceLinks.length).toBeGreaterThanOrEqual(2)
   })
 })

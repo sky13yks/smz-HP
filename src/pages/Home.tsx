@@ -178,7 +178,7 @@ export function Home() {
                   <FileText className="w-5 h-5 text-primary" />
                   <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">Latest Articles</p>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-medium">最新の技術資料</h2>
+                <h2 className="text-2xl md:text-3xl font-medium">最新のニュース & コラム</h2>
               </div>
               <Link
                 to="/tech?tab=docs"
