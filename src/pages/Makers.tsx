@@ -5,72 +5,66 @@ import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { makerCategories, type Maker } from '@/constants/makers';
 
 function MakerCard({ maker }: { maker: Maker }) {
-  if (maker.url) {
-    return (
-      <a
-        href={maker.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-shrink-0 block w-64 bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-300 mx-2 cursor-pointer"
-      >
-        <div className="flex items-center justify-between mb-1">
-          <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
-          <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 ml-2" />
-        </div>
-        {maker.description && (
-          <p className="text-xs text-muted-foreground truncate">{maker.description}</p>
-        )}
-      </a>
-    );
-  }
-
   return (
-    <div className="flex-shrink-0 w-64 bg-card border border-border rounded-xl p-5 mx-2">
-      <p className="text-sm font-medium text-foreground truncate">{maker.name}</p>
+    <div className="flex-shrink-0 w-72 bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-300 mx-2">
+      <div className="flex items-start justify-between gap-2 mb-2">
+        <p className="text-sm font-medium text-foreground leading-tight">{maker.name}</p>
+        {maker.url && <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0 mt-0.5" />}
+      </div>
       {maker.description && (
-        <p className="text-xs text-muted-foreground truncate">{maker.description}</p>
+        <p className="text-xs text-muted-foreground mb-3">{maker.description}</p>
+      )}
+      {maker.products && maker.products.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {maker.products.map(product => (
+            <span key={product} className="px-2 py-0.5 bg-secondary text-muted-foreground text-[10px] rounded">
+              {product}
+            </span>
+          ))}
+        </div>
+      )}
+      {maker.hasDetailPage && (
+        <div className="mt-3 pt-2 border-t border-border">
+          <span className="text-xs text-primary font-medium">詳細ページあり →</span>
+        </div>
       )}
     </div>
   );
 }
 
-function MarqueeBanner({ makers, speed = 30 }: { makers: Maker[]; speed?: number }) {
-  // リストを2回繰り返して無限ループに見せる
+function MarqueeBanner({ makers, speed = 30, reverse = false, bgClass = "from-background" }: { makers: Maker[]; speed?: number; reverse?: boolean; bgClass?: string }) {
   const doubled = [...makers, ...makers];
 
   return (
     <div className="relative overflow-hidden py-4 group">
-      {/* 左右のフェード */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      <div className={`absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r ${bgClass} to-transparent z-10 pointer-events-none`} />
+      <div className={`absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l ${bgClass} to-transparent z-10 pointer-events-none`} />
 
       <div
         className="flex animate-marquee group-hover:[animation-play-state:paused]"
-        style={{ animationDuration: `${speed}s` }}
+        style={{ animationDuration: `${speed}s`, animationDirection: reverse ? 'reverse' : 'normal' }}
       >
-        {doubled.map((maker, i) => (
-          <MakerCard key={`${maker.name}-${i}`} maker={maker} />
-        ))}
-      </div>
-    </div>
-  );
-}
+        {doubled.map((maker, i) => {
+          const card = <MakerCard key={`${maker.name}-${i}`} maker={maker} />;
 
-function MarqueeBannerReverse({ makers, speed = 35 }: { makers: Maker[]; speed?: number }) {
-  const doubled = [...makers, ...makers];
+          if (maker.hasDetailPage) {
+            return (
+              <Link key={`${maker.name}-${i}`} to="/matrix" className="flex-shrink-0">
+                <MakerCard maker={maker} />
+              </Link>
+            );
+          }
 
-  return (
-    <div className="relative overflow-hidden py-4 group">
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none" />
+          if (maker.url) {
+            return (
+              <a key={`${maker.name}-${i}`} href={maker.url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                <MakerCard maker={maker} />
+              </a>
+            );
+          }
 
-      <div
-        className="flex animate-marquee direction-reverse group-hover:[animation-play-state:paused]"
-        style={{ animationDuration: `${speed}s`, animationDirection: 'reverse' }}
-      >
-        {doubled.map((maker, i) => (
-          <MakerCard key={`${maker.name}-${i}`} maker={maker} />
-        ))}
+          return card;
+        })}
       </div>
     </div>
   );
@@ -99,7 +93,7 @@ export function Makers() {
         </div>
       </section>
 
-      {/* Tool Makers Banner */}
+      {/* Tool Makers */}
       <section className="py-12">
         <ScrollRevealSection>
           <div className="container mx-auto px-6 mb-6">
@@ -110,11 +104,11 @@ export function Makers() {
               <h2 className="text-xl font-medium">{toolMakers.title}</h2>
             </div>
           </div>
-          <MarqueeBanner makers={toolMakers.makers} speed={25} />
+          <MarqueeBanner makers={toolMakers.makers} speed={30} />
         </ScrollRevealSection>
       </section>
 
-      {/* Machine Makers Banner */}
+      {/* Machine Makers */}
       <section className="py-12 bg-secondary">
         <ScrollRevealSection>
           <div className="container mx-auto px-6 mb-6">
@@ -125,11 +119,11 @@ export function Makers() {
               <h2 className="text-xl font-medium">{machineMakers.title}</h2>
             </div>
           </div>
-          <MarqueeBannerReverse makers={machineMakers.makers} speed={35} />
+          <MarqueeBanner makers={machineMakers.makers} speed={40} reverse bgClass="from-secondary" />
         </ScrollRevealSection>
       </section>
 
-      {/* Note + CTA */}
+      {/* CTA */}
       <section className="py-20">
         <ScrollRevealSection>
           <div className="container mx-auto px-6 max-w-4xl text-center">
