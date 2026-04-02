@@ -108,7 +108,7 @@ export function Makers() {
               <h2 className="text-xl font-medium">{toolMakers.title}</h2>
             </div>
           </div>
-          <MarqueeBanner makers={toolMakers.makers} speed={30} />
+          <MarqueeBanner makers={toolMakers.makers} speed={45} />
         </ScrollRevealSection>
       </section>
 
@@ -123,7 +123,7 @@ export function Makers() {
               <h2 className="text-xl font-medium">{machineMakers.title}</h2>
             </div>
           </div>
-          <MarqueeBanner makers={machineMakers.makers} speed={55} reverse bgClass="from-secondary" />
+          <MarqueeBanner makers={machineMakers.makers} speed={85} reverse bgClass="from-secondary" />
         </ScrollRevealSection>
       </section>
 
