@@ -55,6 +55,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.path}
+                viewTransition
                 className={`py-2 text-sm tracking-wide transition-colors duration-300 ${
                   isActive(item.matchPath)
                     ? "text-foreground"
@@ -95,6 +96,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.path}
+                viewTransition
                 className={`text-sm tracking-wide py-3 border-b border-border/50 transition-colors ${
                   isActive(item.matchPath) ? "text-foreground" : "text-muted-foreground"
                 }`}
