@@ -5,20 +5,18 @@ interface ScrollRevealSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 export function ScrollRevealSection({
   children,
   className = '',
   delay = 0,
-  as: Tag = 'div',
 }: ScrollRevealSectionProps) {
-  const { ref, isVisible } = useScrollReveal<HTMLElement>();
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <Tag
-      ref={ref as React.RefObject<never>}
+    <div
+      ref={ref}
       className={`transition-all duration-700 ease-out ${
         isVisible
           ? 'opacity-100 translate-y-0'
@@ -27,6 +25,6 @@ export function ScrollRevealSection({
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
-    </Tag>
+    </div>
   );
 }

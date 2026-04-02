@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 text-center text-sm border-t border-border text-muted-foreground">
-          <p>&copy; 2025 Shimizu Shokai Co., Ltd. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Shimizu Shokai Co., Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

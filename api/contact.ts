@@ -13,6 +13,9 @@ const MAX_FIELD_LENGTH = 200;
 const MAX_MESSAGE_LENGTH = 5000;
 
 // 簡易インメモリレートリミット（IPあたり5分間に3回まで）
+// 注意: Vercel Serverless はリクエストごとにインスタンスが起動するため、
+// ウォームインスタンス間でのみ有効。完全な保護にはUpstash Redis等の外部ストアが必要。
+// TODO: Upstash Ratelimit への移行
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const RATE_LIMIT_MAX = 3;

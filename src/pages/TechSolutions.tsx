@@ -8,15 +8,8 @@ import { Link } from 'react-router-dom';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { TOPIC_LABELS } from '@/constants/topics';
-
-interface Article {
-    id: string;
-    title: string;
-    category: string;
-    topics: string[];
-    publishedAt: string | null;
-    articleNumber: string;
-}
+import { formatDate } from '@/utils/formatDate';
+import type { Article } from '@/types/article';
 
 const CATEGORY_TABS = [
     { id: 'all', label: 'すべて' },
@@ -25,11 +18,6 @@ const CATEGORY_TABS = [
     { id: 'デイリー/IT基礎', label: 'IT基礎' },
 ];
 
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return '';
-    const d = new Date(dateStr);
-    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-}
 
 export const TechSolutions: React.FC = () => {
     useDocumentTitle('ニュース & コラム');
@@ -93,15 +81,16 @@ export const TechSolutions: React.FC = () => {
         base: 2.25
     });
     const [simpleResult, setSimpleResult] = useState<number | null>(null);
-    const [calcError, setCalcError] = useState<string | null>(null);
+    const [smzCalcError, setSmzCalcError] = useState<string | null>(null);
+    const [simpleCalcError, setSimpleCalcError] = useState<string | null>(null);
 
     const calculateSmz = () => {
-        setCalcError(null);
+        setSmzCalcError(null);
         const { diameter, concentricity, formError, tipBase, rootBase } = smzInputs;
         const height = (concentricity - formError) / 1000;
         const base = (tipBase - rootBase) / 2;
         if (Math.abs(base) < Number.EPSILON) {
-            setCalcError('先端基準と歯元基準の値が同じです。基準差がゼロのため計算できません。');
+            setSmzCalcError('先端基準と歯元基準の値が同じです。基準差がゼロのため計算できません。');
             setSmzResult(null);
             return;
         }
@@ -113,10 +102,10 @@ export const TechSolutions: React.FC = () => {
     };
 
     const calculateSimple = () => {
-        setCalcError(null);
+        setSimpleCalcError(null);
         const { diameter, height, base } = simpleInputs;
         if (Math.abs(base) < Number.EPSILON) {
-            setCalcError('基準長さがゼロのため計算できません。');
+            setSimpleCalcError('基準長さがゼロのため計算できません。');
             setSimpleResult(null);
             return;
         }
@@ -204,9 +193,9 @@ export const TechSolutions: React.FC = () => {
                                             計算する
                                         </button>
 
-                                        {calcError && !simpleResult && (
+                                        {smzCalcError && (
                                             <div className="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-sm text-destructive">
-                                                {calcError}
+                                                {smzCalcError}
                                             </div>
                                         )}
 
@@ -254,9 +243,9 @@ export const TechSolutions: React.FC = () => {
                                             計算する
                                         </button>
 
-                                        {calcError && !smzResult && (
+                                        {simpleCalcError && (
                                             <div className="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-sm text-destructive">
-                                                {calcError}
+                                                {simpleCalcError}
                                             </div>
                                         )}
 

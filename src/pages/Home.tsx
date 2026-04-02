@@ -5,22 +5,9 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useCountUp } from '@/hooks/useCountUp';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { TOPIC_LABELS } from '@/constants/topics';
+import { formatDate } from '@/utils/formatDate';
+import type { Article } from '@/types/article';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
-
-interface Article {
-  id: string;
-  title: string;
-  category: string;
-  topics: string[];
-  publishedAt: string | null;
-  articleNumber: string;
-}
-
-function formatDate(dateStr: string | null): string {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-}
 
 export function Home() {
   useDocumentTitle('');

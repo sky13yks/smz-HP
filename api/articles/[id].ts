@@ -143,7 +143,9 @@ function parseBlock(block: NotionBlock): ArticleBlock | null {
       if (vidType === 'external') {
         videoUrl = (vidData.external as { url: string })?.url ?? '';
       }
-      if (videoUrl) {
+      // YouTube/Vimeo のみ許可（iframe埋め込みのセキュリティ対策）
+      const ALLOWED_VIDEO_DOMAINS = /^https:\/\/(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\//;
+      if (videoUrl && ALLOWED_VIDEO_DOMAINS.test(videoUrl)) {
         return { id: block.id, type: 'video', text: videoUrl };
       }
       return null;

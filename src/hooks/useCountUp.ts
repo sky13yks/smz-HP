@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from './useScrollReveal';
 
 interface UseCountUpOptions {
@@ -16,12 +16,12 @@ export function useCountUp<T extends HTMLElement>(options: UseCountUpOptions) {
   const { ref, isVisible } = useScrollReveal<T>();
   const [displayValue, setDisplayValue] = useState(`0${suffix}`);
   const hasAnimated = useRef(false);
+  const rafId = useRef(0);
 
-  const animate = useCallback(() => {
-    if (hasAnimated.current) return;
+  useEffect(() => {
+    if (!isVisible || hasAnimated.current) return;
     hasAnimated.current = true;
 
-    // prefers-reduced-motion の場合は即座に最終値
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setDisplayValue(`${end}${suffix}`);
       return;
@@ -36,18 +36,18 @@ export function useCountUp<T extends HTMLElement>(options: UseCountUpOptions) {
       setDisplayValue(`${value}${suffix}`);
 
       if (progress < 1) {
-        requestAnimationFrame(tick);
+        rafId.current = requestAnimationFrame(tick);
       } else {
         setDisplayValue(`${end}${suffix}`);
       }
     }
 
-    requestAnimationFrame(tick);
-  }, [end, duration, suffix]);
+    rafId.current = requestAnimationFrame(tick);
 
-  useEffect(() => {
-    if (isVisible) animate();
-  }, [isVisible, animate]);
+    return () => {
+      cancelAnimationFrame(rafId.current);
+    };
+  }, [isVisible, end, duration, suffix]);
 
   return { ref, displayValue };
 }

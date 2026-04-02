@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { TOPIC_LABELS } from '@/constants/topics';
+import { formatDate } from '@/utils/formatDate';
 
 interface RichTextSegment {
     text: string;
@@ -30,12 +31,6 @@ interface ArticleData {
     topics: string[];
     publishedAt: string | null;
     blocks: ArticleBlock[];
-}
-
-function formatDate(dateStr: string | null): string {
-    if (!dateStr) return '';
-    const d = new Date(dateStr);
-    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 }
 
 function RichText({ segments }: { segments?: RichTextSegment[] }) {
