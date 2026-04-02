@@ -67,7 +67,7 @@ export function Home() {
             <div className="w-12 h-px bg-primary mb-8" />
 
             <p className="text-base md:text-lg font-light text-background/60 max-w-lg leading-relaxed mb-12">
-              工具の選定から、機械の修理、加工の代行まで。<br />
+              新品・中古機械の選定から、工具の提案、修理、加工代行まで。<br />
               75年の知見で、歯車づくりの「困った」に応え続ける。
             </p>
 
