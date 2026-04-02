@@ -32,39 +32,43 @@ function MakerCard({ maker }: { maker: Maker }) {
   );
 }
 
-function MarqueeBanner({ makers, speed = 30, reverse = false, bgClass = "from-background" }: { makers: Maker[]; speed?: number; reverse?: boolean; bgClass?: string }) {
-  const doubled = [...makers, ...makers];
+function MakerCardWithLink({ maker, index }: { maker: Maker; index: number }) {
+  if (maker.hasDetailPage) {
+    return (
+      <Link key={`${maker.name}-${index}`} to="/matrix" className="flex-shrink-0">
+        <MakerCard maker={maker} />
+      </Link>
+    );
+  }
+  if (maker.url) {
+    return (
+      <a key={`${maker.name}-${index}`} href={maker.url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+        <MakerCard maker={maker} />
+      </a>
+    );
+  }
+  return <MakerCard key={`${maker.name}-${index}`} maker={maker} />;
+}
 
+function MarqueeBanner({ makers, speed = 30, reverse = false, bgClass = "from-background" }: { makers: Maker[]; speed?: number; reverse?: boolean; bgClass?: string }) {
+  // 2つの同一リストを並べ、片方分(50%)だけスクロール → シームレスループ
   return (
     <div className="relative overflow-hidden py-4 group">
-      <div className={`absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r ${bgClass} to-transparent z-10 pointer-events-none`} />
-      <div className={`absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l ${bgClass} to-transparent z-10 pointer-events-none`} />
+      <div className={`absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r ${bgClass} to-transparent z-10 pointer-events-none`} />
+      <div className={`absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l ${bgClass} to-transparent z-10 pointer-events-none`} />
 
       <div
-        className="flex animate-marquee group-hover:[animation-play-state:paused]"
+        className="flex w-max animate-marquee group-hover:[animation-play-state:paused]"
         style={{ animationDuration: `${speed}s`, animationDirection: reverse ? 'reverse' : 'normal' }}
       >
-        {doubled.map((maker, i) => {
-          const card = <MakerCard key={`${maker.name}-${i}`} maker={maker} />;
-
-          if (maker.hasDetailPage) {
-            return (
-              <Link key={`${maker.name}-${i}`} to="/matrix" className="flex-shrink-0">
-                <MakerCard maker={maker} />
-              </Link>
-            );
-          }
-
-          if (maker.url) {
-            return (
-              <a key={`${maker.name}-${i}`} href={maker.url} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-                <MakerCard maker={maker} />
-              </a>
-            );
-          }
-
-          return card;
-        })}
+        {/* 1セット目 */}
+        {makers.map((maker, i) => (
+          <MakerCardWithLink key={`a-${maker.name}-${i}`} maker={maker} index={i} />
+        ))}
+        {/* 2セット目（シームレスループ用） */}
+        {makers.map((maker, i) => (
+          <MakerCardWithLink key={`b-${maker.name}-${i}`} maker={maker} index={i + makers.length} />
+        ))}
       </div>
     </div>
   );

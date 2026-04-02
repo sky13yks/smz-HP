@@ -57,8 +57,8 @@ export const makerCategories: MakerCategory[] = [
       },
       {
         name: "新潟精密株式会社",
-        description: "車載電装品・通信モジュール・精密部品メーカー",
-        products: ["車載電装品モジュール", "通信系モジュール", "精密部品"],
+        description: "ブローチ専門メーカー",
+        products: ["ブローチ", "スプラインブローチ", "丸ブローチ"],
         url: "http://www.n-seimitu.co.jp/",
       },
     ],
