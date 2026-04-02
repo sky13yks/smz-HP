@@ -20,20 +20,22 @@ export const makerCategories: MakerCategory[] = [
     subtitle: "SERVICE 01 取扱メーカー",
     makers: [
       {
-        name: "株式会社アヅミ",
+        name: "アヅミ株式会社",
         description: "歯車切削工具の専門メーカー",
         products: ["ホブカッタ", "ピニオンカッタ", "シェービングカッタ"],
-        url: "https://www.azumi-tools.co.jp/",
+        url: "http://www.azumi-kk.jp/",
       },
       {
         name: "株式会社伊澤技術研究所",
         description: "歯車試験機・測定機の専門メーカー",
         products: ["歯車試験機", "かみ合い試験機"],
+        url: "https://izawa-giken.com/",
       },
       {
         name: "株式会社小笠原プレシジョンラボラトリー",
         description: "歯車精密測定機器メーカー",
         products: ["歯車測定機", "マスターギヤ"],
+        url: "http://www.ogswr-pl.co.jp/",
       },
       {
         name: "大和精密工具株式会社",
@@ -56,6 +58,7 @@ export const makerCategories: MakerCategory[] = [
         name: "新潟精密株式会社",
         description: "精密歯車・精密部品加工",
         products: ["精密歯車", "減速機用歯車"],
+        url: "http://www.n-seimitu.co.jp/",
       },
     ],
   },
