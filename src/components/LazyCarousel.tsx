@@ -16,7 +16,6 @@ export function LazyCarousel({ images, label, interval = 4000 }: LazyCarouselPro
   const [current, setCurrent] = useState(0);
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
-  // ビューポートに入ってから自動再生開始
   useEffect(() => {
     if (!isVisible) return;
 
@@ -32,12 +31,12 @@ export function LazyCarousel({ images, label, interval = 4000 }: LazyCarouselPro
   return (
     <div
       ref={ref}
-      className="relative overflow-hidden bg-secondary"
+      className="relative overflow-hidden bg-secondary h-full flex items-center"
       role="region"
       aria-label={label}
       aria-live="polite"
     >
-      <div className="relative w-full">
+      <div className="relative w-full min-h-[250px] md:min-h-full">
         {images.map((img, i) => (
           <img
             key={img.alt}
@@ -45,21 +44,21 @@ export function LazyCarousel({ images, label, interval = 4000 }: LazyCarouselPro
             alt={img.alt}
             loading="lazy"
             aria-hidden={i !== current}
-            className={`w-full h-auto object-contain transition-opacity duration-1000 ${
-              i === current ? 'opacity-100 relative' : 'opacity-0 absolute inset-0'
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === current ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
       </div>
       {images.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
           {images.map((img, i) => (
             <button
               key={img.alt}
               onClick={() => setCurrent(i)}
               aria-label={`スライド ${i + 1}: ${img.alt}`}
               className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? 'bg-primary w-4' : 'bg-foreground/30'
+                i === current ? 'bg-white w-4' : 'bg-white/40'
               }`}
             />
           ))}

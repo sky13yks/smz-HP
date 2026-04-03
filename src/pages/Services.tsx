@@ -54,8 +54,8 @@ const services = [
     items: ["工作機械の修理", "オーバーホール", "定期メンテナンス"],
     itemLabel: "サービス内容",
     images: [
-      { src: "https://images.unsplash.com/photo-1581092160607-ee67df60e2a4?w=800&fit=crop&q=75", alt: "工作機械のメンテナンス作業" },
-      { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&fit=crop&q=75", alt: "工場での機械修理" },
+      { src: "https://images.unsplash.com/photo-1581092160607-ee67df60e2a4?w=800&h=600&fit=crop&q=75", alt: "工作機械の修理・整備作業" },
+      { src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=600&fit=crop&q=75", alt: "精密機械のオーバーホール" },
     ],
   },
   {
@@ -68,8 +68,8 @@ const services = [
     items: ["中古工作機械の買取・販売", "リユース提案"],
     itemLabel: "サービス内容",
     images: [
-      { src: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&fit=crop&q=75", alt: "工場フロアの機械設備" },
-      { src: "https://images.unsplash.com/photo-1567789884554-0b844b597180?w=800&fit=crop&q=75", alt: "産業機械の展示" },
+      { src: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop&q=75", alt: "工場内の機械設備" },
+      { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop&q=75", alt: "工場フロアの各種工作機械" },
     ],
   },
   {
@@ -82,8 +82,8 @@ const services = [
     items: ["各種部品加工", "試作代行", "生産工程のサポート"],
     itemLabel: "サービス内容",
     images: [
-      { src: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&fit=crop&q=75", alt: "CNC旋盤での金属加工" },
-      { src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&fit=crop&q=75", alt: "精密部品の切削加工" },
+      { src: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&h=600&fit=crop&q=75", alt: "CNC旋盤での精密加工" },
+      { src: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&h=600&fit=crop&q=75", alt: "金属切削加工の火花" },
     ],
   },
   {
@@ -97,8 +97,8 @@ const services = [
     itemLabel: "取扱内容",
     isMatrix: true,
     images: [
-      { src: "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=800&fit=crop&q=75", alt: "国際貿易・コンテナ港" },
-      { src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&fit=crop&q=75", alt: "グローバル物流" },
+      { src: "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=800&h=600&fit=crop&q=75", alt: "コンテナ港の国際物流" },
+      { src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop&q=75", alt: "輸入コンテナの荷下ろし" },
     ],
   },
 ];
