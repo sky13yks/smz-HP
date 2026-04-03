@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
 import { ArrowRight, Cpu, Package, Wrench, RefreshCw, Factory, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
+import { LazyCarousel } from '@/components/LazyCarousel';
 import { formatMakerNames } from '@/constants/makers';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 import dtrToolsWhite from "@/assets/dtr_tools_white.jpg";
@@ -10,64 +10,6 @@ import fabrisHr254 from "@/assets/fabris_hr254.jpeg";
 import fabrisHr355 from "@/assets/fabris_hr355.jpeg";
 import seiwaHb403_1 from "@/assets/seiwa_hb403_1.jpg";
 import seiwaHb403_2 from "@/assets/seiwa_hb403_2.jpg";
-
-const machineImages = [
-  { src: fabrisHr254, alt: "FABRIS HR254 CNCホブ盤" },
-  { src: fabrisHr355, alt: "FABRIS HR355 CNCホブ盤" },
-  { src: seiwaHb403_1, alt: "SEIWA Orbis HB403 歯車加工機" },
-  { src: seiwaHb403_2, alt: "SEIWA Orbis HB403 歯車加工機（別角度）" },
-];
-
-const toolImages = [
-  { src: dtrToolsDark, alt: "DTR製 歯車加工工具コレクション" },
-  { src: dtrToolsWhite, alt: "DTR製 歯車加工工具ラインナップ" },
-];
-
-function ImageCarousel({ images, label }: { images: { src: string; alt: string }[]; label: string }) {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mq.matches) return;
-
-    const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [images.length]);
-
-  return (
-    <div className="relative overflow-hidden bg-secondary flex items-center justify-center" role="region" aria-label={label} aria-live="polite">
-      <div className="relative w-full">
-        {images.map((img, i) => (
-          <img
-            key={img.alt}
-            src={img.src}
-            alt={img.alt}
-            aria-hidden={i !== current}
-            className={`w-full h-auto object-contain transition-opacity duration-1000 ${
-              i === current ? 'opacity-100 relative' : 'opacity-0 absolute inset-0'
-            }`}
-          />
-        ))}
-      </div>
-      {images.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-          {images.map((img, i) => (
-            <button
-              key={img.alt}
-              onClick={() => setCurrent(i)}
-              aria-label={`スライド ${i + 1}: ${img.alt}`}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? 'bg-primary w-4' : 'bg-foreground/30'
-              }`}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 
 const services = [
   {
@@ -80,7 +22,10 @@ const services = [
     makers: formatMakerNames('tools'),
     items: ["ホブカッター", "ピニオンカッター", "ブローチ", "シェービングカッター", "砥石・ドレッサー", "特殊工具・治具製作"],
     itemLabel: "取扱商品",
-    carouselType: 'tool' as const,
+    images: [
+      { src: dtrToolsDark, alt: "DTR製 歯車加工工具コレクション" },
+      { src: dtrToolsWhite, alt: "DTR製 歯車加工工具ラインナップ" },
+    ],
   },
   {
     icon: Cpu,
@@ -92,7 +37,12 @@ const services = [
     makers: formatMakerNames('machines'),
     items: ["歯車加工機械（新品）", "研削盤", "ホブ盤", "測定機", "周辺機器"],
     itemLabel: "取扱商品",
-    carouselType: 'machine' as const,
+    images: [
+      { src: fabrisHr254, alt: "FABRIS HR254 CNCホブ盤" },
+      { src: fabrisHr355, alt: "FABRIS HR355 CNCホブ盤" },
+      { src: seiwaHb403_1, alt: "SEIWA Orbis HB403 歯車加工機" },
+      { src: seiwaHb403_2, alt: "SEIWA Orbis HB403 歯車加工機（別角度）" },
+    ],
   },
   {
     icon: Wrench,
@@ -103,6 +53,7 @@ const services = [
       "「調子が悪いけれど、だましだまし使っている」「メーカーサポートが終わってしまった」そんな機械もお任せください。古き良き機械は次の世代へ遺したい。そんな温故知新の精神で、長年培った修理技術を駆使し、お客様の大切な資産を守ります。",
     items: ["工作機械の修理", "オーバーホール", "定期メンテナンス"],
     itemLabel: "サービス内容",
+    images: [] as { src: string; alt: string }[],
   },
   {
     icon: RefreshCw,
@@ -113,6 +64,7 @@ const services = [
       "「新機を導入したいがコストを抑えたい」「使わなくなった機械を有効活用したい」という声に応えます。ただの中古販売ではなく、プロの目でしっかり点検・整備した「動く財産」を橋渡しします。",
     items: ["中古工作機械の買取・販売", "リユース提案"],
     itemLabel: "サービス内容",
+    images: [] as { src: string; alt: string }[],
   },
   {
     icon: Factory,
@@ -123,6 +75,7 @@ const services = [
       "「納期が迫っているが設備が空いていない」「一時的に人手が足りない」といった際、弊社協力企業の設備と技術で加工をバックアップします。商社の枠を超え、実務を通してお客様の生産ラインを支えます。",
     items: ["各種部品加工", "試作代行", "生産工程のサポート"],
     itemLabel: "サービス内容",
+    images: [] as { src: string; alt: string }[],
   },
   {
     icon: Globe,
@@ -134,6 +87,7 @@ const services = [
     items: ["MATRIX社製 歯車用工作機械の輸入・販売・技術サポート"],
     itemLabel: "取扱内容",
     isMatrix: true,
+    images: [] as { src: string; alt: string }[],
   },
 ];
 
@@ -149,7 +103,7 @@ export function Services() {
               事業内容
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
-              清水商會が、現場の「困った」を解決する5つのカタチ。
+              清水商會が、現場の「困った」を解決する6つのカタチ。
               創業以来の知見を次世代のソリューションへと昇華させました。
             </p>
           </div>
@@ -160,27 +114,28 @@ export function Services() {
       <section className="pb-32">
         <ScrollRevealSection><div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto space-y-12">
-            {services.map((service, i) => {
+            {services.map((service) => {
               const Icon = service.icon;
+              const hasImages = service.images.length > 0;
               return (
                 <div
-                  key={i}
+                  key={service.number}
                   id={`service-${service.number}`}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
-                  <div className={`flex flex-col ${service.carouselType ? 'md:flex-row' : ''}`}>
-                    {service.carouselType && (
+                  <div className={`flex flex-col ${hasImages ? 'md:flex-row' : ''}`}>
+                    {hasImages && (
                       <div className="md:w-2/5 flex-shrink-0">
-                        <ImageCarousel
-                          images={service.carouselType === 'machine' ? machineImages : toolImages}
-                          label={service.carouselType === 'machine' ? '取扱工作機械' : '取扱工具'}
+                        <LazyCarousel
+                          images={service.images}
+                          label={service.title}
                         />
                       </div>
                     )}
 
                     {/* Content */}
                     <div className="flex-1 p-8 md:p-12">
-                      {/* Number badge (inline) */}
+                      {/* Number badge */}
                       <div
                         className={`inline-block px-5 py-1.5 rounded-full font-mono text-xs font-medium tracking-[0.15em] text-primary-foreground mb-6 ${service.isMatrix ? "bg-matrix-green" : "bg-primary"
                           }`}
@@ -220,9 +175,9 @@ export function Services() {
 
                       {/* Items Tags */}
                       <div className="flex flex-wrap gap-3 items-center">
-                        {service.items.map((item, j) => (
+                        {service.items.map((item) => (
                           <span
-                            key={j}
+                            key={item}
                             className="inline-block px-4 py-1.5 rounded-full text-xs font-medium border border-border bg-secondary text-foreground/70 transition-colors group-hover:border-foreground/10 group-hover:text-foreground"
                           >
                             {item}
