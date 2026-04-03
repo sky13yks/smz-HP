@@ -1,5 +1,6 @@
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { getYearsInBusiness } from '@/constants/company';
 
 interface TimelineItem {
   year: string;
@@ -109,7 +110,7 @@ export function History() {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               1950年の創業から現在まで。<br />
-              切削工具の専門商社として歩んできた、75年の研鑽の軌跡。
+              切削工具の専門商社として歩んできた、創業以来の研鑽の軌跡。
             </p>
           </div>
         </div>
@@ -134,7 +135,7 @@ export function History() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div className="text-center">
-                <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">75</div>
+                <div className="text-7xl md:text-9xl font-serif font-light text-foreground/10 mb-4">{getYearsInBusiness()}</div>
                 <div className="font-mono text-xs tracking-[0.15em] text-primary mb-2 uppercase">年の研鑽</div>
                 <div className="text-muted-foreground text-sm font-normal">創業からの不変の信頼</div>
               </div>
@@ -167,7 +168,7 @@ export function History() {
                   時代とともに、製造現場のニーズは常に変化し続けています。
                 </p>
                 <p>
-                  私たちは、75年で培った「目利き」の力を基盤に、最新のデジタル技術やグローバルなネットワークを融合させ、次世代の「つくる」を支えるソリューションを提供し続けます。
+                  私たちは、創業以来培った「目利き」の力を基盤に、最新のデジタル技術やグローバルなネットワークを融合させ、次世代の「つくる」を支えるソリューションを提供し続けます。
                 </p>
                 <p className="text-foreground font-medium">
                   「歴史を重んじ、未来を創る。温故知新の精神で、次の100年へ。」

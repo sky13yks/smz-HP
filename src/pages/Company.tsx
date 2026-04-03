@@ -15,7 +15,7 @@ export function Company() {
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
               歯車加工の構造を理解し、技術者と対話できる専門商社として。<br />
-              私たちが大切にしている姿勢と、75年の歩みをご紹介します。
+              私たちが大切にしている姿勢と、創業以来の歩みをご紹介します。
             </p>
           </div>
         </div>
@@ -31,7 +31,7 @@ export function Company() {
                   <h2 className="text-sm font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
                   <p className="text-2xl md:text-3xl font-medium mb-12 leading-tight">
                     温故知新。<br />
-                    75年の研鑽を、これからの「つくる」へ。
+                    創業以来の研鑽を、これからの「つくる」へ。
                   </p>
 
                   <div className="max-w-none space-y-8 text-foreground/70 text-base leading-relaxed">
@@ -40,7 +40,7 @@ export function Company() {
                     </p>
                     <p>
                       私たちの原点は、昭和20年代から続く歯車用工具の専門商社にあります。
-                      創業以来、75年以上にわたり、職人の方々が求める「精度」と「信頼」に向き合い、共に汗を流してきました。
+                      創業以来、職人の方々が求める「精度」と「信頼」に向き合い、共に汗を流してきました。
                       その中で培われた、機械の深奥に触れる知識と目利きこそが、私たちの何よりの財産です。
                     </p>
                     <p>

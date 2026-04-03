@@ -5,13 +5,15 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useCountUp } from '@/hooks/useCountUp';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
 import { TOPIC_LABELS } from '@/constants/topics';
+import { getYearsInBusiness } from '@/constants/company';
 import { formatDate } from '@/utils/formatDate';
 import type { Article } from '@/types/article';
 import dtrToolsDark from "@/assets/dtr_tools_dark.jpg";
 
 export function Home() {
   useDocumentTitle('');
-  const { ref: countUpRef, displayValue: yearsValue } = useCountUp<HTMLDivElement>({ end: 75, suffix: '+' });
+  const years = getYearsInBusiness();
+  const { ref: countUpRef, displayValue: yearsValue } = useCountUp<HTMLDivElement>({ end: years, suffix: '+' });
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
@@ -59,7 +61,7 @@ export function Home() {
             <p className="text-base md:text-lg font-light text-background/60 max-w-lg leading-loose mb-12">
               新品・中古機械の選定から、工具の提案、<br className="hidden md:inline" />
               修理、加工代行まで。<br />
-              75年の知見で、歯車づくりの「困った」に応え続ける。
+              {years}年の知見で、歯車づくりの「困った」に応え続ける。
             </p>
 
             <div className="flex flex-wrap gap-5">
@@ -83,7 +85,7 @@ export function Home() {
         <div className="absolute bottom-10 right-10 hidden xl:flex gap-10">
           {[
             { label: "Precision", value: "Sub-micron" },
-            { label: "Experience", value: "75+ Years" },
+            { label: "Experience", value: `${years}+ Years` },
             { label: "Location", value: "Ota, Tokyo" },
           ].map((stat, i) => (
             <div key={i} className="text-right border-r border-background/10 pr-6 last:border-0 last:pr-0">
