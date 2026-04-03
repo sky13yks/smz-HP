@@ -53,7 +53,10 @@ const services = [
       "「調子が悪いけれど、だましだまし使っている」「メーカーサポートが終わってしまった」そんな機械もお任せください。古き良き機械は次の世代へ遺したい。そんな温故知新の精神で、長年培った修理技術を駆使し、お客様の大切な資産を守ります。",
     items: ["工作機械の修理", "オーバーホール", "定期メンテナンス"],
     itemLabel: "サービス内容",
-    images: [] as { src: string; alt: string }[],
+    images: [
+      { src: "https://images.unsplash.com/photo-1581092160607-ee67df60e2a4?w=800&fit=crop&q=75", alt: "工作機械のメンテナンス作業" },
+      { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&fit=crop&q=75", alt: "工場での機械修理" },
+    ],
   },
   {
     icon: RefreshCw,
@@ -64,7 +67,10 @@ const services = [
       "「新機を導入したいがコストを抑えたい」「使わなくなった機械を有効活用したい」という声に応えます。ただの中古販売ではなく、プロの目でしっかり点検・整備した「動く財産」を橋渡しします。",
     items: ["中古工作機械の買取・販売", "リユース提案"],
     itemLabel: "サービス内容",
-    images: [] as { src: string; alt: string }[],
+    images: [
+      { src: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&fit=crop&q=75", alt: "工場フロアの機械設備" },
+      { src: "https://images.unsplash.com/photo-1567789884554-0b844b597180?w=800&fit=crop&q=75", alt: "産業機械の展示" },
+    ],
   },
   {
     icon: Factory,
@@ -75,7 +81,10 @@ const services = [
       "「納期が迫っているが設備が空いていない」「一時的に人手が足りない」といった際、弊社協力企業の設備と技術で加工をバックアップします。商社の枠を超え、実務を通してお客様の生産ラインを支えます。",
     items: ["各種部品加工", "試作代行", "生産工程のサポート"],
     itemLabel: "サービス内容",
-    images: [] as { src: string; alt: string }[],
+    images: [
+      { src: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&fit=crop&q=75", alt: "CNC旋盤での金属加工" },
+      { src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&fit=crop&q=75", alt: "精密部品の切削加工" },
+    ],
   },
   {
     icon: Globe,
@@ -87,7 +96,10 @@ const services = [
     items: ["MATRIX社製 歯車用工作機械の輸入・販売・技術サポート"],
     itemLabel: "取扱内容",
     isMatrix: true,
-    images: [] as { src: string; alt: string }[],
+    images: [
+      { src: "https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=800&fit=crop&q=75", alt: "国際貿易・コンテナ港" },
+      { src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&fit=crop&q=75", alt: "グローバル物流" },
+    ],
   },
 ];
 
