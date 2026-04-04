@@ -31,35 +31,38 @@ export function Company() {
                   <h2 className="text-sm font-medium tracking-[0.15em] text-primary uppercase mb-6">代表挨拶</h2>
                   <p className="text-2xl md:text-3xl font-medium mb-12 leading-tight">
                     温故知新。<br />
-                    創業以来の研鑽を、これからの「つくる」へ。
+                    積み重ねた経験を、これからの「つくる」へ。
                   </p>
 
-                  <div className="max-w-none space-y-8 text-foreground/70 text-base leading-relaxed">
+                  <div className="max-w-none space-y-8 text-foreground/70 text-base leading-[2]">
                     <p>
-                      東京都大田区という、世界に誇る「ものづくりの聖地」で、株式会社清水商會は歩みを続けてまいりました。
+                      株式会社清水商會は、1950年の創業以来、歯車用工具の専門商社として歩んでまいりました。
                     </p>
                     <p>
-                      私たちの原点は、昭和20年代から続く歯車用工具の専門商社にあります。
-                      創業以来、職人の方々が求める「精度」と「信頼」に向き合い、共に汗を流してきました。
-                      その中で培われた、機械の深奥に触れる知識と目利きこそが、私たちの何よりの財産です。
+                      私たちが大切にしてきたのは、お客様の現場に寄り添う姿勢です。
+                      カタログの数値だけでは判断できない「機械との相性」や「工具の癖」を、
+                      長年の経験で見極め、最適な一台、最適な一本をご提案してきました。
+                      この目利きの力こそが、私たちの何よりの財産です。
                     </p>
                     <p>
-                      今、製造業を取り巻く環境は激しく変化しています。
+                      製造業を取り巻く環境は大きく変化しています。
                       私たちはその変化を捉え、従来の商社の枠を超えた挑戦を続けています。
-                      新品工作機械の提案はもちろん、眠っていた価値を蘇らせる中古機械の取り扱いや修理、
-                      さらにはお客様の現場の負荷を軽減する「機械加工の代行業務」まで。
+                      新品・中古工作機械の選定から、修理・メンテナンス、加工の代行、
+                      さらには海外メーカーからの直接調達まで——
+                      お客様の「困った」に対して、ワンストップでお応えできる体制を整えてまいりました。
                     </p>
                     <p>
-                      私たちの指針は<strong className="text-foreground font-medium italic">「温故知新」</strong>です。
-                      古きを温め、これまでに積み上げてきた膨大な経験と技術があるからこそ、
-                      次世代を見据えた未来への確かな提案ができると確信しています。
+                      私たちの指針は<strong className="text-foreground font-medium">「温故知新」</strong>です。
+                      先人から受け継いだ知識と経験を土台に、新しい技術や発想を取り入れることで、
+                      日本のものづくりの未来に貢献したい。
+                      その想いを胸に、全国のお客様と共に歩み続けます。
                     </p>
                   </div>
 
                   <div className="mt-20 pt-12 border-t border-border flex justify-end">
                     <div className="text-right">
                       <p className="text-xs tracking-wider text-muted-foreground mb-3">代表取締役</p>
-                      <p className="text-3xl font-serif italic font-light tracking-wide">清水 正太</p>
+                      <p className="text-4xl tracking-widest" style={{ fontFamily: "'Zen Old Mincho', serif" }}>清水 正太</p>
                     </div>
                   </div>
                 </div>
