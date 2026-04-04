@@ -1,19 +1,22 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Company } from "./pages/Company";
-import { History } from "./pages/History";
-import { Services } from "./pages/Services";
-import { Contact } from "./pages/Contact";
-import { Access } from "./pages/Access";
-import { FAQ } from "./pages/FAQ";
-import { TechSolutions } from "./pages/TechSolutions";
-import { MatrixBrand } from "./pages/MatrixBrand";
-import { ArticleDetail } from "./pages/ArticleDetail";
-import { Makers } from "./pages/Makers";
-import { Cases } from "./pages/Cases";
-import { Privacy } from "./pages/Privacy";
-import { NotFound } from "./pages/NotFound";
 import { RootLayout } from "./components/RootLayout";
+
+// 全ページを lazy loading（初回ロードのバンドルサイズを大幅削減）
+const Home = lazy(() => import("./pages/Home").then(m => ({ default: m.Home })));
+const Company = lazy(() => import("./pages/Company").then(m => ({ default: m.Company })));
+const History = lazy(() => import("./pages/History").then(m => ({ default: m.History })));
+const Services = lazy(() => import("./pages/Services").then(m => ({ default: m.Services })));
+const Contact = lazy(() => import("./pages/Contact").then(m => ({ default: m.Contact })));
+const Access = lazy(() => import("./pages/Access").then(m => ({ default: m.Access })));
+const FAQ = lazy(() => import("./pages/FAQ").then(m => ({ default: m.FAQ })));
+const TechSolutions = lazy(() => import("./pages/TechSolutions").then(m => ({ default: m.TechSolutions })));
+const MatrixBrand = lazy(() => import("./pages/MatrixBrand").then(m => ({ default: m.MatrixBrand })));
+const ArticleDetail = lazy(() => import("./pages/ArticleDetail").then(m => ({ default: m.ArticleDetail })));
+const Makers = lazy(() => import("./pages/Makers").then(m => ({ default: m.Makers })));
+const Cases = lazy(() => import("./pages/Cases").then(m => ({ default: m.Cases })));
+const Privacy = lazy(() => import("./pages/Privacy").then(m => ({ default: m.Privacy })));
+const NotFound = lazy(() => import("./pages/NotFound").then(m => ({ default: m.NotFound })));
 
 export const router = createBrowserRouter([
   {

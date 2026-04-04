@@ -3,7 +3,7 @@ import { ExternalLink, ArrowRight, Shield, Cpu, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { ScrollRevealSection } from '@/components/ScrollRevealSection';
-import machineImg from "@/assets/matrix_grinder.png";
+import machineImg from "@/assets/matrix_grinder.webp";
 
 interface Machine {
     model: string;

@@ -124,14 +124,14 @@ export function Services() {
 
       {/* Service Cards */}
       <section className="pb-32">
-        <ScrollRevealSection><div className="container mx-auto px-6">
+        <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto space-y-12">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = service.icon;
               const hasImages = service.images.length > 0;
               return (
+                <ScrollRevealSection key={service.number} delay={index * 50}>
                 <div
-                  key={service.number}
                   id={`service-${service.number}`}
                   className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:-translate-y-1 scroll-mt-24"
                 >
@@ -209,10 +209,11 @@ export function Services() {
                     </div>
                   </div>
                 </div>
+                </ScrollRevealSection>
               );
             })}
           </div>
-        </div></ScrollRevealSection>
+        </div>
       </section>
 
       {/* CTA */}

@@ -1,9 +1,18 @@
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { Toaster } from "sonner";
+
+function PageLoader() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+}
 
 export function RootLayout() {
   return (
@@ -21,7 +30,9 @@ export function RootLayout() {
       <Header />
       <main className="flex-1 pt-[72px]">
         <ErrorBoundary>
-          <Outlet />
+          <Suspense fallback={<PageLoader />}>
+            <Outlet />
+          </Suspense>
         </ErrorBoundary>
       </main>
       <Footer />

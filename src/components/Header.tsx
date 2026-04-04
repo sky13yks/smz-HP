@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import logoImg from "../assets/logo_transparent.png";
+import logoImg from "../assets/logo_transparent.webp";
 import { Menu, X, ExternalLink } from "lucide-react";
 
 const INVENTORY_URL = "https://www.jp.usedmachinery.bz/members/general_list_id/356";
