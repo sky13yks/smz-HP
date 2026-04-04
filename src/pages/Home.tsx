@@ -86,7 +86,7 @@ export function Home() {
           {[
             { label: "Precision", value: "Sub-micron" },
             { label: "Experience", value: `${years}+ Years` },
-            { label: "Location", value: "Ota, Tokyo" },
+            { label: "Coverage", value: "Nationwide" },
           ].map((stat, i) => (
             <div key={i} className="text-right border-r border-background/10 pr-6 last:border-0 last:pr-0">
               <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-background/30 mb-1">{stat.label}</p>
@@ -228,12 +228,12 @@ export function Home() {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight">
-                世界に誇る「大田区」の<br />
-                <span className="text-primary">技術と感性を、次世代へ。</span>
+                日本全国の製造現場へ。<br />
+                <span className="text-primary">技術と信頼を、次世代へ。</span>
               </h2>
               <p className="text-sm text-foreground/60 leading-relaxed mb-8">
-                私たちは、ただの商社ではありません。現場の職人と共に歩み、
-                機械の「深奥」を知るからこそできる提案があります。
+                私たちは、ただの商社ではありません。北海道から九州まで、
+                全国の製造現場に足を運び、機械の「深奥」を知るからこそできる提案があります。
                 その誇りと責任を胸に、日本のものづくりを支え続けます。
               </p>
               <Link to="/company" className="inline-flex items-center gap-3 text-primary font-medium tracking-wider text-sm hover:gap-5 transition-all">
@@ -248,8 +248,8 @@ export function Home() {
               </div>
               <div className="bg-card border border-border p-6 rounded-xl">
                 <Globe className="w-8 h-8 text-primary mb-4" />
-                <div className="text-3xl font-medium mb-1">GLOBAL</div>
-                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.15em] uppercase">グローバルネットワーク</div>
+                <div className="text-3xl font-medium mb-1">全国</div>
+                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.15em] uppercase">日本全国対応</div>
               </div>
             </div>
           </div>
